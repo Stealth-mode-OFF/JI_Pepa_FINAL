@@ -8,10 +8,6 @@ import { CookieConsent } from './components/CookieConsent';
 import { AdminDashboard } from './components/AdminDashboard';
 import { ScrollProgress } from './components/ScrollProgress';
 import { LegalDocsModal } from './components/LegalDocsModal';
-import AdminLoginModal from './components/AdminLoginModal';
-import { Testimonials } from './components/Testimonials';
-import { FAQ } from './components/FAQ';
-import BackToTop from './components/BackToTop';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Toaster } from 'sonner';
@@ -90,8 +86,6 @@ export default function App() {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  const isAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
-
   if (showAdmin && isAuthenticated) {
     return (
       <>
@@ -117,27 +111,21 @@ export default function App() {
             <Header />
             <main>
               <Hero />
-              <div id="method" className="scroll-mt-24">
-                <Philosophy />
+              <div id="about">
+                 <Philosophy />
               </div>
               <LeadMagnet />
-              <div id="courses" className="scroll-mt-24">
-                <CourseList />
-              </div>
-              <Testimonials />
-              <FAQ />
+              <CourseList />
             </main>
-            <div id="contact" className="scroll-mt-24">
-              <Footer onOpenLegal={(section) => openLegal(section as any)} />
+            <div id="contact">
+               <Footer onOpenLegal={(section) => openLegal(section as any)} />
             </div>
             <CookieConsent onOpenLegal={(section) => openLegal(section)} />
-            <BackToTop />
             <LegalDocsModal 
               isOpen={legalModalOpen} 
               onClose={() => setLegalModalOpen(false)} 
               initialSection={legalSection as any}
             />
-            {isAdmin && !isAuthenticated && <AdminLoginModal />}
           </motion.div>
         )}
       </AnimatePresence>

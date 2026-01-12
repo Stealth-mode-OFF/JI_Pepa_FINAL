@@ -63,30 +63,3 @@ export const FreeResourceIcon = () => (
      <path d="M6 7.5V1.5" stroke="black" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-
-export const InstagramIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
-  </svg>
-);
-
-export const WhatsAppIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M20 11.5a8.5 8.5 0 1 1-15.3 5.1L4 21l4.6-1.3A8.5 8.5 0 0 1 20 11.5Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M9.5 8.7c.2-.3.6-.4.9-.2l1.3.8c.3.2.4.6.2.9l-.4.6a7 7 0 0 0 2.9 2.9l.6-.4c.3-.2.7-.1.9.2l.8 1.3c.2.3.1.7-.2.9-.6.4-1.2.6-1.9.5-2.6-.4-5.4-3.2-5.8-5.8-.1-.7.1-1.3.5-1.9Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
