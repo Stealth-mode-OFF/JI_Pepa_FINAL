@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Section } from "./Layout";
+import { useLocale } from '../LocaleContext';
 
 const MethodologyItem = ({ number, title, text }: { number: string; title: string; text: string }) => (
   <div className="border-t border-white/20 py-8 md:py-12 first:border-t">
@@ -14,6 +15,7 @@ const MethodologyItem = ({ number, title, text }: { number: string; title: strin
 );
 
 export const Philosophy = () => {
+  const { locale } = useLocale();
   return (
     <Section className="bg-black text-white">
       <Container>

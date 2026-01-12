@@ -1,8 +1,11 @@
 import React from "react";
 import { Container } from "./Layout";
 import { ArrowDownIcon } from "./Icons";
+import { useLocale } from '../LocaleContext';
 
 export const Hero = () => {
+	const { locale } = useLocale();
+
   return (
     <section className="pt-32 pb-12 md:pt-48 md:pb-24 min-h-screen flex flex-col justify-between">
       <Container>
@@ -11,7 +14,7 @@ export const Hero = () => {
             <h1 className="font-['Montserrat'] font-bold text-5xl md:text-7xl lg:text-8xl xl:text-[115px] leading-[0.9] tracking-tighter text-black">
               YOU LIVE<br />
               IN PRAGUE.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C608D6] to-[#9810FA]">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#C608D6] to-[#9810FA]">
                 SPEAK LIKE IT.
               </span>
             </h1>
@@ -21,9 +24,9 @@ export const Hero = () => {
             <p className="font-['Montserrat'] font-medium text-lg text-black leading-relaxed">
               Language integration for professionals who are tired of being treated like tourists in their own city.
             </p>
-            <button className="bg-[#FFED00] hover:bg-[#e6d600] transition-colors text-black px-8 py-4 font-['Inter'] font-bold text-sm uppercase tracking-widest inline-flex items-center justify-center w-fit">
+            <a href="#courses" className="bg-[#FFED00] hover:bg-[#e6d600] transition-colors text-black px-8 py-4 font-['Inter'] font-bold text-sm uppercase tracking-widest inline-flex items-center justify-center w-fit">
               View Courses
-            </button>
+            </a>
           </div>
         </div>
       </Container>

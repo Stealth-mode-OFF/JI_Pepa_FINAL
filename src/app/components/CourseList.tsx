@@ -2,6 +2,9 @@ import React from "react";
 import clsx from "clsx";
 import { Container, Section } from "./Layout";
 import { ArrowRightIcon } from "./Icons";
+import { useLocale } from '../LocaleContext';
+import { useLocale } from '../LocaleContext';
+import { strings } from '../data/strings';
 
 const CourseRow = ({ 
   level, 
@@ -41,16 +44,18 @@ const CourseRow = ({
 );
 
 export const CourseList = () => {
+  const { locale } = useLocale();
+
   return (
-    <Section className="bg-white">
+    <Section id="courses" className="bg-white">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <h2 className="font-['Montserrat'] font-bold text-4xl md:text-6xl leading-tight tracking-tight max-w-xs">
-            UPCOMING INTAKE
+            {strings[locale].upcomingIntake}
           </h2>
           <div className="font-['Montserrat'] text-gray-500 max-w-sm">
-            <p>Small groups (max 6). Personal attention.</p>
-            <p>Curriculum designed for rapid daily application.</p>
+            <p>{strings[locale].smallGroups}</p>
+            <p>{strings[locale].curriculumDesigned}</p>
           </div>
         </div>
         
@@ -83,7 +88,7 @@ export const CourseList = () => {
         
         <div className="mt-12 flex justify-center md:justify-end">
           <a href="#" className="inline-flex items-center gap-2 border-b border-black pb-1 hover:text-gray-600 transition-colors">
-            <span className="font-['Inter'] font-bold text-sm uppercase tracking-widest">Request Private Classes</span>
+            <span className="font-['Inter'] font-bold text-sm uppercase tracking-widest">{strings[locale].requestPrivateClasses}</span>
           </a>
         </div>
       </Container>
