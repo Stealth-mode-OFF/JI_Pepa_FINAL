@@ -1,0 +1,12 @@
+{
+  "header": {
+    "courses": "Kurzy",
+    "philosophy": "Filozofie",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Kurzy češtiny pro cizince",
+    "subtitle": "Zvládněte jazyk a integrujte se hladce.",
+    "cta": "Zobrazit kurzy"
+  }
+}
