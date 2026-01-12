@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { Container, Section } from "./Layout";
 import { ArrowRightIcon } from "./Icons";
 import { useLocale } from '../LocaleContext';
-import { useLocale } from '../LocaleContext';
 import { strings } from '../data/strings';
 
 const CourseRow = ({ 
