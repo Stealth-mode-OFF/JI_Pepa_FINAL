@@ -1,7 +1,7 @@
 
-  # Create Duplicate Element
+  # JI_FINAL
 
-  This is a code bundle for Create Duplicate Element. The original project is available at https://www.figma.com/design/l0QHcTXfoIjpcYSDZUtkG2/Create-Duplicate-Element.
+  This is a code bundle for JI_FINAL. The original project is available at https://www.figma.com/design/l0QHcTXfoIjpcYSDZUtkG2/JI_FINAL.
 
   ## Running the code
 
