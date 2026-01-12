@@ -1,6 +1,9 @@
 import React from "react";
 import { Container } from "./Layout";
 import { ArrowUpRightIcon } from "./Icons";
+import { useLocale } from '../LocaleContext';
+import socials from '../data/socials';
+import legal from '../data/legal';
 
 const FooterLink = ({ 
   icon, 
@@ -24,6 +27,7 @@ const FooterLink = ({
 );
 
 export const Footer = ({ onOpenLegal }: { onOpenLegal?: (section: 'privacy' | 'terms') => void }) => {
+  const { locale } = useLocale();
   return (
     <footer className="bg-black text-white pt-32 pb-12 border-t border-white/10">
       <Container>
@@ -50,22 +54,14 @@ export const Footer = ({ onOpenLegal }: { onOpenLegal?: (section: 'privacy' | 't
             <div className="bg-white/5 rounded-lg p-8 w-full max-w-md backdrop-blur-sm">
                <h3 className="font-['Inter'] font-bold text-xs uppercase tracking-widest text-[#99a1af] mb-6">Join the Community</h3>
                <div className="space-y-4 flex flex-col">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-white/10 pb-4">
-                    <FooterLink label="Instagram" />
-                    <span className="text-gray-500 text-xs">— Daily micro-lessons</span>
-                  </div>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-white/10 pb-4">
-                    <FooterLink label="Facebook" />
-                    <span className="text-gray-500 text-xs">— Student success stories</span>
-                  </div>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-white/10 pb-4">
-                    <FooterLink label="VKontakte" />
-                    <span className="text-gray-500 text-xs">— Student networking hub</span>
-                  </div>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 pt-2">
-                    <FooterLink label="WhatsApp" />
-                    <span className="text-gray-500 text-xs">— Instant answers & support</span>
-                  </div>
+                  {socials.slice(0, 4).map((social, idx) => (
+                    <div key={idx} className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-white/10 pb-4 last:border-0 last:pt-2">
+                      <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FFED00] transition-colors group w-fit cursor-pointer">
+                        <span className="font-['Inter'] font-bold text-sm text-white group-hover:text-[#FFED00]">{social.label}</span>
+                      </a>
+                      {social.description && <span className="text-gray-500 text-xs">— {social.description}</span>}
+                    </div>
+                  ))}
                </div>
             </div>
             
@@ -93,13 +89,16 @@ export const Footer = ({ onOpenLegal }: { onOpenLegal?: (section: 'privacy' | 't
         
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
            <div className="space-y-1">
-             <p className="font-['Montserrat'] font-bold text-xs uppercase">JAZYK A INTEGRACE S.R.O.</p>
-             <p className="text-gray-500 text-xs">IČO: 23812036</p>
-             <p className="text-gray-500 text-xs">Sp. zn. C 433136 vedená u Městského soudu v Praze</p>
+             <p className="font-['Montserrat'] font-bold text-xs uppercase">{legal.companyName}</p>
+             <p className="text-gray-500 text-xs">IČO: {legal.ico}</p>
+             {legal.vat && <p className="text-gray-500 text-xs">DIČ: {legal.vat}</p>}
+             <p className="text-gray-500 text-xs">{legal.courtRecord}</p>
            </div>
            
            <div className="md:text-right space-y-1">
-             <p className="font-['Montserrat'] text-xs text-white">Černomořská 384/9, Praha 10</p>
+             <p className="font-['Montserrat'] text-xs text-white">{legal.address}</p>
+             <p className="text-gray-500 text-xs">Email: {legal.contactEmail}</p>
+             <p className="text-gray-500 text-xs">Phone: {legal.phone}</p>
              <p className="text-gray-500 text-xs">© 2026 All Rights Reserved</p>
            </div>
         </div>
