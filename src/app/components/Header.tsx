@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import imgLogo from "../../assets/124f29e0ef24dafb79bc86048bd5b9381b5354c6.png";
+import imgLogo from "@/assets/124f29e0ef24dafb79bc86048bd5b9381b5354c6.png";
 import { FlagIcon } from "./Icons";
 import { useLocale } from '../LocaleContext';
 

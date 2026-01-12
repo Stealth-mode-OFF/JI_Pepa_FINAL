@@ -90,15 +90,15 @@ export const Footer = ({ onOpenLegal }: { onOpenLegal?: (section: 'privacy' | 't
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
            <div className="space-y-1">
              <p className="font-['Montserrat'] font-bold text-xs uppercase">{legal.companyName}</p>
-             <p className="text-gray-500 text-xs">IČO: {legal.ico}</p>
-             {legal.vat && <p className="text-gray-500 text-xs">DIČ: {legal.vat}</p>}
-             <p className="text-gray-500 text-xs">{legal.courtRecord}</p>
+             <p className="text-gray-500 text-xs">IČO: {legal.idNumber}</p>
+             {legal.vatId && <p className="text-gray-500 text-xs">DIČ: {legal.vatId}</p>}
+             <p className="text-gray-500 text-xs">{`${legal.registry.court} — ${legal.registry.fileNumber}`}</p>
            </div>
            
            <div className="md:text-right space-y-1">
-             <p className="font-['Montserrat'] text-xs text-white">{legal.address}</p>
-             <p className="text-gray-500 text-xs">Email: {legal.contactEmail}</p>
-             <p className="text-gray-500 text-xs">Phone: {legal.phone}</p>
+             <p className="font-['Montserrat'] text-xs text-white">{legal.registeredAddress}</p>
+             <p className="text-gray-500 text-xs">Email: {legal.contact.email}</p>
+             <p className="text-gray-500 text-xs">Phone: {legal.contact.phone}</p>
              <p className="text-gray-500 text-xs">© 2026 All Rights Reserved</p>
            </div>
         </div>
