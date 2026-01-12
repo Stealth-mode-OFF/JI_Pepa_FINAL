@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Toaster } from 'sonner';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
@@ -6,11 +9,7 @@ import { CourseList } from './components/CourseList';
 import { Footer } from './components/Footer';
 import { CookieConsent } from './components/CookieConsent';
 import { AdminDashboard } from './components/AdminDashboard';
-import { ScrollProgress } from './components/ScrollProgress';
 import { LegalDocsModal } from './components/LegalDocsModal';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Toaster } from 'sonner';
 
 export default function App() {
   const [showAdmin, setShowAdmin] = useState(false);
@@ -52,7 +51,7 @@ export default function App() {
     setIsLoaded(true);
     checkAuth();
 
-    // Load Handwritten Font (keeping it just in case, though mostly removed)
+    // Load Handwritten Font
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap';
     link.rel = 'stylesheet';
@@ -76,7 +75,7 @@ export default function App() {
     }
   }, []);
 
-  // Listen for storage changes (for when authentication happens)
+  // Listen for storage changes
   useEffect(() => {
     const handleStorageChange = () => {
       checkAuth();
@@ -107,7 +106,6 @@ export default function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* <ScrollProgress /> - Removed for minimalism */}
             <Header />
             <main>
               <Hero />
