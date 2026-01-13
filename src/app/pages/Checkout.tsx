@@ -13,7 +13,8 @@ export const Checkout = () => {
   const handleCheckout = async () => {
     const endpoint = import.meta.env.VITE_STRIPE_CHECKOUT_ENDPOINT as string | undefined;
     const priceId = import.meta.env.VITE_STRIPE_PRICE_ID as string | undefined;
-    const cohortId = import.meta.env.VITE_DEFAULT_COHORT_ID as string | undefined;
+    const storedCohortId = window.localStorage.getItem("selected_cohort_id") ?? undefined;
+    const cohortId = storedCohortId ?? (import.meta.env.VITE_DEFAULT_COHORT_ID as string | undefined);
 
     if (!endpoint || !priceId || !cohortId) {
       toast.error(

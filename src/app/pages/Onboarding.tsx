@@ -1,30 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { supabase } from "@/utils/supabase/client";
 import { useAuth } from "../auth/AuthContext";
 import { AuthShell } from "../components/AuthShell";
 
-type ProfileForm = {
+type Step = 0 | 1 | 2 | 3;
+
+type OnboardingForm = {
   fullName: string;
   level: string;
-  goals: string;
-  availability: string;
-  phone: string;
+  goals: string[];
+  lifeSituation: string;
+  availabilitySlots: string[];
+  timePreference: string;
 };
 
-const emptyForm: ProfileForm = {
+const emptyForm: OnboardingForm = {
   fullName: "",
   level: "",
-  goals: "",
-  availability: "",
-  phone: "",
+  goals: [],
+  lifeSituation: "",
+  availabilitySlots: [],
+  timePreference: "",
 };
+
+const toggleValue = (values: string[], value: string) =>
+  values.includes(value) ? values.filter((item) => item !== value) : [...values, value];
 
 export const Onboarding = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const [form, setForm] = useState<ProfileForm>(emptyForm);
+  const [form, setForm] = useState<OnboardingForm>(emptyForm);
+  const [step, setStep] = useState<Step>(0);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -34,51 +42,124 @@ export const Onboarding = () => {
         setIsLoading(false);
         return;
       }
-      const { data, error } = await supabase
+      const { data: profileData } = await supabase
         .from("student_profiles")
-        .select("full_name, level, goals, availability, phone")
+        .select("full_name")
         .eq("user_id", user.id)
         .maybeSingle();
-      if (error) {
-        console.error(error);
-      }
+
+      const { data: onboardingData } = await supabase
+        .from("student_onboarding")
+        .select("level, goals, life_situation, availability_slots, time_preference")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
       setForm({
-        fullName: data?.full_name ?? user.user_metadata?.full_name ?? "",
-        level: data?.level ?? "",
-        goals: data?.goals ?? "",
-        availability: data?.availability ?? "",
-        phone: data?.phone ?? "",
+        fullName: profileData?.full_name ?? user.user_metadata?.full_name ?? "",
+        level: onboardingData?.level ?? "",
+        goals: onboardingData?.goals ?? [],
+        lifeSituation: onboardingData?.life_situation ?? "",
+        availabilitySlots: onboardingData?.availability_slots ?? [],
+        timePreference: onboardingData?.time_preference ?? "",
       });
       setIsLoading(false);
     };
+
     loadProfile();
   }, [user]);
 
-  const updateField = (key: keyof ProfileForm, value: string) => {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  };
+  const levelOptions = useMemo(
+    () => [
+      { value: "A1", label: t("onboarding.levelA1", "A1 - Total beginner") },
+      { value: "A2", label: t("onboarding.levelA2", "A2 - Elementary") },
+      { value: "B1", label: t("onboarding.levelB1", "B1 - Intermediate") },
+      { value: "B2", label: t("onboarding.levelB2", "B2 - Upper intermediate") },
+      { value: "B2+", label: t("onboarding.levelB2Plus", "B2+ - Near native") },
+    ],
+    [t],
+  );
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
+  const goalOptions = useMemo(
+    () => [
+      { value: "professional", label: t("onboarding.goalProfessional", "Professional integration") },
+      { value: "relationships", label: t("onboarding.goalRelationships", "Personal relationships") },
+      { value: "study", label: t("onboarding.goalStudy", "Study or residency") },
+      { value: "culture", label: t("onboarding.goalCulture", "Cultural interest") },
+      { value: "business", label: t("onboarding.goalBusiness", "Business opportunity") },
+    ],
+    [t],
+  );
+
+  const lifeOptions = useMemo(
+    () => [
+      { value: "just_moved", label: t("onboarding.lifeJustMoved", "Just moved to Prague") },
+      { value: "living_6m", label: t("onboarding.lifeLiving", "Living here 6+ months") },
+      { value: "planning_move", label: t("onboarding.lifePlanning", "Planning to move soon") },
+      { value: "visiting", label: t("onboarding.lifeVisiting", "Visiting frequently") },
+    ],
+    [t],
+  );
+
+  const availabilityOptions = useMemo(
+    () => [
+      { value: "mon_18", label: t("onboarding.availMon18", "Mon 18:00") },
+      { value: "tue_18", label: t("onboarding.availTue18", "Tue 18:00") },
+      { value: "wed_1930", label: t("onboarding.availWed1930", "Wed 19:30") },
+      { value: "thu_18", label: t("onboarding.availThu18", "Thu 18:00") },
+      { value: "fri_19", label: t("onboarding.availFri19", "Fri 19:00") },
+      { value: "weekend", label: t("onboarding.availWeekend", "Weekend flexible") },
+      { value: "anytime", label: t("onboarding.availAnytime", "Anytime") },
+    ],
+    [t],
+  );
+
+  const timePreferences = useMemo(
+    () => [
+      { value: "morning", label: t("onboarding.prefMorning", "Early morning") },
+      { value: "evening", label: t("onboarding.prefEvening", "Evening learner") },
+      { value: "flexible", label: t("onboarding.prefFlexible", "Flexible") },
+    ],
+    [t],
+  );
+
+  const canProceed = useMemo(() => {
+    if (step === 0) return true;
+    if (step === 1) return Boolean(form.level);
+    if (step === 2) return form.goals.length > 0 && Boolean(form.lifeSituation);
+    if (step === 3) return form.availabilitySlots.length > 0 && Boolean(form.timePreference);
+    return false;
+  }, [form, step]);
+
+  const handleSubmit = async () => {
     if (!user) {
       toast.error(t("onboarding.notAuthenticated", "Please log in first."));
       return;
     }
     setIsSaving(true);
-    const { error } = await supabase.from("student_profiles").upsert(
+    const { error: profileError } = await supabase.from("student_profiles").upsert(
       {
         user_id: user.id,
         full_name: form.fullName,
-        level: form.level,
-        goals: form.goals,
-        availability: form.availability,
-        phone: form.phone,
       },
       { onConflict: "user_id" },
     );
+
+    const { error: onboardingError } = await supabase.from("student_onboarding").upsert(
+      {
+        user_id: user.id,
+        level: form.level,
+        goals: form.goals,
+        life_situation: form.lifeSituation,
+        availability_slots: form.availabilitySlots,
+        time_preference: form.timePreference,
+        completed_at: new Date().toISOString(),
+      },
+      { onConflict: "user_id" },
+    );
+
     setIsSaving(false);
-    if (error) {
-      toast.error(error.message);
+    if (profileError || onboardingError) {
+      toast.error(profileError?.message ?? onboardingError?.message ?? "Save failed");
       return;
     }
     toast.success(t("onboarding.saved", "Profile saved. Next up: payment."));
@@ -103,88 +184,250 @@ export const Onboarding = () => {
   return (
     <AuthShell
       title={t("onboarding.title", "Tell us about your Czech journey")}
-      subtitle={t(
-        "onboarding.subtitle",
-        "We use this to match you to the right class and schedule.",
-      )}
+      subtitle={t("onboarding.stepLabel", "Step {{step}} of 4", { step: step + 1 })}
     >
-      <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("onboarding.fullNameLabel", "Full name")}
-          <input
-            type="text"
-            value={form.fullName}
-            onChange={(event) => updateField("fullName", event.target.value)}
-            placeholder={t("onboarding.fullNamePlaceholder", "Your name")}
-            required
-            className="w-full h-[52px] border border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+      <div className="flex flex-col gap-8">
+        {/* Progress Bar */}
+        <div className="h-2 w-full bg-[#E0E0E0] rounded-full overflow-hidden">
+          <div
+            className="h-full bg-[#FFED00] transition-all duration-500 ease-out"
+            style={{ width: `${((step + 1) / 4) * 100}%` }}
           />
-        </label>
+        </div>
 
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("onboarding.levelLabel", "Current level")}
-          <select
-            value={form.level}
-            onChange={(event) => updateField("level", event.target.value)}
-            required
-            className="w-full h-[52px] border border-black px-4 text-[14px] font-['Montserrat'] bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-          >
-            <option value="">{t("onboarding.levelPlaceholder", "Select your level")}</option>
-            <option value="A1">{t("onboarding.levelA1", "A1 - Total beginner")}</option>
-            <option value="A2">{t("onboarding.levelA2", "A2 - Elementary")}</option>
-            <option value="B1">{t("onboarding.levelB1", "B1 - Intermediate")}</option>
-            <option value="B2">{t("onboarding.levelB2", "B2 - Upper intermediate")}</option>
-          </select>
-        </label>
+        {/* Step 0: Welcome */}
+        {step === 0 && (
+          <div className="animate-fade-in space-y-6">
+            <div className="space-y-4">
+              <h2 className="font-['Montserrat'] font-bold text-[36px] md:text-[44px] leading-[1.2] tracking-[-1px] text-black">
+                {t("onboarding.welcomeTitle", "Welcome,")} <br />
+                {form.fullName ? form.fullName.split(" ")[0] : "friend"}
+                {t("onboarding.welcomeTitleEnd", "!")}
+              </h2>
+              <p className="font-['Montserrat'] text-[16px] leading-[24px] text-[#6a7282] max-w-md">
+                {t(
+                  "onboarding.welcomeBody",
+                  "Welcome. We'll set up your perfect class in a few quick steps.",
+                )}
+              </p>
+            </div>
 
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("onboarding.goalsLabel", "Goals")}
-          <textarea
-            value={form.goals}
-            onChange={(event) => updateField("goals", event.target.value)}
-            placeholder={t("onboarding.goalsPlaceholder", "What would you love to do in Czech?")}
-            rows={4}
-            className="w-full border border-black px-4 py-3 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-          />
-        </label>
+            <label className="flex flex-col gap-3 font-['Inter'] font-bold text-[11px] uppercase tracking-[1px]">
+              {t("onboarding.fullNameLabel", "Full name")}
+              <input
+                type="text"
+                value={form.fullName}
+                onChange={(event) => setForm((prev) => ({ ...prev, fullName: event.target.value }))}
+                placeholder={t("onboarding.fullNamePlaceholder", "Your name")}
+                required
+                className="w-full h-[56px] border-2 border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-[#FFED00] focus:ring-offset-2 transition-all"
+              />
+            </label>
+          </div>
+        )}
 
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("onboarding.availabilityLabel", "Availability")}
-          <input
-            type="text"
-            value={form.availability}
-            onChange={(event) => updateField("availability", event.target.value)}
-            placeholder={t("onboarding.availabilityPlaceholder", "Evenings, weekends, etc.")}
-            className="w-full h-[52px] border border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-          />
-        </label>
+        {/* Step 1: Level Selection (Card Carousel) */}
+        {step === 1 && (
+          <div className="animate-fade-in space-y-6">
+            <div>
+              <h2 className="font-['Montserrat'] font-bold text-[28px] md:text-[32px] text-black mb-2">
+                {t("onboarding.levelIntro", "Where do you feel you are today?")}
+              </h2>
+              <p className="font-['Montserrat'] text-[14px] text-[#6a7282]">
+                {t("onboarding.levelSubtitle", "Choose the level that feels most accurate.")}
+              </p>
+            </div>
 
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("onboarding.phoneLabel", "Phone (optional)")}
-          <input
-            type="tel"
-            value={form.phone}
-            onChange={(event) => updateField("phone", event.target.value)}
-            placeholder={t("onboarding.phonePlaceholder", "+420 777 123 456")}
-            className="w-full h-[52px] border border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-          />
-        </label>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 auto-rows-min">
+              {levelOptions.map((option, idx) => {
+                const colors = [
+                  "from-[#4CAF50] to-[#81C784]", // A1 green
+                  "from-[#2196F3] to-[#64B5F6]", // A2 blue
+                  "from-[#9C27B0] to-[#BA68C8]", // B1 purple
+                  "from-[#FF6B6B] to-[#FF8A80]", // B2 red
+                  "from-[#FFC107] to-[#FFD54F]", // B2+ gold
+                ];
+                const isSelected = form.level === option.value;
 
-        <button
-          type="submit"
-          disabled={isSaving}
-          className="w-full h-[52px] bg-black text-white font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200 disabled:opacity-50"
-        >
-          {isSaving ? t("onboarding.saving", "Saving...") : t("onboarding.saveCta", "Save profile")}
-        </button>
+                return (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => setForm((prev) => ({ ...prev, level: option.value }))}
+                    className={`relative h-[180px] bg-gradient-to-br ${colors[idx]} border-2 p-6 flex flex-col justify-between transition-all duration-300 ${
+                      isSelected
+                        ? "border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] scale-105"
+                        : "border-[#E0E0E0] hover:border-black hover:shadow-[6px_6px_0_0_rgba(255,237,0,0.3)] hover:scale-102"
+                    }`}
+                  >
+                    {/* Checkmark */}
+                    {isSelected && (
+                      <div className="absolute top-3 right-3 w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold text-[18px] animate-scale-in">
+                        ✓
+                      </div>
+                    )}
 
-        <a
-          href="/checkout"
-          className="text-center text-[12px] text-[#6a7282] font-['Inter'] font-bold uppercase tracking-[1.2px] underline"
-        >
-          {t("onboarding.continueToPayment", "Continue to payment")}
-        </a>
-      </form>
+                    {/* Content */}
+                    <div className="text-left text-white">
+                      <span className="font-['Inter'] font-bold text-[20px]">{option.value}</span>
+                    </div>
+                    <div className="text-left">
+                      <p className="font-['Montserrat'] font-bold text-[14px] text-white">
+                        {option.label}
+                      </p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Step 2: Goals & Life Situation (Multi-Select Tags) */}
+        {step === 2 && (
+          <div className="animate-fade-in space-y-8">
+            <div className="space-y-4">
+              <h2 className="font-['Montserrat'] font-bold text-[28px] md:text-[32px] text-black">
+                {t("onboarding.goalsIntro", "Why are you learning Czech?")}
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {goalOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() =>
+                      setForm((prev) => ({
+                        ...prev,
+                        goals: toggleValue(prev.goals, option.value),
+                      }))
+                    }
+                    className={`px-4 py-3 rounded-full border-2 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] transition-all duration-200 ${
+                      form.goals.includes(option.value)
+                        ? "bg-[#FFED00] border-black text-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
+                        : "bg-white border-black text-black hover:bg-[#FFED00]/20"
+                    }`}
+                  >
+                    {form.goals.includes(option.value) && <span className="mr-2">✓</span>}
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="font-['Montserrat'] font-bold text-[24px] text-black">
+                {t("onboarding.lifeIntro", "Where are you in your Prague journey?")}
+              </h2>
+              <div className="grid gap-3 md:grid-cols-2">
+                {lifeOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => setForm((prev) => ({ ...prev, lifeSituation: option.value }))}
+                    className={`border-2 px-4 py-4 text-left transition-all duration-200 ${
+                      form.lifeSituation === option.value
+                        ? "bg-[#FFED00] border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
+                        : "bg-white border-black/30 hover:border-black"
+                    }`}
+                  >
+                    {form.lifeSituation === option.value && (
+                      <span className="font-bold text-[16px] mr-2">✓</span>
+                    )}
+                    <span className="font-['Montserrat'] text-[14px]">{option.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Step 3: Availability & Time Preference (Chips + Toggles) */}
+        {step === 3 && (
+          <div className="animate-fade-in space-y-8">
+            <div className="space-y-4">
+              <h2 className="font-['Montserrat'] font-bold text-[28px] md:text-[32px] text-black">
+                {t("onboarding.availabilityIntro", "When can you attend?")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {availabilityOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() =>
+                      setForm((prev) => ({
+                        ...prev,
+                        availabilitySlots: toggleValue(prev.availabilitySlots, option.value),
+                      }))
+                    }
+                    className={`px-3 py-2 rounded-full border-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.8px] transition-all duration-200 ${
+                      form.availabilitySlots.includes(option.value)
+                        ? "bg-[#FFED00] border-black text-black shadow-[4px_4px_0_0_rgba(0,0,0,0.5)]"
+                        : "bg-white border-black text-black hover:bg-[#FFED00]/10"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="font-['Montserrat'] font-bold text-[24px] text-black">
+                {t("onboarding.prefIntro", "Which timing feels best?")}
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {timePreferences.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => setForm((prev) => ({ ...prev, timePreference: option.value }))}
+                    className={`px-4 py-3 rounded-full border-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.8px] transition-all duration-200 ${
+                      form.timePreference === option.value
+                        ? "bg-[#FFED00] border-black text-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
+                        : "bg-white border-black text-black hover:bg-[#FFED00]/20"
+                    }`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Navigation & CTA */}
+        <div className="border-t border-black/20 pt-6 flex flex-col sm:flex-row gap-3">
+          {step > 0 && (
+            <button
+              type="button"
+              onClick={() => setStep((prev) => ((prev - 1) as Step))}
+              className="h-[52px] bg-white border-2 border-black text-black px-6 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] hover:bg-black hover:text-white transition-colors duration-200"
+            >
+              {t("onboarding.back", "← Back")}
+            </button>
+          )}
+          {step < 3 && (
+            <button
+              type="button"
+              onClick={() => setStep((prev) => ((prev + 1) as Step))}
+              disabled={!canProceed}
+              className="h-[52px] bg-black text-[#FFED00] border-2 border-black px-6 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {t("onboarding.next", "Next →")}
+            </button>
+          )}
+          {step === 3 && (
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!canProceed || isSaving}
+              className="h-[52px] bg-black text-[#FFED00] border-2 border-black px-6 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform shadow-[6px_6px_0_0_rgba(0,0,0,1)] disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {isSaving ? t("onboarding.saving", "Saving...") : t("onboarding.finish", "Complete")}
+            </button>
+          )}
+        </div>
+      </div>
     </AuthShell>
   );
 };
