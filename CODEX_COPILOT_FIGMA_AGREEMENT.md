@@ -52,6 +52,7 @@ Figma
   - Scope of files
   - Required states and transitions
   - i18n keys to use
+  - Approved new i18n keys (if any)
   - Do-not-touch list
 - Copilot replies with changes only in scope.
  
