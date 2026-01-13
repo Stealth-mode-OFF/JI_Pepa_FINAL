@@ -1,12 +1,354 @@
 {
   "header": {
+    "method": "Method",
     "courses": "Courses",
-    "philosophy": "Philosophy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "logoAlt": "Jazyk a Integrace logo",
+    "primaryNavAria": "Primary",
+    "languageMenuLabel": "Change language. Current language: {{language}}"
   },
   "hero": {
-    "title": "Czech Language Courses for Expats",
-    "subtitle": "Master the language and integrate smoothly.",
-    "cta": "View Courses"
+    "line1": "YOU LIVE",
+    "line2": "IN PRAGUE.",
+    "line3": "SPEAK LIKE IT.",
+    "subtitle": "Language integration for professionals who are tired of being treated like tourists in their own city.",
+    "cta": "View Courses",
+    "stats": {
+      "established": "Est. 2012",
+      "location": "Prague, CZ",
+      "levels": "A1 — B2 Levels"
+    },
+    "scrollLabel": "Scroll to method"
+  },
+  "philosophy": {
+    "eyebrow": "The Methodology",
+    "titleLine1": "The textbook",
+    "titleLine2": "is not enough.",
+    "body": "Most courses teach you how to pass an exam. We teach you how to handle a doctor's appointment, argue with a landlord, and make friends at a bar.",
+    "items": [
+      {
+        "title": "Context over Grammar",
+        "text": "We don't just drill cases. We simulate real-life scenarios—bureaucracy, medical visits, social events—so you're ready when they actually happen."
+      },
+      {
+        "title": "Cultural Fluency",
+        "text": "Speaking Czech isn't just about words. It's about knowing the unwritten rules of the society. When to be formal, when to push back, and when to joke."
+      },
+      {
+        "title": "Community First",
+        "text": "Isolation is the enemy of integration. Our students become a network. We organize hikes, coffees, and events to keep you connected."
+      }
+    ]
+  },
+  "leadMagnet": {
+    "badge": "Free Resource",
+    "titleLine1": "STOP SOUNDING",
+    "titleLine2": "LIKE A TEXTBOOK.",
+    "description1": "Most courses teach you grammar tables. Locals don't speak in tables.",
+    "description2": "Download our <strong>\"Natural Czech Cheat Sheet\"</strong>: 50 essential phrases to soften requests, fill pauses, and sound like you actually live here.",
+    "features": [
+      "Handle small talk with confidence",
+      "Understand casual \"street\" Czech",
+      "Avoid awkward silences"
+    ],
+    "featuresFallback": [
+      "Handle small talk with confidence",
+      "Understand casual \"street\" Czech",
+      "Avoid awkward silences"
+    ],
+    "form": {
+      "label": "Work Email",
+      "placeholder": "name@company.com",
+      "sending": "Sending...",
+      "submit": "Get the Cheat Sheet",
+      "disclaimer": "We respect your inbox. Unsubscribe at any time."
+    },
+    "toasts": {
+      "invalidEmail": "Please enter a valid email.",
+      "success": "Thanks! Check your inbox for the cheat sheet.",
+      "fallback": "Email draft opened. Send it to receive the cheat sheet.",
+      "error": "Something went wrong. Please try again or email us directly."
+    },
+    "mailto": {
+      "subject": "Natural Czech Cheat Sheet",
+      "body": "Please send the cheat sheet to {{email}}"
+    }
+  },
+  "courseList": {
+    "title": "UPCOMING INTAKE",
+    "introLine1": "Small groups (max 6). Personal attention.",
+    "introLine2": "Curriculum designed for rapid daily application.",
+    "rows": [
+      {
+        "levelDesc": "Total Beginner",
+        "dates": "Feb 17 - Apr 20",
+        "time": "Mon/Wed 18:00",
+        "status": "3 Spots Left"
+      },
+      {
+        "levelDesc": "Elementary",
+        "dates": "Feb 18 - Apr 21",
+        "time": "Tue/Thu 18:00",
+        "status": "Waitlist Only"
+      },
+      {
+        "levelDesc": "Intermediate",
+        "dates": "Mar 01 - May 15",
+        "time": "Mon/Wed 19:30",
+        "status": "Open"
+      }
+    ],
+    "cta": "Request Private Classes"
+  },
+  "footer": {
+    "titleLine1": "READY TO",
+    "titleLine2": "INTEGRATE?",
+    "community": {
+      "title": "Join the Community"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram",
+        "desc": "— Daily micro-lessons"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "desc": "— Student success stories"
+      },
+      "vk": {
+        "label": "VKontakte",
+        "desc": "— Student networking hub"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "desc": "— Instant answers & support"
+      }
+    },
+    "legal": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "accessibility": "Accessibility"
+    },
+    "company": {
+      "name": "JAZYK A INTEGRACE S.R.O.",
+      "id": "IČO: 23812036",
+      "register": "Sp. zn. C 433136 vedená u Městského soudu v Praze",
+      "address": "Černomořská 384/9, Praha 10"
+    },
+    "rights": "© {{year}} All Rights Reserved"
+  },
+  "cookieConsent": {
+    "title": "Cookies & Privacy",
+    "description": "We use cookies to improve the site and analyze traffic. Some are essential, others optional.",
+    "readPolicy": "Read Policy",
+    "settings": "Settings",
+    "reject": "Reject Optional",
+    "accept": "Accept All",
+    "aria": {
+      "settings": "Cookie settings",
+      "reject": "Reject optional cookies",
+      "accept": "Accept all cookies"
+    }
+  },
+  "legal": {
+    "titleFallback": "Legal",
+    "closeLabel": "Close",
+    "updatedFallback": "Last updated",
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Data Controller",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o., IČO: 23812036, Černomořská 384/9, Praha 10.",
+            "Registered under Sp. zn. C 433136 vedená u Městského soudu v Praze.",
+            "Contact: jazykaintegrace@gmail.com, +420 601 177 208."
+          ]
+        },
+        {
+          "heading": "Personal Data We Process",
+          "paragraphs": [
+            "We process only the data you provide or that is necessary to deliver our services."
+          ],
+          "list": [
+            "Contact details (name, email, phone).",
+            "Course interests, attendance, and messages you send us.",
+            "Billing and payment details for enrolled students.",
+            "Technical data such as IP address, device type, and consent status."
+          ]
+        },
+        {
+          "heading": "Legal Bases (GDPR)",
+          "paragraphs": [
+            "We rely on the following legal bases under the GDPR:"
+          ],
+          "list": [
+            "Performance of a contract when you enroll in a course.",
+            "Consent when you request a free resource or updates.",
+            "Legitimate interest to protect and improve the site.",
+            "Legal obligation for accounting and tax records."
+          ]
+        },
+        {
+          "heading": "How We Use Your Data",
+          "paragraphs": [
+            "We use your data to provide and improve our services."
+          ],
+          "list": [
+            "Respond to inquiries and deliver requested resources.",
+            "Manage enrollment, attendance, and course delivery.",
+            "Send updates only when you opt in.",
+            "Prevent abuse, maintain security, and improve performance."
+          ]
+        },
+        {
+          "heading": "Cookies & Local Storage",
+          "paragraphs": [
+            "We use essential cookies and local storage to remember consent and language preferences."
+          ],
+          "list": [
+            "Essential: required for site functionality and consent preferences.",
+            "Analytics: only used if you explicitly opt in.",
+            "Marketing: not used."
+          ]
+        },
+        {
+          "heading": "Sharing and Processors",
+          "paragraphs": [
+            "We do not sell personal data. We may share it with trusted providers that help us run the site and deliver services (email, forms, payments, hosting).",
+            "These providers process data under contracts and only for the purposes we specify."
+          ]
+        },
+        {
+          "heading": "Retention",
+          "paragraphs": [
+            "Inquiry data is kept for up to 24 months unless you request deletion.",
+            "Course and billing records are retained as required by applicable law."
+          ]
+        },
+        {
+          "heading": "Your Rights",
+          "paragraphs": [
+            "You can request access, correction, deletion, restriction, portability, or object to processing.",
+            "You can withdraw consent at any time and lodge a complaint with the Czech Data Protection Authority (UOOU)."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "updated": "Last updated: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Company Details",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o., IČO: 23812036.",
+            "Registered office: Černomořská 384/9, Praha 10.",
+            "Company register: Sp. zn. C 433136 vedená u Městského soudu v Praze.",
+            "Contact: jazykaintegrace@gmail.com, +420 601 177 208."
+          ]
+        },
+        {
+          "heading": "Website Use",
+          "paragraphs": [
+            "By using this site, you agree not to misuse it or attempt to disrupt its operation.",
+            "We may update or change the content and availability of the site at any time."
+          ]
+        },
+        {
+          "heading": "Course Enrollment",
+          "paragraphs": [
+            "Course details, pricing, and schedules are confirmed in your enrollment confirmation or invoice.",
+            "A place in a course is reserved after payment is received unless stated otherwise."
+          ]
+        },
+        {
+          "heading": "Cancellations and Changes",
+          "paragraphs": [
+            "If you need to cancel or reschedule, contact us as early as possible. We will try to accommodate changes based on availability.",
+            "Specific refund or transfer terms are provided in your enrollment confirmation."
+          ]
+        },
+        {
+          "heading": "Materials and Intellectual Property",
+          "paragraphs": [
+            "All course materials and content on this site are owned by Jazyk a Integrace s.r.o. unless stated otherwise.",
+            "You may not copy, resell, or distribute materials without written permission."
+          ]
+        },
+        {
+          "heading": "Liability",
+          "paragraphs": [
+            "We strive to provide accurate information, but the site and services are provided \"as is\" without guarantees.",
+            "To the extent permitted by law, we are not liable for indirect or consequential damages."
+          ]
+        },
+        {
+          "heading": "Governing Law",
+          "paragraphs": [
+            "These terms are governed by the laws of the Czech Republic."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "updated": "Last updated: 2026-01-12",
+      "sections": [
+        {
+          "heading": "What Are Cookies",
+          "paragraphs": [
+            "Cookies are small text files stored on your device to make the website work and improve your experience."
+          ]
+        },
+        {
+          "heading": "Cookies We Use",
+          "paragraphs": [
+            "We keep cookie use minimal and rely on essential cookies by default."
+          ],
+          "list": [
+            "Essential cookies: required for core functionality and consent preferences.",
+            "Preference storage: remembers language selection.",
+            "Analytics cookies: only used if you explicitly opt in.",
+            "Marketing cookies: not used."
+          ]
+        },
+        {
+          "heading": "Managing Cookies",
+          "paragraphs": [
+            "You can change your preferences in the cookie banner and via your browser settings.",
+            "Blocking essential cookies may impact site functionality."
+          ]
+        },
+        {
+          "heading": "Retention",
+          "paragraphs": [
+            "Consent and preference cookies are stored for up to 12 months unless you clear them earlier."
+          ]
+        }
+      ]
+    },
+    "accessibility": {
+      "title": "Accessibility Statement",
+      "updated": "Last updated: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Our Commitment",
+          "paragraphs": [
+            "We are committed to making this website accessible to as many people as possible, regardless of ability.",
+            "We aim to follow WCAG 2.1 AA guidelines and continuously improve usability."
+          ]
+        },
+        {
+          "heading": "Feedback",
+          "paragraphs": [
+            "If you experience accessibility issues or need assistance, contact us at jazykaintegrace@gmail.com.",
+            "We will do our best to respond quickly and provide an alternative way to access the information."
+          ]
+        }
+      ]
+    }
   }
 }
