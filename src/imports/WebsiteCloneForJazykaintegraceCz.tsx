@@ -1,6 +1,6 @@
 import svgPaths from "./svg-basbljdlhp";
 import clsx from "clsx";
-import imgLogo from "figma:asset/124f29e0ef24dafb79bc86048bd5b9381b5354c6.png";
+import imgLogo from "@/assets/logo.png";
 
 function CourseListBackgroundImage1({ children }: React.PropsWithChildren<{}>) {
   return (

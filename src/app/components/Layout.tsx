@@ -6,5 +6,5 @@ export const Container = ({ children, className = "" }: { children: React.ReactN
 );
 
 export const Section = ({ children, className = "", id = "" }: { children: React.ReactNode; className?: string; id?: string }) => (
-  <section id={id} className={clsx("py-20 md:py-32", className)}>{children}</section>
+  <section id={id} className={clsx("py-20 md:py-32 scroll-mt-24", className)}>{children}</section>
 );

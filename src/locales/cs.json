@@ -5,7 +5,14 @@
     "contact": "Kontakt",
     "logoAlt": "Logo Jazyk a Integrace",
     "primaryNavAria": "Hlavní",
-    "languageMenuLabel": "Změnit jazyk. Aktuální jazyk: {{language}}"
+    "languageMenuLabel": "Změnit jazyk. Aktuální jazyk: {{language}}",
+    "languages": {
+      "en": "Angličtina",
+      "cs": "Čeština",
+      "uk": "Ukrajinština",
+      "ru": "Ruština",
+      "it": "Italština"
+    }
   },
   "hero": {
     "line1": "ŽIJETE",
@@ -350,5 +357,12 @@
         }
       ]
     }
+  },
+  "seo": {
+    "title": "Online kurzy češtiny pro cizince v Praze | Jazyk a Integrace",
+    "description": "Online kurzy češtiny v Praze pro cizince, se zaměřením na ukrajinské studenty. Malé skupiny, reálná praxe, úrovně A1-B2.",
+    "keywords": "online kurzy češtiny, čeština pro cizince Praha, kurz češtiny pro expaty, Ukrajinci v Praze, jazyková škola češtiny, A1 B2 čeština",
+    "siteName": "Jazyk a Integrace",
+    "audience": "Cizinci v Praze, zejména Ukrajinci"
   }
 }

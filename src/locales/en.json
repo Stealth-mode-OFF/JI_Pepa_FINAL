@@ -5,7 +5,14 @@
     "contact": "Contact",
     "logoAlt": "Jazyk a Integrace logo",
     "primaryNavAria": "Primary",
-    "languageMenuLabel": "Change language. Current language: {{language}}"
+    "languageMenuLabel": "Change language. Current language: {{language}}",
+    "languages": {
+      "en": "English",
+      "cs": "Czech",
+      "uk": "Ukrainian",
+      "ru": "Russian",
+      "it": "Italian"
+    }
   },
   "hero": {
     "line1": "YOU LIVE",
@@ -350,5 +357,35 @@
         }
       ]
     }
+  },
+  "newsletterPopup": {
+    "title": "Stay Connected",
+    "description": "Get weekly Czech tips, cultural insights, and course updates delivered to your inbox.",
+    "benefit1": "Weekly Czech phrases you can use today",
+    "benefit2": "Cultural tips for Prague life",
+    "benefit3": "Early access to new courses",
+    "placeholder": "your@email.com",
+    "emailLabel": "Email address",
+    "submit": "Subscribe Now",
+    "sending": "Subscribing...",
+    "close": "Close popup",
+    "disclaimer": "We respect your privacy. Unsubscribe anytime.",
+    "toasts": {
+      "invalidEmail": "Please enter a valid email.",
+      "success": "Welcome! Check your inbox for confirmation.",
+      "fallback": "Email draft opened. Send to subscribe.",
+      "error": "Something went wrong. Please try again."
+    },
+    "mailto": {
+      "subject": "Newsletter Signup",
+      "body": "Please add {{email}} to the newsletter."
+    }
+  },
+  "seo": {
+    "title": "Online Czech Courses for Expats in Prague | Jazyk a Integrace",
+    "description": "Online Czech courses in Prague for expats, with support for Ukrainian speakers. Small groups, real-life focus, A1-B2 levels.",
+    "keywords": "online Czech courses, Czech classes Prague, Czech for expats, Ukrainian expats Prague, Czech language school, A1 B2 Czech",
+    "siteName": "Jazyk a Integrace",
+    "audience": "Expats in Prague, especially Ukrainian residents"
   }
 }

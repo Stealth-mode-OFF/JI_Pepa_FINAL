@@ -5,7 +5,14 @@
     "contact": "Contatto",
     "logoAlt": "Logo di Jazyk a Integrace",
     "primaryNavAria": "Principale",
-    "languageMenuLabel": "Cambia lingua. Lingua corrente: {{language}}"
+    "languageMenuLabel": "Cambia lingua. Lingua corrente: {{language}}",
+    "languages": {
+      "en": "Inglese",
+      "cs": "Ceco",
+      "uk": "Ucraino",
+      "ru": "Russo",
+      "it": "Italiano"
+    }
   },
   "hero": {
     "line1": "VIVI",
@@ -350,5 +357,12 @@
         }
       ]
     }
+  },
+  "seo": {
+    "title": "Corsi di ceco online per expat a Praga | Jazyk a Integrace",
+    "description": "Corsi di ceco online a Praga per expat, con supporto per parlanti ucraini. Piccoli gruppi, focus pratico, livelli A1-B2.",
+    "keywords": "corsi di ceco online, lezioni di ceco Praga, ceco per expat, ucraini a Praga, scuola di lingua ceca, A1 B2 ceco",
+    "siteName": "Jazyk a Integrace",
+    "audience": "Expat a Praga, soprattutto ucraini"
   }
 }

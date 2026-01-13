@@ -6,9 +6,37 @@ import uk from '../locales/uk.json';
 import ru from '../locales/ru.json';
 import it from '../locales/it.json';
 
-const storedLanguage = typeof window !== 'undefined'
-  ? window.localStorage.getItem('site_lang')
-  : null;
+const supportedLanguages = ['en', 'cs', 'uk', 'ru', 'it'];
+
+const detectLanguage = (): string => {
+  if (typeof window === 'undefined') return 'en';
+  
+  // First check if user has manually selected a language
+  const storedLanguage = window.localStorage.getItem('site_lang');
+  if (storedLanguage && supportedLanguages.includes(storedLanguage)) {
+    return storedLanguage;
+  }
+  
+  // Detect browser language
+  const browserLang = navigator.language || (navigator as any).userLanguage || 'en';
+  const primaryLang = browserLang.toLowerCase().split('-')[0];
+  
+  // Map common language variations
+  const languageMap: Record<string, string> = {
+    'en': 'en',
+    'cs': 'cs',
+    'cz': 'cs', // Czech alternative code
+    'uk': 'uk',
+    'ua': 'uk', // Ukrainian alternative code
+    'ru': 'ru',
+    'it': 'it',
+  };
+  
+  const detectedLang = languageMap[primaryLang];
+  
+  // Return detected language if supported, otherwise fallback to English
+  return detectedLang && supportedLanguages.includes(detectedLang) ? detectedLang : 'en';
+};
 
 i18n.use(initReactI18next).init({
     resources: {
@@ -18,7 +46,7 @@ i18n.use(initReactI18next).init({
       ru: { translation: ru },
       it: { translation: it },
     },
-    lng: storedLanguage || 'en',
+    lng: detectLanguage(),
     fallbackLng: 'en',
     interpolation: { escapeValue: false },
     react: { useSuspense: false }
