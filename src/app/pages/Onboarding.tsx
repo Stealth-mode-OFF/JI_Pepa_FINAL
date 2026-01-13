@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/utils/supabase/client";
 import { useAuth } from "../auth/AuthContext";
 import { AuthShell } from "../components/AuthShell";
@@ -31,6 +32,7 @@ const toggleValue = (values: string[], value: string) =>
 export const Onboarding = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [form, setForm] = useState<OnboardingForm>(emptyForm);
   const [step, setStep] = useState<Step>(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -163,6 +165,7 @@ export const Onboarding = () => {
       return;
     }
     toast.success(t("onboarding.saved", "Profile saved. Next up: payment."));
+    navigate("/checkout");
   };
 
   if (isLoading) {

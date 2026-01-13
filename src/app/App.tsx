@@ -7,6 +7,7 @@ import { Onboarding } from "./pages/Onboarding";
 import { Checkout } from "./pages/Checkout";
 import { CheckoutSuccess } from "./pages/CheckoutSuccess";
 import { Dashboard } from "./pages/Dashboard";
+import CheatSheet from "./pages/CheatSheet";
 import { RequireAuth } from "./auth/RequireAuth";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/cheat-sheet" element={<CheatSheet />} />
         <Route
           path="/onboarding"
           element={
