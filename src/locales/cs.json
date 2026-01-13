@@ -1,12 +1,354 @@
 {
   "header": {
+    "method": "Metoda",
     "courses": "Kurzy",
-    "philosophy": "Filozofie",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "logoAlt": "Logo Jazyk a Integrace",
+    "primaryNavAria": "Hlavní",
+    "languageMenuLabel": "Změnit jazyk. Aktuální jazyk: {{language}}"
   },
   "hero": {
-    "title": "Kurzy češtiny pro cizince",
-    "subtitle": "Zvládněte jazyk a integrujte se hladce.",
-    "cta": "Zobrazit kurzy"
+    "line1": "ŽIJETE",
+    "line2": "V PRAZE.",
+    "line3": "MLUVTE JAKO MÍSTNÍ.",
+    "subtitle": "Jazyková integrace pro profesionály, které už nebaví, že jsou ve vlastním městě považováni za turisty.",
+    "cta": "Zobrazit kurzy",
+    "stats": {
+      "established": "Založeno 2012",
+      "location": "Praha, CZ",
+      "levels": "Úrovně A1 — B2"
+    },
+    "scrollLabel": "Posunout na metodu"
+  },
+  "philosophy": {
+    "eyebrow": "Metodologie",
+    "titleLine1": "Učebnice",
+    "titleLine2": "nestačí.",
+    "body": "Většina kurzů vás učí složit zkoušku. My vás učíme zvládnout návštěvu lékaře, vyjednat se s pronajímatelem a najít přátele u baru.",
+    "items": [
+      {
+        "title": "Kontext před gramatikou",
+        "text": "Nejen drilujeme pády. Simulujeme reálné situace—úřady, lékařské návštěvy, společenské akce—abyste byli připraveni, když nastanou."
+      },
+      {
+        "title": "Kulturní plynulost",
+        "text": "Čeština není jen o slovech. Je to o nepsaných pravidlech společnosti. Kdy být formální, kdy se ozvat a kdy si dělat legraci."
+      },
+      {
+        "title": "Komunita na prvním místě",
+        "text": "Izolace je nepřítel integrace. Naši studenti tvoří síť. Organizujeme výlety, kávy a setkání, aby vás udržely propojené."
+      }
+    ]
+  },
+  "leadMagnet": {
+    "badge": "Zdarma",
+    "titleLine1": "PŘESTAŇTE ZNÍT",
+    "titleLine2": "JAKO UČEBNICE.",
+    "description1": "Většina kurzů učí tabulky gramatiky. Místní tak nemluví.",
+    "description2": "Stáhněte si náš <strong>\"Tahák přirozené češtiny\"</strong>: 50 klíčových frází, které zjemní žádosti, vyplní pauzy a pomohou znít jako někdo, kdo tu opravdu žije.",
+    "features": [
+      "Zvládněte small talk s jistotou",
+      "Rozumějte hovorové češtině",
+      "Vyhněte se trapným pauzám"
+    ],
+    "featuresFallback": [
+      "Zvládněte small talk s jistotou",
+      "Rozumějte hovorové češtině",
+      "Vyhněte se trapným pauzám"
+    ],
+    "form": {
+      "label": "Pracovní e-mail",
+      "placeholder": "name@company.com",
+      "sending": "Odesíláme...",
+      "submit": "Chci tahák",
+      "disclaimer": "Vážíme si vaší schránky. Odhlásit se můžete kdykoli."
+    },
+    "toasts": {
+      "invalidEmail": "Zadejte platný e-mail.",
+      "success": "Díky! Tahák je na cestě do vaší schránky.",
+      "fallback": "Otevřel se e-mail. Odešlete ho pro získání taháku.",
+      "error": "Něco se pokazilo. Zkuste to znovu nebo nám napište."
+    },
+    "mailto": {
+      "subject": "Tahák přirozené češtiny",
+      "body": "Prosím pošlete tahák na {{email}}"
+    }
+  },
+  "courseList": {
+    "title": "NADCHÁZEJÍCÍ BĚH",
+    "introLine1": "Malé skupiny (max 6). Osobní přístup.",
+    "introLine2": "Osnova navržená pro rychlé každodenní použití.",
+    "rows": [
+      {
+        "levelDesc": "Úplný začátečník",
+        "dates": "17. 2. – 20. 4.",
+        "time": "Po/St 18:00",
+        "status": "3 místa volná"
+      },
+      {
+        "levelDesc": "Základy",
+        "dates": "18. 2. – 21. 4.",
+        "time": "Út/Čt 18:00",
+        "status": "Pouze čekací listina"
+      },
+      {
+        "levelDesc": "Středně pokročilí",
+        "dates": "1. 3. – 15. 5.",
+        "time": "Po/St 19:30",
+        "status": "Volno"
+      }
+    ],
+    "cta": "Vyžádat soukromé lekce"
+  },
+  "footer": {
+    "titleLine1": "PŘIPRAVENI",
+    "titleLine2": "INTEGROVAT SE?",
+    "community": {
+      "title": "Přidejte se ke komunitě"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram",
+        "desc": "— Denní mikrolekce"
+      },
+      "facebook": {
+        "label": "Facebook",
+        "desc": "— Příběhy úspěchu studentů"
+      },
+      "vk": {
+        "label": "VKontakte",
+        "desc": "— Síť studentů"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "desc": "— Okamžité odpovědi a podpora"
+      }
+    },
+    "legal": {
+      "terms": "Obchodní podmínky",
+      "privacy": "Zásady ochrany osobních údajů",
+      "cookies": "Zásady cookies",
+      "accessibility": "Přístupnost"
+    },
+    "company": {
+      "name": "JAZYK A INTEGRACE S.R.O.",
+      "id": "IČO: 23812036",
+      "register": "Sp. zn. C 433136 vedená u Městského soudu v Praze",
+      "address": "Černomořská 384/9, Praha 10"
+    },
+    "rights": "© {{year}} Všechna práva vyhrazena"
+  },
+  "cookieConsent": {
+    "title": "Cookies a soukromí",
+    "description": "Používáme cookies pro zlepšení webu a analýzu návštěvnosti. Některé jsou nezbytné, jiné volitelné.",
+    "readPolicy": "Přečíst zásady",
+    "settings": "Nastavení",
+    "reject": "Odmítnout volitelné",
+    "accept": "Přijmout vše",
+    "aria": {
+      "settings": "Nastavení cookies",
+      "reject": "Odmítnout volitelné cookies",
+      "accept": "Přijmout všechny cookies"
+    }
+  },
+  "legal": {
+    "titleFallback": "Právní informace",
+    "closeLabel": "Zavřít",
+    "updatedFallback": "Aktualizováno",
+    "privacy": {
+      "title": "Zásady ochrany osobních údajů",
+      "updated": "Naposledy aktualizováno: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Správce osobních údajů",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o., IČO: 23812036, Černomořská 384/9, Praha 10.",
+            "Zapsáno v obchodním rejstříku: Sp. zn. C 433136 vedená u Městského soudu v Praze.",
+            "Kontakt: jazykaintegrace@gmail.com, +420 601 177 208."
+          ]
+        },
+        {
+          "heading": "Jaké údaje zpracováváme",
+          "paragraphs": [
+            "Zpracováváme pouze údaje, které nám poskytnete, nebo které jsou nutné k poskytování služeb."
+          ],
+          "list": [
+            "Kontaktní údaje (jméno, e-mail, telefon).",
+            "Zájmy o kurzy, docházka a zprávy, které nám posíláte.",
+            "Fakturační a platební údaje u zapsaných studentů.",
+            "Technické údaje jako IP adresa, typ zařízení a stav souhlasu."
+          ]
+        },
+        {
+          "heading": "Právní základy (GDPR)",
+          "paragraphs": [
+            "Opíráme se o tyto právní základy podle GDPR:"
+          ],
+          "list": [
+            "Plnění smlouvy při zápisu do kurzu.",
+            "Souhlas při žádosti o zdarma materiál nebo novinky.",
+            "Oprávněný zájem na ochraně a zlepšování webu.",
+            "Právní povinnost pro účetní a daňové účely."
+          ]
+        },
+        {
+          "heading": "Jak údaje používáme",
+          "paragraphs": [
+            "Údaje používáme k poskytování a zlepšování služeb."
+          ],
+          "list": [
+            "Odpovědi na dotazy a doručení požadovaných materiálů.",
+            "Správa přihlášek, docházky a vedení kurzů.",
+            "Zasílání novinek pouze při udělení souhlasu.",
+            "Prevence zneužití, bezpečnost a zlepšování výkonu."
+          ]
+        },
+        {
+          "heading": "Cookies a místní úložiště",
+          "paragraphs": [
+            "Používáme nezbytné cookies a místní úložiště pro zapamatování souhlasu a jazykových preferencí."
+          ],
+          "list": [
+            "Nezbytné: pro funkčnost webu a uložení souhlasu.",
+            "Analytické: pouze při výslovném souhlasu.",
+            "Marketingové: nepoužíváme."
+          ]
+        },
+        {
+          "heading": "Sdílení a zpracovatelé",
+          "paragraphs": [
+            "Osobní údaje neprodáváme. Můžeme je sdílet s důvěryhodnými poskytovateli, kteří nám pomáhají provozovat web a poskytovat služby (e-mail, formuláře, platby, hosting).",
+            "Tito poskytovatelé zpracovávají údaje na základě smluv a pouze pro účely, které stanovíme."
+          ]
+        },
+        {
+          "heading": "Doba uchování",
+          "paragraphs": [
+            "Údaje z poptávek uchováváme až 24 měsíců, pokud nepožádáte o výmaz.",
+            "Záznamy o kurzech a účetnictví uchováváme dle zákona."
+          ]
+        },
+        {
+          "heading": "Vaše práva",
+          "paragraphs": [
+            "Můžete požadovat přístup, opravu, výmaz, omezení, přenositelnost nebo vznést námitku.",
+            "Souhlas můžete kdykoli odvolat a podat stížnost u Úřadu pro ochranu osobních údajů (ÚOOÚ)."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Obchodní podmínky",
+      "updated": "Naposledy aktualizováno: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Údaje o společnosti",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o., IČO: 23812036.",
+            "Sídlo: Černomořská 384/9, Praha 10.",
+            "Obchodní rejstřík: Sp. zn. C 433136 vedená u Městského soudu v Praze.",
+            "Kontakt: jazykaintegrace@gmail.com, +420 601 177 208."
+          ]
+        },
+        {
+          "heading": "Používání webu",
+          "paragraphs": [
+            "Používáním webu souhlasíte, že ho nebudete zneužívat ani narušovat jeho provoz.",
+            "Obsah a dostupnost webu můžeme kdykoli měnit nebo aktualizovat."
+          ]
+        },
+        {
+          "heading": "Přihlášení do kurzu",
+          "paragraphs": [
+            "Detaily kurzů, ceny a termíny jsou potvrzeny v přihlášce nebo faktuře.",
+            "Místo v kurzu je rezervováno po přijetí platby, není-li uvedeno jinak."
+          ]
+        },
+        {
+          "heading": "Zrušení a změny",
+          "paragraphs": [
+            "Pokud potřebujete zrušit nebo změnit termín, kontaktujte nás co nejdříve. Změny řešíme podle dostupnosti.",
+            "Konkrétní podmínky vrácení nebo převodu jsou uvedeny v potvrzení o přihlášení."
+          ]
+        },
+        {
+          "heading": "Materiály a duševní vlastnictví",
+          "paragraphs": [
+            "Veškeré materiály a obsah na webu jsou vlastnictvím Jazyk a Integrace s.r.o., pokud není uvedeno jinak.",
+            "Bez písemného souhlasu je nesmíte kopírovat, prodávat ani šířit."
+          ]
+        },
+        {
+          "heading": "Odpovědnost",
+          "paragraphs": [
+            "Snažíme se o přesné informace, ale web i služby jsou poskytovány \"tak, jak jsou\" bez záruk.",
+            "V rozsahu povoleném zákonem neneseme odpovědnost za nepřímé či následné škody."
+          ]
+        },
+        {
+          "heading": "Rozhodné právo",
+          "paragraphs": [
+            "Tyto podmínky se řídí právem České republiky."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Zásady cookies",
+      "updated": "Naposledy aktualizováno: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Co jsou cookies",
+          "paragraphs": [
+            "Cookies jsou malé textové soubory ukládané do zařízení, které zajišťují funkčnost webu a zlepšují uživatelský zážitek."
+          ]
+        },
+        {
+          "heading": "Jaké cookies používáme",
+          "paragraphs": [
+            "Používáme minimum cookies a standardně jen nezbytné."
+          ],
+          "list": [
+            "Nezbytné cookies: pro základní funkčnost a uložení souhlasu.",
+            "Uložení preferencí: zapamatuje jazyk.",
+            "Analytické cookies: pouze při výslovném souhlasu.",
+            "Marketingové cookies: nepoužíváme."
+          ]
+        },
+        {
+          "heading": "Správa cookies",
+          "paragraphs": [
+            "Nastavení můžete změnit v cookie liště nebo v nastavení prohlížeče.",
+            "Blokování nezbytných cookies může ovlivnit funkčnost webu."
+          ]
+        },
+        {
+          "heading": "Uchování",
+          "paragraphs": [
+            "Souhlas a preference uchováváme až 12 měsíců, pokud je dříve nesmažete."
+          ]
+        }
+      ]
+    },
+    "accessibility": {
+      "title": "Prohlášení o přístupnosti",
+      "updated": "Naposledy aktualizováno: 2026-01-12",
+      "sections": [
+        {
+          "heading": "Náš závazek",
+          "paragraphs": [
+            "Usilujeme o to, aby byl tento web přístupný co nejširšímu okruhu lidí bez ohledu na jejich schopnosti.",
+            "Snažíme se dodržovat WCAG 2.1 AA a průběžně zlepšovat použitelnost."
+          ]
+        },
+        {
+          "heading": "Zpětná vazba",
+          "paragraphs": [
+            "Pokud narazíte na problém s přístupností nebo potřebujete pomoc, napište na jazykaintegrace@gmail.com.",
+            "Uděláme maximum pro rychlou reakci a alternativní přístup k informacím."
+          ]
+        }
+      ]
+    }
   }
 }
