@@ -5,6 +5,10 @@ import { Hero } from "../components/Hero";
 import { Philosophy } from "../components/Philosophy";
 import { LeadMagnet } from "../components/LeadMagnet";
 import { CourseList } from "../components/CourseList";
+import { Testimonials } from "../components/Testimonials";
+import { Pricing } from "../components/Pricing";
+import { Instructor } from "../components/Instructor";
+import { FAQ } from "../components/FAQ";
 import { Footer } from "../components/Footer";
 import { CookieConsent } from "../components/CookieConsent";
 import { LegalDocsModal } from "../components/LegalDocsModal";
@@ -45,6 +49,10 @@ export const LandingPage = () => {
               <Philosophy />
               <LeadMagnet />
               <CourseList />
+              <Testimonials />
+              <Pricing />
+              <Instructor />
+              <FAQ />
             </main>
             <Footer onOpenLegal={(section) => openLegal(section)} />
             <CookieConsent onOpenLegal={(section) => openLegal(section)} />

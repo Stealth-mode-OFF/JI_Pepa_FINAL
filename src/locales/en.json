@@ -254,5 +254,92 @@
       "finishPayment": "Finish payment",
       "contact": "Contact support"
     }
+  },
+  "testimonials": {
+    "label": "Student voices",
+    "title": "Real people. Real Czech.",
+    "subtitle": "Short, honest reflections from professionals who needed Czech for real life.",
+    "items": [
+      {
+        "quote": "I stopped freezing in meetings after three weeks.",
+        "name": "Elena K.",
+        "role": "Product Manager, Prague"
+      },
+      {
+        "quote": "The course felt like real life, not a textbook.",
+        "name": "Tom R.",
+        "role": "Engineer, Brno"
+      },
+      {
+        "quote": "I finally made Czech friends without awkward pauses.",
+        "name": "Maria S.",
+        "role": "Designer, Prague"
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Clear pricing. Zero surprises.",
+    "subtitle": "Choose a cohort to integrate fast, or go private for maximum flexibility.",
+    "plans": [
+      {
+        "name": "Cohort Program",
+        "price": "€320",
+        "cadence": "per 6-week cohort",
+        "features": [
+          "Small group (max 6)",
+          "Real-life scenarios",
+          "Community events"
+        ],
+        "cta": "Join next cohort"
+      },
+      {
+        "name": "Private Czech",
+        "price": "€55",
+        "cadence": "per 60-minute session",
+        "features": [
+          "1:1 custom plan",
+          "Flexible scheduling",
+          "Progress tracking"
+        ],
+        "cta": "Request private classes"
+      }
+    ]
+  },
+  "instructor": {
+    "label": "Your instructor",
+    "title": "Meet the team behind your Czech confidence.",
+    "body": "We teach the Czech you need for landlords, colleagues, and coffee chats. Expect practical scenarios and real feedback.",
+    "highlights": [
+      "12+ years teaching Czech for expats",
+      "Focus on real-life language, not exams",
+      "Small groups + community integration"
+    ],
+    "cardLabel": "Why students stay",
+    "cardBody": "“It felt like a community from day one. The class was intense, but always supportive.”",
+    "cardAttribution": "— Lucie, Lead Instructor"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Answers to common questions",
+    "subtitle": "Quick clarity before you commit.",
+    "items": [
+      {
+        "q": "How do I know my level?",
+        "a": "If you can handle basics in shops but freeze in conversation, A2 or B1 is typical. We confirm your level during onboarding."
+      },
+      {
+        "q": "How many students are in a cohort?",
+        "a": "Maximum 6 students per cohort."
+      },
+      {
+        "q": "Can I switch cohorts if my schedule changes?",
+        "a": "Yes, if there is space in another cohort. We’ll help you reschedule."
+      },
+      {
+        "q": "Do you offer refunds?",
+        "a": "We offer a full refund within 7 days before the cohort starts."
+      }
+    ]
   }
 }
