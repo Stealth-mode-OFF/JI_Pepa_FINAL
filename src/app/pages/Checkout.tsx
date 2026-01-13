@@ -13,8 +13,9 @@ export const Checkout = () => {
   const handleCheckout = async () => {
     const endpoint = import.meta.env.VITE_STRIPE_CHECKOUT_ENDPOINT as string | undefined;
     const priceId = import.meta.env.VITE_STRIPE_PRICE_ID as string | undefined;
+    const cohortId = import.meta.env.VITE_DEFAULT_COHORT_ID as string | undefined;
 
-    if (!endpoint || !priceId) {
+    if (!endpoint || !priceId || !cohortId) {
       toast.error(
         t("checkout.missingConfig", "Stripe is not configured yet. Add env keys first."),
       );
@@ -28,7 +29,10 @@ export const Checkout = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           priceId,
+          cohortId,
           customerEmail: user?.email,
+          successUrl: `${window.location.origin}/checkout-success`,
+          cancelUrl: `${window.location.origin}/checkout`,
         }),
       });
       const data = await response.json();

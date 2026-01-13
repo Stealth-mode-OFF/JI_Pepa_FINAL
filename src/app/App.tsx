@@ -5,6 +5,7 @@ import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
 import { Onboarding } from "./pages/Onboarding";
 import { Checkout } from "./pages/Checkout";
+import { CheckoutSuccess } from "./pages/CheckoutSuccess";
 import { RequireAuth } from "./auth/RequireAuth";
 
 export default function App() {
@@ -28,6 +29,14 @@ export default function App() {
           element={
             <RequireAuth>
               <Checkout />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/checkout-success"
+          element={
+            <RequireAuth>
+              <CheckoutSuccess />
             </RequireAuth>
           }
         />

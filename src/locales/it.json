@@ -163,5 +163,11 @@
     "loading": "Redirecting...",
     "note": "We use Stripe for secure payments. Receipts are emailed instantly.",
     "missingConfig": "Stripe is not configured yet. Add env keys first."
+  },
+  "checkoutSuccess": {
+    "title": "You are in.",
+    "subtitle": "We received your payment and will follow up with cohort details.",
+    "body": "Check your inbox for the receipt and next steps. If you have any questions, reply to the email or contact us directly.",
+    "cta": "Back to homepage"
   }
 }
