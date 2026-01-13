@@ -18,19 +18,19 @@ const CourseRow = ({
   status: React.ReactNode;
   statusColor?: string;
 }) => (
-  <div className="flex flex-col md:flex-row md:items-center justify-between py-8 border-b border-black gap-6 md:gap-0 group hover:bg-gray-50 transition-colors px-4 -mx-4">
-    <div className="flex items-center gap-12 w-full md:w-1/3">
-      <span className="font-['Montserrat'] font-bold text-2xl w-12">{level}</span>
-      <span className="font-['Montserrat'] font-medium text-lg text-gray-600">{levelDesc}</span>
+  <div className="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-black gap-6 md:gap-0 group hover:bg-gray-50 transition-colors px-0">
+    <div className="flex items-start gap-8 w-full md:w-1/3">
+      <span className="font-['Montserrat'] font-bold text-[24px] leading-[36px] min-w-[48px]">{level}</span>
+      <span className="font-['Montserrat'] font-medium text-[18px] leading-[27px] text-[#4a5565]">{levelDesc}</span>
     </div>
     
-    <div className="flex flex-col md:flex-row gap-2 md:gap-12 w-full md:w-1/3 text-gray-500 font-['Montserrat']">
+    <div className="flex flex-col md:flex-row gap-2 md:gap-12 w-full md:w-1/3 text-[#6a7282] font-['Montserrat'] text-[14px] leading-[21px]">
       <span>{dates}</span>
       <span>{time}</span>
     </div>
     
     <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-1/3">
-      <div className={clsx("font-['Inter'] font-bold text-xs uppercase tracking-widest", statusColor)}>
+      <div className={clsx("font-['Montserrat'] font-bold text-[14px] leading-[21px]", statusColor)}>
         {status}
       </div>
       <div className="opacity-0 group-hover:opacity-100 transition-opacity">
@@ -42,13 +42,13 @@ const CourseRow = ({
 
 export const CourseList = () => {
   return (
-    <Section className="bg-white">
+    <Section className="bg-white" id="courses">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <h2 className="font-['Montserrat'] font-bold text-4xl md:text-6xl leading-tight tracking-tight max-w-xs">
+          <h2 className="font-['Montserrat'] font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-[36px] tracking-[-0.5px] max-w-xs">
             UPCOMING INTAKE
           </h2>
-          <div className="font-['Montserrat'] text-gray-500 max-w-sm">
+          <div className="font-['Montserrat'] text-[#6a7282] text-[14px] leading-[21px] max-w-sm">
             <p>Small groups (max 6). Personal attention.</p>
             <p>Curriculum designed for rapid daily application.</p>
           </div>
@@ -82,8 +82,11 @@ export const CourseList = () => {
         </div>
         
         <div className="mt-12 flex justify-center md:justify-end">
-          <a href="#" className="inline-flex items-center gap-2 border-b border-black pb-1 hover:text-gray-600 transition-colors">
-            <span className="font-['Inter'] font-bold text-sm uppercase tracking-widest">Request Private Classes</span>
+          <a
+            href="mailto:jazykaintegrace@gmail.com?subject=Private%20Czech%20Classes"
+            className="inline-flex items-center gap-2 border-b border-black pb-1 hover:text-gray-600 transition-colors font-['Inter'] font-bold text-[14px] leading-[21px] uppercase tracking-[1.2496px]"
+          >
+            <span>Request Private Classes</span>
           </a>
         </div>
       </Container>
