@@ -57,6 +57,12 @@ export const Header = () => {
                 {item.label}
               </a>
             ))}
+            <a
+              href="/login"
+              className="font-['Inter'] font-bold text-[12px] leading-[18px] uppercase tracking-[1.2px] hover:text-gray-600 focus:text-gray-600 focus:outline-none focus:underline transition-colors"
+            >
+              {t("header.login", "Student Login")}
+            </a>
           </nav>
           
           <div className="h-6 w-px bg-gray-200 hidden md:block" />

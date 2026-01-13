@@ -2,7 +2,8 @@
   "header": {
     "method": "Metodologia",
     "courses": "Corsi",
-    "contact": "Contatto"
+    "contact": "Contatto",
+    "login": "Student Login"
   },
   "hero": {
     "line1": "VIVI",
@@ -77,5 +78,90 @@
       }
     ],
     "cta": "Richiedi Lezioni Private"
+  },
+  "auth": {
+    "email": "Email",
+    "emailPlaceholder": "tuo@email.it",
+    "password": "Password",
+    "passwordPlaceholder": "Inserisci la password",
+    "fullName": "Nome Completo",
+    "fullNamePlaceholder": "Mario Rossi",
+    "confirmPassword": "Conferma Password",
+    "confirmPasswordPlaceholder": "Conferma la password",
+    "backHome": "Torna a Casa",
+    "logout": "Esci",
+    "login": {
+      "title": "Accedi",
+      "subtitle": "Accedi al tuo percorso di apprendimento del ceco",
+      "cta": "Accedi"
+    },
+    "signup": {
+      "title": "Crea Account",
+      "subtitle": "Unisciti alla nostra comunità di lingua ceca",
+      "cta": "Crea Account"
+    },
+    "noAccount": "Non hai un account?",
+    "haveAccount": "Hai già un account?",
+    "signing_in": "Accesso in corso...",
+    "creatingAccount": "Creazione dell'account...",
+    "errors": {
+      "emailRequired": "L'email è obbligatoria",
+      "emailInvalid": "Formato email non valido",
+      "passwordRequired": "La password è obbligatoria",
+      "passwordMinLength": "La password deve contenere almeno 8 caratteri",
+      "fullNameRequired": "Il nome completo è obbligatorio",
+      "fullNameMinLength": "Il nome completo deve contenere almeno 2 caratteri",
+      "confirmPasswordRequired": "La conferma della password è obbligatoria",
+      "passwordMismatch": "Le password non corrispondono"
+    },
+    "dashboard": {
+      "title": "Bentornato",
+      "section1Title": "Il Tuo Percorso di Apprendimento",
+      "section1Desc": "Sei ora collegato e pronto per iniziare ad imparare il ceco. Accedi ai tuoi corsi, traccia i tuoi progressi e unisciti alla nostra comunità.",
+      "feature1": "Traccia il tuo progresso di apprendimento",
+      "feature2": "Accedi a tutti i materiali del corso",
+      "feature3": "Unisciti ai nostri forum della comunità",
+      "accountInfo": "Informazioni Account",
+      "memberSince": "Membro da",
+      "backHome": "Torna a Casa",
+      "comingSoon": "Altre Funzioni In Arrivo",
+      "comingSoonDesc": "Gestione dell'iscrizione, integrazione dei pagamenti e tracciamento dei progressi arriveranno presto sulla tua dashboard."
+    },
+    "loginSuccess": "Welcome back.",
+    "signupSuccess": "Account created. Check your email to confirm."
+  },
+  "onboarding": {
+    "title": "Tell us about your Czech journey",
+    "subtitle": "We use this to match you to the right class and schedule.",
+    "loading": "Loading your profile...",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "Your name",
+    "levelLabel": "Current level",
+    "levelPlaceholder": "Select your level",
+    "levelA1": "A1 - Total beginner",
+    "levelA2": "A2 - Elementary",
+    "levelB1": "B1 - Intermediate",
+    "levelB2": "B2 - Upper intermediate",
+    "goalsLabel": "Goals",
+    "goalsPlaceholder": "What would you love to do in Czech?",
+    "availabilityLabel": "Availability",
+    "availabilityPlaceholder": "Evenings, weekends, etc.",
+    "phoneLabel": "Phone (optional)",
+    "phonePlaceholder": "+420 777 123 456",
+    "saveCta": "Save profile",
+    "saving": "Saving...",
+    "saved": "Profile saved. Next up: payment.",
+    "notAuthenticated": "Please log in first.",
+    "continueToPayment": "Continue to payment"
+  },
+  "checkout": {
+    "title": "Secure your spot",
+    "subtitle": "Complete payment to confirm your seat in the next cohort.",
+    "summary": "Cohort reservation + onboarding support",
+    "price": "€320",
+    "cta": "Pay & reserve my seat",
+    "loading": "Redirecting...",
+    "note": "We use Stripe for secure payments. Receipts are emailed instantly.",
+    "missingConfig": "Stripe is not configured yet. Add env keys first."
   }
 }

@@ -2,7 +2,8 @@
   "header": {
     "method": "Методологія",
     "courses": "Курси",
-    "contact": "Контакт"
+    "contact": "Контакт",
+    "login": "Student Login"
   },
   "hero": {
     "line1": "ТИ ЖИВЕШ",
@@ -77,5 +78,90 @@
       }
     ],
     "cta": "Запросити Приватні Заняття"
+  },
+  "auth": {
+    "email": "Email",
+    "emailPlaceholder": "vash@email.ua",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введіть пароль",
+    "fullName": "Повне Ім'я",
+    "fullNamePlaceholder": "Іван Петренко",
+    "confirmPassword": "Підтвердження Пароля",
+    "confirmPasswordPlaceholder": "Підтвердіть пароль",
+    "backHome": "Повернутися Додому",
+    "logout": "Вихід",
+    "login": {
+      "title": "Вхід",
+      "subtitle": "Доступ до вашої путівки навчання чеської мови",
+      "cta": "Вхід"
+    },
+    "signup": {
+      "title": "Створити Обліковий Запис",
+      "subtitle": "Приєднайтеся до нашої чеської мовної спільноти",
+      "cta": "Створити Обліковий Запис"
+    },
+    "noAccount": "Немаєте облікового запису?",
+    "haveAccount": "Вже маєте обліковий запис?",
+    "signing_in": "Вхід...",
+    "creatingAccount": "Створення облікового запису...",
+    "errors": {
+      "emailRequired": "Email обов'язковий",
+      "emailInvalid": "Невірний формат email",
+      "passwordRequired": "Пароль обов'язковий",
+      "passwordMinLength": "Пароль повинен містити щонайменше 8 символів",
+      "fullNameRequired": "Повне ім'я обов'язкове",
+      "fullNameMinLength": "Повне ім'я повинно мати щонайменше 2 символи",
+      "confirmPasswordRequired": "Підтвердження пароля обов'язкове",
+      "passwordMismatch": "Паролі не збігаються"
+    },
+    "dashboard": {
+      "title": "З повертанням",
+      "section1Title": "Ваша Путівка Навчання",
+      "section1Desc": "Ви вже увійшли і готові почати вивчати чеську мову. Отримуйте доступ до своїх курсів, відстежуйте прогрес та приєднуйтеся до нашої спільноти.",
+      "feature1": "Відстежуйте прогрес навчання",
+      "feature2": "Доступ до всіх матеріалів курсу",
+      "feature3": "Приєднайтеся до наших форумів спільноти",
+      "accountInfo": "Інформація про Обліковий Запис",
+      "memberSince": "Член з",
+      "backHome": "Повернутися Додому",
+      "comingSoon": "Скоро Більше Функцій",
+      "comingSoonDesc": "Управління реєстрацією, інтеграція платежів та відстеження прогресу скоро з'являться на вашій панелі."
+    },
+    "loginSuccess": "Welcome back.",
+    "signupSuccess": "Account created. Check your email to confirm."
+  },
+  "onboarding": {
+    "title": "Tell us about your Czech journey",
+    "subtitle": "We use this to match you to the right class and schedule.",
+    "loading": "Loading your profile...",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "Your name",
+    "levelLabel": "Current level",
+    "levelPlaceholder": "Select your level",
+    "levelA1": "A1 - Total beginner",
+    "levelA2": "A2 - Elementary",
+    "levelB1": "B1 - Intermediate",
+    "levelB2": "B2 - Upper intermediate",
+    "goalsLabel": "Goals",
+    "goalsPlaceholder": "What would you love to do in Czech?",
+    "availabilityLabel": "Availability",
+    "availabilityPlaceholder": "Evenings, weekends, etc.",
+    "phoneLabel": "Phone (optional)",
+    "phonePlaceholder": "+420 777 123 456",
+    "saveCta": "Save profile",
+    "saving": "Saving...",
+    "saved": "Profile saved. Next up: payment.",
+    "notAuthenticated": "Please log in first.",
+    "continueToPayment": "Continue to payment"
+  },
+  "checkout": {
+    "title": "Secure your spot",
+    "subtitle": "Complete payment to confirm your seat in the next cohort.",
+    "summary": "Cohort reservation + onboarding support",
+    "price": "€320",
+    "cta": "Pay & reserve my seat",
+    "loading": "Redirecting...",
+    "note": "We use Stripe for secure payments. Receipts are emailed instantly.",
+    "missingConfig": "Stripe is not configured yet. Add env keys first."
   }
 }

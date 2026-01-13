@@ -2,7 +2,8 @@
   "header": {
     "method": "Method",
     "courses": "Courses",
-    "contact": "Contact"
+    "contact": "Contact",
+    "login": "Student Login"
   },
   "hero": {
     "line1": "YOU LIVE",
@@ -77,5 +78,90 @@
       }
     ],
     "cta": "Request Private Classes"
+  },
+  "auth": {
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "John Doe",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "backHome": "Back to Home",
+    "logout": "Logout",
+    "loginSuccess": "Welcome back.",
+    "signupSuccess": "Account created. Check your email to confirm.",
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Access your Czech learning journey",
+      "cta": "Sign In"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Join our Czech language community",
+      "cta": "Create Account"
+    },
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signing_in": "Signing In...",
+    "creatingAccount": "Creating Account...",
+    "errors": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "fullNameRequired": "Full name is required",
+      "fullNameMinLength": "Full name must be at least 2 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "dashboard": {
+      "title": "Welcome back",
+      "section1Title": "Your Learning Journey",
+      "section1Desc": "You're now signed in and ready to start learning Czech. Access your courses, track your progress, and connect with our learning community.",
+      "feature1": "Track your learning progress",
+      "feature2": "Access all course materials",
+      "feature3": "Join our community forums",
+      "accountInfo": "Account Information",
+      "memberSince": "Member Since",
+      "backHome": "Back to Home",
+      "comingSoon": "More Features Coming Soon",
+      "comingSoonDesc": "Enrollment management, payment integration, and progress tracking are coming to your dashboard soon."
+    }
+  },
+  "onboarding": {
+    "title": "Tell us about your Czech journey",
+    "subtitle": "We use this to match you to the right class and schedule.",
+    "loading": "Loading your profile...",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "Your name",
+    "levelLabel": "Current level",
+    "levelPlaceholder": "Select your level",
+    "levelA1": "A1 - Total beginner",
+    "levelA2": "A2 - Elementary",
+    "levelB1": "B1 - Intermediate",
+    "levelB2": "B2 - Upper intermediate",
+    "goalsLabel": "Goals",
+    "goalsPlaceholder": "What would you love to do in Czech?",
+    "availabilityLabel": "Availability",
+    "availabilityPlaceholder": "Evenings, weekends, etc.",
+    "phoneLabel": "Phone (optional)",
+    "phonePlaceholder": "+420 777 123 456",
+    "saveCta": "Save profile",
+    "saving": "Saving...",
+    "saved": "Profile saved. Next up: payment.",
+    "notAuthenticated": "Please log in first.",
+    "continueToPayment": "Continue to payment"
+  },
+  "checkout": {
+    "title": "Secure your spot",
+    "subtitle": "Complete payment to confirm your seat in the next cohort.",
+    "summary": "Cohort reservation + onboarding support",
+    "price": "€320",
+    "cta": "Pay & reserve my seat",
+    "loading": "Redirecting...",
+    "note": "We use Stripe for secure payments. Receipts are emailed instantly.",
+    "missingConfig": "Stripe is not configured yet. Add env keys first."
   }
 }
