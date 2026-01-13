@@ -56,7 +56,9 @@
     "cheatSheetTitle": "Prefer instant access?",
     "cheatSheetBody": "Open the free cheat sheet now and start using the phrases today.",
     "cheatSheetCta": "View Cheat Sheet",
-    "cheatSheetNote": "No email required for the preview."
+    "cheatSheetNote": "No email required for the preview.",
+    "success": "You're in. Check your email for the cheat sheet.",
+    "error": "Something went wrong. Please try again."
   },
   "courseList": {
     "title": "НАСТУПНІ НАБОРИ",
@@ -392,6 +394,7 @@
       "goodbyes": {
         "title": "Closing & Goodbyes"
       }
-    }
+    },
+    "footerSecondaryCta": "See Cohorts"
   }
 }

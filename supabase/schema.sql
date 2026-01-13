@@ -69,6 +69,13 @@ create table if not exists public.payments (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.lead_magnet_signups (
+  id uuid primary key default gen_random_uuid(),
+  email text not null,
+  source text,
+  created_at timestamptz not null default now()
+);
+
 create index if not exists idx_enrollments_user_id on public.enrollments(user_id);
 create index if not exists idx_payments_enrollment_id on public.payments(enrollment_id);
 create index if not exists idx_cohorts_course_id on public.cohorts(course_id);
@@ -97,6 +104,7 @@ alter table public.courses enable row level security;
 alter table public.cohorts enable row level security;
 alter table public.enrollments enable row level security;
 alter table public.payments enable row level security;
+alter table public.lead_magnet_signups enable row level security;
 
 -- Profiles: users can read/update their own profile.
 drop policy if exists "profiles_select_own" on public.student_profiles;
@@ -173,3 +181,10 @@ create policy "payments_select_own"
 on public.payments for select
 to authenticated
 using (auth.uid() = user_id);
+
+-- Lead magnet signups: allow anonymous inserts for email capture.
+drop policy if exists "lead_signups_insert" on public.lead_magnet_signups;
+create policy "lead_signups_insert"
+on public.lead_magnet_signups for insert
+to anon, authenticated
+with check (true);
