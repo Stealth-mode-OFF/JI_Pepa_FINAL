@@ -41,16 +41,22 @@ export const Hero = () => {
         <div className="border-t border-black pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex flex-col md:flex-row gap-8 md:gap-12">
             <div className="space-y-1">
-               <span className="block font-['Inter'] font-bold text-[12px] leading-[18px] text-[#99a1af] uppercase tracking-[1.2px]">Est. 2012</span>
+               <span className="block font-['Inter'] font-bold text-[12px] leading-[18px] text-[#99a1af] uppercase tracking-[1.2px]">
+                 {t("hero.stats.established", "Est. 2012")}
+               </span>
             </div>
             <div className="space-y-1">
-               <span className="block font-['Inter'] font-bold text-[12px] leading-[18px] text-[#99a1af] uppercase tracking-[1.2px]">Prague, CZ</span>
+               <span className="block font-['Inter'] font-bold text-[12px] leading-[18px] text-[#99a1af] uppercase tracking-[1.2px]">
+                 {t("hero.stats.location", "Prague, CZ")}
+               </span>
             </div>
             <div className="space-y-1">
-               <span className="block font-['Inter'] font-bold text-[12px] leading-[18px] text-[#99a1af] uppercase tracking-[1.2px]">A1 — B2 Levels</span>
+               <span className="block font-['Inter'] font-bold text-[12px] leading-[18px] text-[#99a1af] uppercase tracking-[1.2px]">
+                 {t("hero.stats.levels", "A1 — B2 Levels")}
+               </span>
             </div>
           </div>
-          <a href="#method" aria-label="Scroll to method">
+          <a href="#method" aria-label={t("hero.scrollLabel", "Scroll to method")}>
             <ArrowDownIcon />
           </a>
         </div>
