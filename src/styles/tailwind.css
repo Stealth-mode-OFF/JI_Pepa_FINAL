@@ -3,6 +3,15 @@
 
 @import 'tw-animate-css';
 
+@theme {
+  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-inter: 'Inter', sans-serif;
+  
+  --font-montserrat-regular: 400;
+  --font-montserrat-medium: 500;
+  --font-montserrat-bold: 700;
+}
+
 @layer utilities {
   @keyframes fadeIn {
     from {
