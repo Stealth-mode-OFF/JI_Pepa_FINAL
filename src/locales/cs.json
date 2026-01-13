@@ -2,7 +2,8 @@
   "header": {
     "method": "Metodologie",
     "courses": "Kurzy",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "login": "Student Login"
   },
   "hero": {
     "line1": "ŽIJEŠ",
@@ -77,5 +78,90 @@
       }
     ],
     "cta": "Požádat o Soukromé Lekce"
+  },
+  "auth": {
+    "email": "Email",
+    "emailPlaceholder": "vase@email.cz",
+    "password": "Heslo",
+    "passwordPlaceholder": "Zadejte své heslo",
+    "fullName": "Celé Jméno",
+    "fullNamePlaceholder": "Jan Novák",
+    "confirmPassword": "Potvrzení Hesla",
+    "confirmPasswordPlaceholder": "Potvrďte své heslo",
+    "backHome": "Zpět na Domů",
+    "logout": "Odhlášení",
+    "login": {
+      "title": "Přihlášení",
+      "subtitle": "Přístup k vaší cestě učení češtiny",
+      "cta": "Přihlášení"
+    },
+    "signup": {
+      "title": "Vytvořit Účet",
+      "subtitle": "Připojte se k naší české jazykové komunitě",
+      "cta": "Vytvořit Účet"
+    },
+    "noAccount": "Nemáte účet?",
+    "haveAccount": "Už máte účet?",
+    "signing_in": "Přihlašování...",
+    "creatingAccount": "Vytváření účtu...",
+    "errors": {
+      "emailRequired": "Email je povinný",
+      "emailInvalid": "Neplatný formát e-mailu",
+      "passwordRequired": "Heslo je povinné",
+      "passwordMinLength": "Heslo musí mít alespoň 8 znaků",
+      "fullNameRequired": "Celé jméno je povinné",
+      "fullNameMinLength": "Celé jméno musí mít alespoň 2 znaky",
+      "confirmPasswordRequired": "Potvrzení hesla je povinné",
+      "passwordMismatch": "Hesla se neshodují"
+    },
+    "dashboard": {
+      "title": "Vítejte zpět",
+      "section1Title": "Vaše Cesta Učení",
+      "section1Desc": "Nyní jste přihlášeni a připraveni začít se učit češtinu. Přistupujte ke svým kurzům, sledujte svůj pokrok a připojte se k naší komunitě.",
+      "feature1": "Sledujte svůj pokrok v učení",
+      "feature2": "Přístup ke všem materiálům kurzu",
+      "feature3": "Připojte se k našim fórům komunity",
+      "accountInfo": "Informace o Účtu",
+      "memberSince": "Člen od",
+      "backHome": "Zpět na Domů",
+      "comingSoon": "Brzy Více Funkcí",
+      "comingSoonDesc": "Správa zápisu, integraci plateb a sledování pokroku brzy přidáme na váš panel."
+    },
+    "loginSuccess": "Welcome back.",
+    "signupSuccess": "Account created. Check your email to confirm."
+  },
+  "onboarding": {
+    "title": "Tell us about your Czech journey",
+    "subtitle": "We use this to match you to the right class and schedule.",
+    "loading": "Loading your profile...",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "Your name",
+    "levelLabel": "Current level",
+    "levelPlaceholder": "Select your level",
+    "levelA1": "A1 - Total beginner",
+    "levelA2": "A2 - Elementary",
+    "levelB1": "B1 - Intermediate",
+    "levelB2": "B2 - Upper intermediate",
+    "goalsLabel": "Goals",
+    "goalsPlaceholder": "What would you love to do in Czech?",
+    "availabilityLabel": "Availability",
+    "availabilityPlaceholder": "Evenings, weekends, etc.",
+    "phoneLabel": "Phone (optional)",
+    "phonePlaceholder": "+420 777 123 456",
+    "saveCta": "Save profile",
+    "saving": "Saving...",
+    "saved": "Profile saved. Next up: payment.",
+    "notAuthenticated": "Please log in first.",
+    "continueToPayment": "Continue to payment"
+  },
+  "checkout": {
+    "title": "Secure your spot",
+    "subtitle": "Complete payment to confirm your seat in the next cohort.",
+    "summary": "Cohort reservation + onboarding support",
+    "price": "€320",
+    "cta": "Pay & reserve my seat",
+    "loading": "Redirecting...",
+    "note": "We use Stripe for secure payments. Receipts are emailed instantly.",
+    "missingConfig": "Stripe is not configured yet. Add env keys first."
   }
 }
