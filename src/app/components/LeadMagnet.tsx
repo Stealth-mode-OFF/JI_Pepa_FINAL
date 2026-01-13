@@ -5,6 +5,7 @@ import { supabase } from "@/utils/supabase/client";
 import { Container, Section } from "./Layout";
 import { CheckIcon, FreeResourceIcon } from "./Icons";
 import { useTranslation } from "react-i18next";
+import { trackEvent } from "@/utils/analytics";
 
 const FeaturePoint = ({ text }: { text: string }) => (
   <div className="flex items-start gap-3">
@@ -23,6 +24,12 @@ export const LeadMagnet = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
+    trackEvent("lead_form_submitted", {
+      source: "lead_magnet",
+      email_domain: email.split("@")[1],
+    });
+    
     try {
       const { error } = await supabase.from("lead_magnet_signups").insert({
         email,
@@ -35,6 +42,7 @@ export const LeadMagnet = () => {
       toast.success(t("leadMagnet.success", "You're in. Check your email for the cheat sheet."));
     } catch (err) {
       console.error(err);
+      trackEvent("lead_form_error", { error: String(err) });
       toast.error(t("leadMagnet.error", "Something went wrong. Please try again."));
     } finally {
       setIsSubmitting(false);
