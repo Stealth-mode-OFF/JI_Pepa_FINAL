@@ -32,23 +32,27 @@ export const Login = () => {
   return (
     <AuthShell
       title={t("auth.login.title", "Sign In")}
-      subtitle={t("auth.login.subtitle", "Access your Czech learning journey")}
+      subtitle={t("auth.login.subtitle", "Welcome back, learner.")}
     >
-      <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("auth.email", "Email")}
+      <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
+        <div className="space-y-2">
+          <label className="font['Inter'] font-bold text-[11px] uppercase tracking-[1px] text-black block">
+            {t("auth.email", "Email Address")}
+          </label>
           <input
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder={t("auth.emailPlaceholder", "your@email.com")}
             required
-            className="w-full h-[52px] border border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+            className="w-full h-[56px] border-2 border-black/30 hover:border-black/60 focus:border-[#FFED00] focus:border-2 px-5 text-[14px] font-['Montserrat'] text-black placeholder-black/40 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#FFED00]/20 bg-white"
           />
-        </label>
+        </div>
 
-        <label className="flex flex-col gap-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
-          {t("auth.password", "Password")}
+        <div className="space-y-2">
+          <label className="font['Inter'] font-bold text-[11px] uppercase tracking-[1px] text-black block">
+            {t("auth.password", "Password")}
+          </label>
           <input
             type="password"
             value={password}
@@ -56,23 +60,31 @@ export const Login = () => {
             placeholder={t("auth.passwordPlaceholder", "Enter your password")}
             required
             minLength={8}
-            className="w-full h-[52px] border border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+            className="w-full h-[56px] border-2 border-black/30 hover:border-black/60 focus:border-[#FFED00] focus:border-2 px-5 text-[14px] font-['Montserrat'] text-black placeholder-black/40 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#FFED00]/20 bg-white"
           />
-        </label>
+        </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-[52px] bg-black text-white font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200 disabled:opacity-50"
+          className="w-full h-[56px] bg-black hover:bg-[#1a1a1a] text-[#FFED00] font-['Inter'] font-bold text-[13px] uppercase tracking-[2px] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed mt-8 border-2 border-black shadow-[6px_6px_0px_0px_rgba(255,237,0,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(255,237,0,0.5)]"
         >
-          {isSubmitting ? t("auth.signing_in", "Signing In...") : t("auth.login.cta", "Sign In")}
+          {isSubmitting ? (
+            <span className="inline-flex items-center gap-2">
+              <span className="animate-spin">⏳</span> {t("auth.signing_in", "Signing In...")}
+            </span>
+          ) : (
+            t("auth.login.cta", "Sign In")
+          )}
         </button>
 
-        <div className="text-center text-[12px] text-[#6a7282] font-['Montserrat'] leading-[18px]">
-          {t("auth.noAccount", "Don't have an account?")}{" "}
-          <a className="underline" href="/signup">
-            {t("auth.signup.cta", "Create Account")}
-          </a>
+        <div className="pt-4 text-center border-t border-black/10">
+          <p className="text-[13px] text-black/70 font-['Montserrat']">
+            {t("auth.noAccount", "Don't have an account?")}{" "}
+            <a className="font-bold text-black hover:text-[#FFED00] transition-colors underline underline-offset-2" href="/signup">
+              {t("auth.signup.cta", "Create one")}
+            </a>
+          </p>
         </div>
       </form>
     </AuthShell>
