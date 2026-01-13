@@ -168,6 +168,50 @@
     "title": "You are in.",
     "subtitle": "We received your payment and will follow up with cohort details.",
     "body": "Check your inbox for the receipt and next steps. If you have any questions, reply to the email or contact us directly.",
-    "cta": "Back to homepage"
+    "cta": "Back to homepage",
+    "pendingTitle": "Payment is pending.",
+    "pendingSubtitle": "We're confirming with your bank. This usually takes under a minute.",
+    "pendingBody": "If this stays pending for a few minutes, reply to the receipt email or contact us and we’ll prioritize your seat.",
+    "pendingCta": "Refresh status",
+    "badgeSuccess": "Payment confirmed",
+    "badgePending": "Payment pending",
+    "timeline": {
+      "paid": "Paid",
+      "confirmed": "Confirmed",
+      "welcome": "Welcome email"
+    }
+  },
+  "dashboard": {
+    "title": "Your student dashboard",
+    "subtitle": "Track onboarding and enrollment status.",
+    "loading": "Loading your dashboard...",
+    "profileLabel": "Profile",
+    "enrollmentLabel": "Enrollment",
+    "fullName": "Name",
+    "level": "Level",
+    "goals": "Goals",
+    "schedule": "Schedule",
+    "course": "Course",
+    "enrollmentStatus": "Status",
+    "paymentStatus": "Payment",
+    "missing": "Missing",
+    "status": {
+      "none": "Not enrolled",
+      "pending": "Pending",
+      "active": "Active",
+      "cancelled": "Cancelled"
+    },
+    "payment": {
+      "paid": "Paid",
+      "initiated": "Initiated",
+      "unpaid": "Unpaid",
+      "expired": "Expired"
+    },
+    "action": {
+      "completeProfile": "Complete your profile",
+      "reserveSeat": "Reserve a seat",
+      "finishPayment": "Finish payment",
+      "contact": "Contact support"
+    }
   }
 }
