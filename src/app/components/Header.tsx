@@ -12,6 +12,7 @@ export const Header = () => {
     { label: t("header.method", "Method"), href: "#method" },
     { label: t("header.courses", "Courses"), href: "#courses" },
     { label: t("header.contact", "Contact"), href: "#contact" },
+    { label: t("header.guide", "Guide"), href: "/cheat-sheet" },
   ];
 
   const languages = ["en", "cs", "uk", "ru", "it"] as const;
