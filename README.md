@@ -16,5 +16,7 @@
   - Supabase Auth: set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` for the student signup/onboarding flow.
   - Supabase tables: run `supabase/schema.sql` in the Supabase SQL editor to create `student_profiles`, `courses`, `cohorts`, `enrollments`, `payments`, and RLS policies.
   - Stripe checkout (optional): set `VITE_STRIPE_PUBLISHABLE_KEY`, `VITE_STRIPE_CHECKOUT_ENDPOINT`, and `VITE_STRIPE_PRICE_ID`.
+  - Stripe Edge Function env (server-side): `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`.
+  - Stripe checkout endpoint: `https://<project>.functions.supabase.co/make-server-342a80aa/stripe/checkout`.
   - Build the site with `npm run build`.
   
