@@ -30,10 +30,10 @@ export const Hero = () => {
               )}
             </p>
             <a
-              href="#courses"
+              href="/signup"
               className="bg-[#FFED00] hover:bg-[#e6d600] focus:bg-[#e6d600] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200 text-black h-[55px] px-[33px] font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] inline-flex items-center justify-center w-fit border border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
-              {t("hero.cta", "View Courses")}
+              {t("hero.cta", "Start Now")}
             </a>
           </div>
         </div>

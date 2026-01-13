@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import { supabase } from "@/utils/supabase/client";
 import { Container, Section } from "./Layout";
 import { CheckIcon, FreeResourceIcon } from "./Icons";
 import { useTranslation } from "react-i18next";
@@ -21,11 +23,22 @@ export const LeadMagnet = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Add your API call here
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const { error } = await supabase.from("lead_magnet_signups").insert({
+        email,
+        source: "lead_magnet",
+      });
+      if (error) {
+        throw error;
+      }
       setEmail("");
-    }, 1000);
+      toast.success(t("leadMagnet.success", "You're in. Check your email for the cheat sheet."));
+    } catch (err) {
+      console.error(err);
+      toast.error(t("leadMagnet.error", "Something went wrong. Please try again."));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const features = [
