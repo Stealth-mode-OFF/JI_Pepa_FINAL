@@ -6,6 +6,10 @@ import uk from '../locales/uk.json';
 import ru from '../locales/ru.json';
 import it from '../locales/it.json';
 
+const storedLanguage = typeof window !== 'undefined'
+  ? window.localStorage.getItem('site_lang')
+  : null;
+
 i18n.use(initReactI18next).init({
     resources: {
       en: { translation: en },
@@ -14,7 +18,7 @@ i18n.use(initReactI18next).init({
       ru: { translation: ru },
       it: { translation: it },
     },
-    lng: 'en',
+    lng: storedLanguage || 'en',
     fallbackLng: 'en',
     interpolation: { escapeValue: false },
     react: { useSuspense: false }
