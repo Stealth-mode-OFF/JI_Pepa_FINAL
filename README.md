@@ -20,4 +20,9 @@
   - Stripe checkout endpoint: `https://<project>.functions.supabase.co/make-server-342a80aa/stripe/checkout`.
   - Courses/cohorts: seed `courses` and `cohorts` so the CourseList can display live data. If no cohort is selected, checkout falls back to `VITE_DEFAULT_COHORT_ID`.
   - Build the site with `npm run build`.
+
+## Testing
+
+- Run unit tests: `npm run test:unit`
+- Watch mode: `npm run test:watch`
   
