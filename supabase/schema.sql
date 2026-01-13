@@ -14,6 +14,18 @@ create table if not exists public.student_profiles (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists public.student_onboarding (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  level text,
+  goals text[],
+  life_situation text,
+  availability_slots text[],
+  time_preference text,
+  completed_at timestamptz,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
 create table if not exists public.courses (
   id uuid primary key default gen_random_uuid(),
   title text not null,
@@ -74,7 +86,13 @@ create trigger trg_student_profiles_updated_at
 before update on public.student_profiles
 for each row execute function public.set_updated_at();
 
+drop trigger if exists trg_student_onboarding_updated_at on public.student_onboarding;
+create trigger trg_student_onboarding_updated_at
+before update on public.student_onboarding
+for each row execute function public.set_updated_at();
+
 alter table public.student_profiles enable row level security;
+alter table public.student_onboarding enable row level security;
 alter table public.courses enable row level security;
 alter table public.cohorts enable row level security;
 alter table public.enrollments enable row level security;
@@ -96,6 +114,24 @@ with check (auth.uid() = user_id);
 drop policy if exists "profiles_update_own" on public.student_profiles;
 create policy "profiles_update_own"
 on public.student_profiles for update
+to authenticated
+using (auth.uid() = user_id);
+
+drop policy if exists "onboarding_select_own" on public.student_onboarding;
+create policy "onboarding_select_own"
+on public.student_onboarding for select
+to authenticated
+using (auth.uid() = user_id);
+
+drop policy if exists "onboarding_upsert_own" on public.student_onboarding;
+create policy "onboarding_upsert_own"
+on public.student_onboarding for insert
+to authenticated
+with check (auth.uid() = user_id);
+
+drop policy if exists "onboarding_update_own" on public.student_onboarding;
+create policy "onboarding_update_own"
+on public.student_onboarding for update
 to authenticated
 using (auth.uid() = user_id);
 
