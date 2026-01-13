@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { Container, Section } from "./Layout";
 import { ArrowRightIcon } from "./Icons";
+import { useTranslation } from "react-i18next";
 
 const CourseRow = ({ 
   level, 
@@ -41,44 +42,59 @@ const CourseRow = ({
 );
 
 export const CourseList = () => {
+  const { t } = useTranslation();
+  const rows = [
+    {
+      level: "A1",
+      levelDesc: t("courseList.rows.0.levelDesc", "Total Beginner"),
+      dates: t("courseList.rows.0.dates", "Feb 17 - Apr 20"),
+      time: t("courseList.rows.0.time", "Mon/Wed 18:00"),
+      status: t("courseList.rows.0.status", "3 Spots Left"),
+      statusColor: "text-green-600",
+    },
+    {
+      level: "A2",
+      levelDesc: t("courseList.rows.1.levelDesc", "Elementary"),
+      dates: t("courseList.rows.1.dates", "Feb 18 - Apr 21"),
+      time: t("courseList.rows.1.time", "Tue/Thu 18:00"),
+      status: t("courseList.rows.1.status", "Waitlist Only"),
+      statusColor: "text-gray-400",
+    },
+    {
+      level: "B1",
+      levelDesc: t("courseList.rows.2.levelDesc", "Intermediate"),
+      dates: t("courseList.rows.2.dates", "Mar 01 - May 15"),
+      time: t("courseList.rows.2.time", "Mon/Wed 19:30"),
+      status: t("courseList.rows.2.status", "Open"),
+      statusColor: "text-black",
+    },
+  ];
+
   return (
     <Section className="bg-white" id="courses">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <h2 className="font-['Montserrat'] font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-[36px] tracking-[-0.5px] max-w-xs">
-            UPCOMING INTAKE
+            {t("courseList.title", "UPCOMING INTAKE")}
           </h2>
           <div className="font-['Montserrat'] text-[#6a7282] text-[14px] leading-[21px] max-w-sm">
-            <p>Small groups (max 6). Personal attention.</p>
-            <p>Curriculum designed for rapid daily application.</p>
+            <p>{t("courseList.introLine1", "Small groups (max 6). Personal attention.")}</p>
+            <p>{t("courseList.introLine2", "Curriculum designed for rapid daily application.")}</p>
           </div>
         </div>
         
         <div className="border-t border-black">
-          <CourseRow 
-            level="A1" 
-            levelDesc="Total Beginner" 
-            dates="Feb 17 - Apr 20" 
-            time="Mon/Wed 18:00" 
-            status="3 Spots Left"
-            statusColor="text-green-600"
-          />
-          <CourseRow 
-            level="A2" 
-            levelDesc="Elementary" 
-            dates="Feb 18 - Apr 21" 
-            time="Tue/Thu 18:00" 
-            status="Waitlist Only"
-            statusColor="text-gray-400"
-          />
-          <CourseRow 
-            level="B1" 
-            levelDesc="Intermediate" 
-            dates="Mar 01 - May 15" 
-            time="Mon/Wed 19:30" 
-            status="Open"
-            statusColor="text-black"
-          />
+          {rows.map((row) => (
+            <CourseRow
+              key={`${row.level}-${row.dates}`}
+              level={row.level}
+              levelDesc={row.levelDesc}
+              dates={row.dates}
+              time={row.time}
+              status={row.status}
+              statusColor={row.statusColor}
+            />
+          ))}
         </div>
         
         <div className="mt-12 flex justify-center md:justify-end">
@@ -86,7 +102,7 @@ export const CourseList = () => {
             href="mailto:jazykaintegrace@gmail.com?subject=Private%20Czech%20Classes"
             className="inline-flex items-center gap-2 border-b border-black pb-1 hover:text-gray-600 transition-colors font-['Inter'] font-bold text-[14px] leading-[21px] uppercase tracking-[1.2496px]"
           >
-            <span>Request Private Classes</span>
+            <span>{t("courseList.cta", "Request Private Classes")}</span>
           </a>
         </div>
       </Container>
