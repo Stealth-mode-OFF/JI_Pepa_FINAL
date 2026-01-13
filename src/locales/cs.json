@@ -3,7 +3,8 @@
     "method": "Metodologie",
     "courses": "Kurzy",
     "contact": "Kontakt",
-    "login": "Student Login"
+    "login": "Student Login",
+    "guide": "Průvodce"
   },
   "hero": {
     "line1": "ŽIJEŠ",
@@ -51,7 +52,11 @@
     "emailPlaceholder": "jmeno@spolecnost.cz",
     "cta": "Stáhnout Cheat Sheet",
     "submitting": "Načítání...",
-    "privacy": "Respektujeme vaši schránku. Odhlásit se kdykoliv."
+    "privacy": "Respektujeme vaši schránku. Odhlásit se kdykoliv.",
+    "cheatSheetTitle": "Prefer instant access?",
+    "cheatSheetBody": "Open the free cheat sheet now and start using the phrases today.",
+    "cheatSheetCta": "View Cheat Sheet",
+    "cheatSheetNote": "No email required for the preview."
   },
   "courseList": {
     "title": "NADCHÁZEJÍCÍ ZAČÁTKY",
@@ -88,7 +93,10 @@
     "selected": "Selected",
     "dateTbd": "Dates TBD",
     "timeTbd": "Schedule TBD",
-    "levelFallback": "Czech Cohort"
+    "levelFallback": "Czech Cohort",
+    "enrollCta": "Start enrollment",
+    "enrollCtaSelected": "Continue with selected cohort",
+    "selectHint": "Select a cohort to speed up checkout."
   },
   "auth": {
     "email": "Email",
@@ -341,5 +349,49 @@
         "a": "We offer a full refund within 7 days before the cohort starts."
       }
     ]
+  },
+  "cheatSheet": {
+    "title": "Natural Czech Cheat Sheet",
+    "subtitle": "50 Essential Phrases Locals Actually Use",
+    "tagline": "Stop sounding like a textbook. Start sounding like you live here.",
+    "downloadCta": "📥 Download as PDF",
+    "introTitle": "Why You Need This",
+    "introBold": "Grammar tables won't help you at the pub.",
+    "introBody1": "This cheat sheet gives you the phrases Czechs use every single day—the ones that make you sound natural, not like you're reading from a language app.",
+    "introBody2": "Master these 50 phrases and you'll handle small talk, soften requests, fill awkward pauses, and actually understand what people say on the street.",
+    "proTipLabel": "💡 Pro Tip:",
+    "proTipBody": "Don't try to memorize all 50 at once. Pick 5-10 phrases that fit situations you encounter daily. Use them until they feel automatic, then add more. The goal isn't perfection—it's sounding natural and feeling confident in real conversations.",
+    "footerTitle": "Want to sound even more natural?",
+    "footerBody": "This cheat sheet is just the beginning. Our courses teach you how to actually USE these phrases in real conversations, understand responses, and build genuine fluency.",
+    "footerCta": "Explore Our Courses",
+    "sections": {
+      "conversation": {
+        "title": "Conversation Starters & Small Talk"
+      },
+      "polite": {
+        "title": "Softening Requests (Be Polite, Not Pushy)"
+      },
+      "fillers": {
+        "title": "Filling Pauses & Thinking Out Loud"
+      },
+      "reactions": {
+        "title": "Reacting & Expressing Emotion"
+      },
+      "pub": {
+        "title": "At the Pub, Restaurant, or Shop"
+      },
+      "practical": {
+        "title": "Getting Around & Practical Phrases"
+      },
+      "street": {
+        "title": "Understanding Street Czech"
+      },
+      "plans": {
+        "title": "Agreements & Plans"
+      },
+      "goodbyes": {
+        "title": "Closing & Goodbyes"
+      }
+    }
   }
 }

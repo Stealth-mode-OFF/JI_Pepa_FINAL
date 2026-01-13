@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Section } from "./Layout";
 import { CheckIcon, FreeResourceIcon } from "./Icons";
 import { useTranslation } from "react-i18next";
@@ -103,6 +104,31 @@ export const LeadMagnet = () => {
                 {t("leadMagnet.privacy", "We respect your inbox. Unsubscribe at any time.")}
               </p>
             </form>
+
+            <div className="border-t border-black/10 mt-8 pt-8 flex flex-col gap-4">
+              <div className="space-y-2">
+                <h3 className="font-['Montserrat'] font-bold text-[20px] text-black">
+                  {t("leadMagnet.cheatSheetTitle", "Prefer instant access?")}
+                </h3>
+                <p className="font-['Inter'] text-[14px] text-black/70">
+                  {t(
+                    "leadMagnet.cheatSheetBody",
+                    "Open the free cheat sheet now and start using the phrases today.",
+                  )}
+                </p>
+              </div>
+              
+              <Link 
+                to="/cheat-sheet"
+                className="w-full h-[52px] bg-white text-black border border-black font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200 shadow-[4px_4px_0_0_rgba(0,0,0,1)] flex items-center justify-center"
+              >
+                {t("leadMagnet.cheatSheetCta", "View Cheat Sheet")}
+              </Link>
+              
+              <p className="text-center text-[12px] text-gray-500 font-['Montserrat'] leading-[18px]">
+                {t("leadMagnet.cheatSheetNote", "No email required for the preview.")}
+              </p>
+            </div>
           </div>
         </div>
       </Container>
