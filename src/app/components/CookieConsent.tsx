@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./Layout";
-import clsx from "clsx";
 
-export const CookieConsent = ({ onOpenLegal }: { onOpenLegal?: (section: 'privacy' | 'terms') => void }) => {
+export const CookieConsent = ({
+  onOpenLegal,
+}: {
+  onOpenLegal?: (section: 'privacy' | 'terms' | 'cookies' | 'accessibility') => void;
+}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -27,30 +30,42 @@ export const CookieConsent = ({ onOpenLegal }: { onOpenLegal?: (section: 'privac
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-black p-6 shadow-2xl z-50 transform translate-y-0 transition-transform">
       <Container>
-         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2">
-               <h4 className="font-['Montserrat'] font-bold text-xs uppercase tracking-widest">Cookies & Privacy</h4>
-               <p className="font-['Montserrat'] text-sm text-gray-600">
+         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-[663px]">
+               <h4 className="font-['Montserrat'] font-bold text-[12px] leading-[18px] uppercase tracking-[0.6px]">Cookies & Privacy</h4>
+               <p className="font-['Montserrat'] text-[13px] leading-[21.125px] text-[#4a5565]">
                  We use cookies to improve the site and analyze traffic. Some are essential, others optional.
                  <button 
-                   onClick={() => onOpenLegal?.('privacy')}
-                   className="ml-2 underline text-gray-800 hover:text-black"
+                   type="button"
+                   onClick={() => onOpenLegal?.('cookies')}
+                   className="ml-2 underline text-[#4a5565] hover:text-black transition-colors"
                  >
                    Read Policy
                  </button>
                </p>
             </div>
-            <div className="flex items-center gap-3">
-               <button className="px-4 py-2 font-['Montserrat'] font-bold text-[11px] uppercase tracking-widest text-gray-500 hover:text-black">Settings</button>
+            <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 w-full md:w-auto">
+               <button
+                 type="button"
+                 onClick={() => onOpenLegal?.('cookies')}
+                 className="px-4 h-[40.5px] font-['Montserrat'] font-bold text-[11px] leading-[16.5px] uppercase tracking-[1.1px] text-[#6a7282] hover:text-black focus:text-black focus:outline-none focus:underline transition-colors"
+                 aria-label="Cookie settings"
+               >
+                 Settings
+               </button>
                <button 
+                 type="button"
                  onClick={handleReject}
-                 className="px-6 py-3 border border-gray-200 font-['Montserrat'] font-bold text-[11px] uppercase tracking-widest hover:border-black transition-colors"
+                 className="px-6 h-[42.5px] border border-[#e5e7eb] font-['Montserrat'] font-bold text-[11px] leading-[16.5px] uppercase tracking-[1.1px] hover:border-black focus:border-black focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors"
+                 aria-label="Reject optional cookies"
                >
                  Reject Optional
                </button>
                <button 
+                 type="button"
                  onClick={handleAccept}
-                 className="px-6 py-3 bg-black text-white font-['Montserrat'] font-bold text-[11px] uppercase tracking-widest hover:bg-gray-800 shadow-lg"
+                 className="px-6 h-[42.5px] bg-black text-white font-['Montserrat'] font-bold text-[11px] leading-[16.5px] uppercase tracking-[1.1px] hover:bg-gray-800 focus:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 transition-colors shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)]"
+                 aria-label="Accept all cookies"
                >
                  Accept All
                </button>
