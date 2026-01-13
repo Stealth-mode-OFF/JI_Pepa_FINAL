@@ -1,102 +1,73 @@
 {
   "header": {
-    "method": "Metodo",
+    "method": "Metodologia",
     "courses": "Corsi",
-    "contact": "Contatto",
-    "logoAlt": "Logo di Jazyk a Integrace",
-    "primaryNavAria": "Principale",
-    "languageMenuLabel": "Cambia lingua. Lingua corrente: {{language}}",
-    "languages": {
-      "en": "Inglese",
-      "cs": "Ceco",
-      "uk": "Ucraino",
-      "ru": "Russo",
-      "it": "Italiano"
-    }
+    "contact": "Contatto"
   },
   "hero": {
     "line1": "VIVI",
     "line2": "A PRAGA.",
     "line3": "PARLA COME UN LOCALE.",
-    "subtitle": "Integrazione linguistica per professionisti stanchi di essere trattati da turisti nella propria città.",
-    "cta": "Vedi i corsi",
-    "stats": {
+    "subtitle": "Integrazione linguistica per professionisti stanchi di essere trattati come turisti nella loro stessa città.",
+    "cta": "Visualizza i corsi",
+    "meta": {
       "established": "Dal 2012",
       "location": "Praga, CZ",
       "levels": "Livelli A1 — B2"
-    },
-    "scrollLabel": "Scorri al metodo"
-  },
-  "philosophy": {
-    "eyebrow": "La metodologia",
-    "titleLine1": "Il manuale",
-    "titleLine2": "non basta.",
-    "body": "La maggior parte dei corsi ti insegna a superare un esame. Noi ti insegniamo a gestire una visita medica, discutere con un proprietario e fare amicizia al bar.",
-    "items": [
-      {
-        "title": "Contesto prima della grammatica",
-        "text": "Non facciamo solo esercizi sui casi. Simuliamo situazioni reali—burocrazia, visite mediche, eventi sociali—così sei pronto quando accadono davvero."
-      },
-      {
-        "title": "Fluidità culturale",
-        "text": "Parlare ceco non significa solo conoscere le parole. Significa capire le regole non scritte della società. Quando essere formali, quando rispondere, quando scherzare."
-      },
-      {
-        "title": "Comunità al primo posto",
-        "text": "L'isolamento è il nemico dell'integrazione. I nostri studenti diventano una rete. Organizziamo escursioni, caffè ed eventi per tenerti connesso."
-      }
-    ]
-  },
-  "leadMagnet": {
-    "badge": "Risorsa gratuita",
-    "titleLine1": "BASTA SUONARE",
-    "titleLine2": "COME UN MANUALE.",
-    "description1": "La maggior parte dei corsi insegna tabelle di grammatica. I locali non parlano per tabelle.",
-    "description2": "Scarica il nostro <strong>\"Cheat Sheet di Ceco Naturale\"</strong>: 50 frasi essenziali per ammorbidire le richieste, riempire le pause e sembrare davvero del posto.",
-    "features": [
-      "Gestisci il small talk con sicurezza",
-      "Capisci il ceco colloquiale",
-      "Evita silenzi imbarazzanti"
-    ],
-    "featuresFallback": [
-      "Gestisci il small talk con sicurezza",
-      "Capisci il ceco colloquiale",
-      "Evita silenzi imbarazzanti"
-    ],
-    "form": {
-      "label": "Email di lavoro",
-      "placeholder": "name@company.com",
-      "sending": "Invio...",
-      "submit": "Ottieni il cheat sheet",
-      "disclaimer": "Rispettiamo la tua casella. Puoi annullare in qualsiasi momento."
-    },
-    "toasts": {
-      "invalidEmail": "Inserisci un'email valida.",
-      "success": "Grazie! Controlla la tua casella per il cheat sheet.",
-      "fallback": "Bozza email aperta. Invia per ricevere il cheat sheet.",
-      "error": "Qualcosa è andato storto. Riprova o scrivici."
-    },
-    "mailto": {
-      "subject": "Cheat Sheet di Ceco Naturale",
-      "body": "Per favore invia il cheat sheet a {{email}}"
     }
   },
+  "philosophy": {
+    "label": "La Nostra Metodologia",
+    "title": "Il libro di testo",
+    "titleCont": "non è sufficiente.",
+    "intro": "La maggior parte dei corsi ti insegna come superare un esame. Noi ti insegniamo come affrontare una visita dal medico, discutere con il padrone di casa e fare amicizie al bar.",
+    "item1": {
+      "title": "Contesto Sulla Grammatica",
+      "text": "Non facciamo solo esercizi. Simuliamo scenari della vita reale—burocrazia, visite mediche, eventi sociali—così sei pronto quando succede davvero."
+    },
+    "item2": {
+      "title": "Fluidità Culturale",
+      "text": "Parlare il ceco non è solo questione di parole. È sapere le regole non scritte della società. Quando essere formale, quando opporsi e quando scherzare."
+    },
+    "item3": {
+      "title": "Comunità Prima",
+      "text": "L'isolamento è nemico dell'integrazione. I nostri studenti diventano una rete. Organizziamo passeggiate, caffè e eventi per tenerti connesso."
+    }
+  },
+  "leadMagnet": {
+    "badge": "Risorsa Gratuita",
+    "title1": "SMETTI",
+    "title2": "DI SUONARE",
+    "title3": "COME UN LIBRO DI TESTO.",
+    "description1": "La maggior parte dei corsi insegna tabelle grammaticali. I locali non parlano nelle tabelle.",
+    "description2": "Scarica il nostro ",
+    "sheetName": "\"Natural Czech Cheat Sheet\"",
+    "description3": ": 50 frasi essenziali per attenuare le richieste, riempire le pause e suonare come se vivessi davvero qui.",
+    "feature1": "Affronta le conversazioni ordinarie con fiducia",
+    "feature2": "Comprendi il ceco \"da strada\" informale",
+    "feature3": "Evita i silenzi imbarazzanti",
+    "emailLabel": "Email di Lavoro",
+    "emailPlaceholder": "nome@azienda.it",
+    "cta": "Scarica il Cheat Sheet",
+    "submitting": "Caricamento...",
+    "privacy": "Rispettiamo la tua casella di posta. Annulla l'iscrizione in qualsiasi momento."
+  },
   "courseList": {
-    "title": "PROSSIMA SESSIONE",
-    "introLine1": "Gruppi piccoli (max 6). Attenzione personale.",
-    "introLine2": "Programma pensato per un uso quotidiano rapido.",
+    "title": "PROSSIME DATE DI INIZIO",
+    "introLine1": "Piccoli gruppi (massimo 6). Attenzione personalizzata.",
+    "introLine2": "Curriculum progettato per un'applicazione rapida nella vita quotidiana.",
     "rows": [
       {
-        "levelDesc": "Principiante assoluto",
+        "levelDesc": "Principiante Assoluto",
         "dates": "17 feb - 20 apr",
         "time": "Lun/Mer 18:00",
-        "status": "3 posti disponibili"
+        "status": "3 Posti Rimasti"
       },
       {
         "levelDesc": "Elementare",
         "dates": "18 feb - 21 apr",
         "time": "Mar/Gio 18:00",
-        "status": "Solo lista d'attesa"
+        "status": "Solo Lista di Attesa"
       },
       {
         "levelDesc": "Intermedio",
@@ -105,264 +76,6 @@
         "status": "Aperto"
       }
     ],
-    "cta": "Richiedi lezioni private"
-  },
-  "footer": {
-    "titleLine1": "PRONTO A",
-    "titleLine2": "INTEGRARTI?",
-    "community": {
-      "title": "Unisciti alla community"
-    },
-    "social": {
-      "instagram": {
-        "label": "Instagram",
-        "desc": "— Micro-lezioni quotidiane"
-      },
-      "facebook": {
-        "label": "Facebook",
-        "desc": "— Storie di successo degli studenti"
-      },
-      "vk": {
-        "label": "VKontakte",
-        "desc": "— Hub di networking degli studenti"
-      },
-      "whatsapp": {
-        "label": "WhatsApp",
-        "desc": "— Risposte rapide e supporto"
-      }
-    },
-    "legal": {
-      "terms": "Termini e condizioni",
-      "privacy": "Informativa sulla privacy",
-      "cookies": "Cookie policy",
-      "accessibility": "Accessibilità"
-    },
-    "company": {
-      "name": "JAZYK A INTEGRACE S.R.O.",
-      "id": "IČO: 23812036",
-      "register": "Sp. zn. C 433136 vedená u Městského soudu v Praze",
-      "address": "Černomořská 384/9, Praha 10"
-    },
-    "rights": "© {{year}} Tutti i diritti riservati"
-  },
-  "cookieConsent": {
-    "title": "Cookie e privacy",
-    "description": "Utilizziamo cookie per migliorare il sito e analizzare il traffico. Alcuni sono essenziali, altri facoltativi.",
-    "readPolicy": "Leggi la policy",
-    "settings": "Impostazioni",
-    "reject": "Rifiuta facoltativi",
-    "accept": "Accetta tutto",
-    "aria": {
-      "settings": "Impostazioni cookie",
-      "reject": "Rifiuta cookie facoltativi",
-      "accept": "Accetta tutti i cookie"
-    }
-  },
-  "legal": {
-    "titleFallback": "Legale",
-    "closeLabel": "Chiudi",
-    "updatedFallback": "Ultimo aggiornamento",
-    "privacy": {
-      "title": "Informativa sulla privacy",
-      "updated": "Ultimo aggiornamento: 2026-01-12",
-      "sections": [
-        {
-          "heading": "Titolare del trattamento",
-          "paragraphs": [
-            "Jazyk a Integrace s.r.o., IČO: 23812036, Černomořská 384/9, Praha 10.",
-            "Registrata presso Sp. zn. C 433136 vedená u Městského soudu v Praze.",
-            "Contatto: jazykaintegrace@gmail.com, +420 601 177 208."
-          ]
-        },
-        {
-          "heading": "Dati personali trattati",
-          "paragraphs": [
-            "Trattiamo solo i dati che fornisci o necessari per erogare i nostri servizi."
-          ],
-          "list": [
-            "Dati di contatto (nome, email, telefono).",
-            "Interessi sui corsi, presenze e messaggi che ci invii.",
-            "Dati di fatturazione e pagamento per gli studenti iscritti.",
-            "Dati tecnici come indirizzo IP, tipo di dispositivo e stato del consenso."
-          ]
-        },
-        {
-          "heading": "Basi giuridiche (GDPR)",
-          "paragraphs": [
-            "Ci basiamo sulle seguenti basi giuridiche ai sensi del GDPR:"
-          ],
-          "list": [
-            "Esecuzione del contratto quando ti iscrivi a un corso.",
-            "Consenso quando richiedi una risorsa gratuita o aggiornamenti.",
-            "Legittimo interesse per proteggere e migliorare il sito.",
-            "Obbligo legale per registri contabili e fiscali."
-          ]
-        },
-        {
-          "heading": "Come utilizziamo i dati",
-          "paragraphs": [
-            "Utilizziamo i tuoi dati per fornire e migliorare i servizi."
-          ],
-          "list": [
-            "Rispondere alle richieste e inviare le risorse richieste.",
-            "Gestire iscrizioni, presenze e svolgimento dei corsi.",
-            "Inviare aggiornamenti solo se hai dato il consenso.",
-            "Prevenire abusi, garantire sicurezza e migliorare le prestazioni."
-          ]
-        },
-        {
-          "heading": "Cookie e archiviazione locale",
-          "paragraphs": [
-            "Utilizziamo cookie essenziali e archiviazione locale per ricordare il consenso e le preferenze linguistiche."
-          ],
-          "list": [
-            "Essenziali: necessari per il funzionamento del sito e le preferenze di consenso.",
-            "Analitici: utilizzati solo con consenso esplicito.",
-            "Marketing: non utilizzati."
-          ]
-        },
-        {
-          "heading": "Condivisione e responsabili",
-          "paragraphs": [
-            "Non vendiamo dati personali. Possiamo condividerli con fornitori fidati che ci aiutano a gestire il sito e i servizi (email, moduli, pagamenti, hosting).",
-            "Questi fornitori trattano i dati in base a contratti e solo per le finalità che definiamo."
-          ]
-        },
-        {
-          "heading": "Conservazione",
-          "paragraphs": [
-            "I dati delle richieste vengono conservati fino a 24 mesi salvo richiesta di cancellazione.",
-            "I dati dei corsi e di fatturazione sono conservati secondo la legge applicabile."
-          ]
-        },
-        {
-          "heading": "I tuoi diritti",
-          "paragraphs": [
-            "Puoi richiedere accesso, rettifica, cancellazione, limitazione, portabilità o opposizione al trattamento.",
-            "Puoi revocare il consenso in qualsiasi momento e presentare reclamo all'autorità di protezione dati ceca (UOOU)."
-          ]
-        }
-      ]
-    },
-    "terms": {
-      "title": "Termini e condizioni",
-      "updated": "Ultimo aggiornamento: 2026-01-12",
-      "sections": [
-        {
-          "heading": "Dati societari",
-          "paragraphs": [
-            "Jazyk a Integrace s.r.o., IČO: 23812036.",
-            "Sede legale: Černomořská 384/9, Praha 10.",
-            "Registro imprese: Sp. zn. C 433136 vedená u Městského soudu v Praze.",
-            "Contatto: jazykaintegrace@gmail.com, +420 601 177 208."
-          ]
-        },
-        {
-          "heading": "Uso del sito",
-          "paragraphs": [
-            "Usando questo sito accetti di non abusarne o tentare di interromperne il funzionamento.",
-            "Possiamo aggiornare o modificare contenuti e disponibilità in qualsiasi momento."
-          ]
-        },
-        {
-          "heading": "Iscrizione ai corsi",
-          "paragraphs": [
-            "Dettagli, prezzi e orari dei corsi sono confermati nella tua iscrizione o fattura.",
-            "Un posto in un corso è riservato dopo il pagamento salvo diversa indicazione."
-          ]
-        },
-        {
-          "heading": "Cancellazioni e modifiche",
-          "paragraphs": [
-            "Se devi cancellare o spostare, contattaci il prima possibile. Cercheremo di accomodare le modifiche in base alla disponibilità.",
-            "Le condizioni specifiche di rimborso o trasferimento sono indicate nella conferma di iscrizione."
-          ]
-        },
-        {
-          "heading": "Materiali e proprietà intellettuale",
-          "paragraphs": [
-            "Tutti i materiali e contenuti del sito sono di proprietà di Jazyk a Integrace s.r.o. salvo diversa indicazione.",
-            "Non puoi copiare, rivendere o distribuire i materiali senza autorizzazione scritta."
-          ]
-        },
-        {
-          "heading": "Responsabilità",
-          "paragraphs": [
-            "Ci impegniamo a fornire informazioni accurate, ma il sito e i servizi sono forniti \"così come sono\" senza garanzie.",
-            "Nei limiti di legge, non siamo responsabili per danni indiretti o consequenziali."
-          ]
-        },
-        {
-          "heading": "Legge applicabile",
-          "paragraphs": [
-            "Questi termini sono regolati dalle leggi della Repubblica Ceca."
-          ]
-        }
-      ]
-    },
-    "cookies": {
-      "title": "Cookie policy",
-      "updated": "Ultimo aggiornamento: 2026-01-12",
-      "sections": [
-        {
-          "heading": "Cosa sono i cookie",
-          "paragraphs": [
-            "I cookie sono piccoli file di testo salvati sul tuo dispositivo per far funzionare il sito e migliorare l'esperienza."
-          ]
-        },
-        {
-          "heading": "Cookie che utilizziamo",
-          "paragraphs": [
-            "Usiamo il minimo indispensabile e ci basiamo sui cookie essenziali di default."
-          ],
-          "list": [
-            "Cookie essenziali: necessari per le funzioni di base e le preferenze di consenso.",
-            "Preferenze: ricordano la lingua selezionata.",
-            "Cookie analitici: usati solo con consenso esplicito.",
-            "Cookie marketing: non utilizzati."
-          ]
-        },
-        {
-          "heading": "Gestione dei cookie",
-          "paragraphs": [
-            "Puoi cambiare le preferenze dal banner dei cookie o dalle impostazioni del browser.",
-            "Bloccare i cookie essenziali può compromettere il funzionamento del sito."
-          ]
-        },
-        {
-          "heading": "Conservazione",
-          "paragraphs": [
-            "I cookie di consenso e preferenze sono conservati fino a 12 mesi salvo cancellazione anticipata."
-          ]
-        }
-      ]
-    },
-    "accessibility": {
-      "title": "Dichiarazione di accessibilità",
-      "updated": "Ultimo aggiornamento: 2026-01-12",
-      "sections": [
-        {
-          "heading": "Il nostro impegno",
-          "paragraphs": [
-            "Ci impegniamo a rendere questo sito accessibile al maggior numero di persone possibile, indipendentemente dalle abilità.",
-            "Puntiamo a seguire le linee guida WCAG 2.1 AA e a migliorare continuamente l'usabilità."
-          ]
-        },
-        {
-          "heading": "Feedback",
-          "paragraphs": [
-            "Se riscontri problemi di accessibilità o hai bisogno di assistenza, contattaci a jazykaintegrace@gmail.com.",
-            "Faremo del nostro meglio per rispondere rapidamente e offrire un'alternativa per accedere alle informazioni."
-          ]
-        }
-      ]
-    }
-  },
-  "seo": {
-    "title": "Corsi di ceco online per expat a Praga | Jazyk a Integrace",
-    "description": "Corsi di ceco online a Praga per expat, con supporto per parlanti ucraini. Piccoli gruppi, focus pratico, livelli A1-B2.",
-    "keywords": "corsi di ceco online, lezioni di ceco Praga, ceco per expat, ucraini a Praga, scuola di lingua ceca, A1 B2 ceco",
-    "siteName": "Jazyk a Integrace",
-    "audience": "Expat a Praga, soprattutto ucraini"
+    "cta": "Richiedi Lezioni Private"
   }
 }

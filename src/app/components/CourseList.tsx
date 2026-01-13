@@ -19,22 +19,22 @@ const CourseRow = ({
   status: React.ReactNode;
   statusColor?: string;
 }) => (
-  <div className="flex flex-col md:flex-row md:items-center justify-between py-6 border-b border-black gap-6 md:gap-0 group hover:bg-gray-50 transition-colors px-0">
-    <div className="flex items-start gap-8 w-full md:w-1/3">
-      <span className="font-['Montserrat'] font-bold text-[24px] leading-[36px] min-w-[48px]">{level}</span>
-      <span className="font-['Montserrat'] font-medium text-[18px] leading-[27px] text-[#4a5565]">{levelDesc}</span>
+  <div className="flex flex-col md:flex-row md:items-center justify-between py-8 md:py-6 border-b border-black gap-6 md:gap-4 group hover:bg-gray-50/50 transition-colors px-0">
+    <div className="flex items-start md:items-center gap-8 md:gap-12 w-full md:w-1/3">
+      <span className="font-['Montserrat'] font-bold text-[32px] md:text-[24px] leading-[36px] w-12 shrink-0">{level}</span>
+      <span className="font-['Montserrat'] font-medium text-[18px] md:text-[14px] leading-[27px] md:leading-[21px] text-gray-600">{levelDesc}</span>
     </div>
     
-    <div className="flex flex-col md:flex-row gap-2 md:gap-12 w-full md:w-1/3 text-[#6a7282] font-['Montserrat'] text-[14px] leading-[21px]">
-      <span>{dates}</span>
-      <span>{time}</span>
+    <div className="flex flex-col md:flex-row gap-4 md:gap-12 w-full md:w-1/3 text-[#6a7282] font-['Montserrat'] text-[14px] leading-[21px]">
+      <span className="min-w-max">{dates}</span>
+      <span className="min-w-max">{time}</span>
     </div>
     
     <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-1/3">
-      <div className={clsx("font-['Montserrat'] font-bold text-[14px] leading-[21px]", statusColor)}>
+      <div className={clsx("font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]", statusColor)}>
         {status}
       </div>
-      <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
         <ArrowRightIcon />
       </div>
     </div>
@@ -43,6 +43,7 @@ const CourseRow = ({
 
 export const CourseList = () => {
   const { t } = useTranslation();
+  
   const rows = [
     {
       level: "A1",
@@ -71,13 +72,13 @@ export const CourseList = () => {
   ];
 
   return (
-    <Section className="bg-white" id="courses">
+    <Section className="bg-white border-t border-black" id="courses">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <h2 className="font-['Montserrat'] font-bold text-[20px] sm:text-[22px] md:text-[24px] leading-[36px] tracking-[-0.5px] max-w-xs">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+          <h2 className="font-['Montserrat'] font-bold text-[48px] md:text-[64px] leading-[1.1] tracking-[-2px] max-w-sm">
             {t("courseList.title", "UPCOMING INTAKE")}
           </h2>
-          <div className="font-['Montserrat'] text-[#6a7282] text-[14px] leading-[21px] max-w-sm">
+          <div className="font-['Montserrat'] text-[#6a7282] text-[14px] leading-[21px] max-w-sm space-y-1">
             <p>{t("courseList.introLine1", "Small groups (max 6). Personal attention.")}</p>
             <p>{t("courseList.introLine2", "Curriculum designed for rapid daily application.")}</p>
           </div>
@@ -97,10 +98,10 @@ export const CourseList = () => {
           ))}
         </div>
         
-        <div className="mt-12 flex justify-center md:justify-end">
+        <div className="mt-12 flex justify-center md:justify-end pt-8">
           <a
             href="mailto:jazykaintegrace@gmail.com?subject=Private%20Czech%20Classes"
-            className="inline-flex items-center gap-2 border-b border-black pb-1 hover:text-gray-600 transition-colors font-['Inter'] font-bold text-[14px] leading-[21px] uppercase tracking-[1.2496px]"
+            className="inline-flex items-center gap-2 border-b border-black pb-2 hover:text-gray-600 transition-colors font-['Inter'] font-bold text-[14px] leading-[21px] uppercase tracking-[1.2496px]"
           >
             <span>{t("courseList.cta", "Request Private Classes")}</span>
           </a>
