@@ -28,8 +28,14 @@ export const CheckIcon = () => (
   </svg>
 );
 
-export const FlagIcon = () => (
-  <div className="relative w-6 h-4 overflow-hidden rounded-[2px] shadow-sm">
+type FlagCode = "en" | "cs" | "uk" | "ru" | "it";
+
+const FlagContainer = ({ children }: { children: React.ReactNode }) => (
+  <div className="relative w-6 h-4 overflow-hidden rounded-[2px] shadow-sm">{children}</div>
+);
+
+const UnitedKingdomFlag = () => (
+  <FlagContainer>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
       <path d="M24 0H0V16H24V0Z" fill="#012169" />
     </svg>
@@ -53,8 +59,63 @@ export const FlagIcon = () => (
       <path d="M12 0V16ZM0 8H24Z" fill="black" />
       <path d="M12 0V16M0 8H24" stroke="#C8102E" strokeWidth="3" />
     </svg>
-  </div>
+  </FlagContainer>
 );
+
+const CzechFlag = () => (
+  <FlagContainer>
+    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
+      <rect width="24" height="16" fill="#ffffff" />
+      <rect y="8" width="24" height="8" fill="#d7141a" />
+      <path d="M0 0L12 8L0 16Z" fill="#11457e" />
+    </svg>
+  </FlagContainer>
+);
+
+const UkraineFlag = () => (
+  <FlagContainer>
+    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
+      <rect width="24" height="8" y="0" fill="#005bbb" />
+      <rect width="24" height="8" y="8" fill="#ffd500" />
+    </svg>
+  </FlagContainer>
+);
+
+const RussiaFlag = () => (
+  <FlagContainer>
+    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
+      <rect width="24" height="16" fill="#ffffff" />
+      <rect width="24" height="5.3333" y="5.3333" fill="#0039a6" />
+      <rect width="24" height="5.3333" y="10.6666" fill="#d52b1e" />
+    </svg>
+  </FlagContainer>
+);
+
+const ItalyFlag = () => (
+  <FlagContainer>
+    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
+      <rect width="24" height="16" fill="#ffffff" />
+      <rect width="8" height="16" x="0" fill="#009246" />
+      <rect width="8" height="16" x="16" fill="#ce2b37" />
+    </svg>
+  </FlagContainer>
+);
+
+export const FlagIcon = ({ code = "en" }: { code?: FlagCode }) => {
+  switch (code) {
+    case "cs":
+      return <CzechFlag />;
+    case "uk":
+      return <UkraineFlag />;
+    case "ru":
+      return <RussiaFlag />;
+    case "it":
+      return <ItalyFlag />;
+    case "en":
+    default:
+      return <UnitedKingdomFlag />;
+  }
+};
 
 export const FreeResourceIcon = () => (
   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
