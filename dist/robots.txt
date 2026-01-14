@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jazykaintegrace.cz/sitemap.xml
