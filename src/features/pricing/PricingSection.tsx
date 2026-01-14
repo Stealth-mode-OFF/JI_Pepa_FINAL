@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { PageContainer, PageSection } from "@/shared/layouts/Page";
-import { COLORS } from "@/design-system/tokens";
 
 /**
  * PricingSection
@@ -23,20 +22,20 @@ export const PricingSection = () => {
   return (
     <PageSection
       id="pricing"
-      className="bg-black text-white border-t border-black"
+      className="bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]"
     >
       <PageContainer>
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="max-w-xl space-y-3">
-            <span className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#99a1af]">
+            <span className="block type-ui-sm text-[var(--ds-color-neutral-500)]">
               {t("pricing.label", "Pricing")}
             </span>
-            <h2 className="font-['Montserrat'] font-bold text-[40px] md:text-[56px] leading-[1.1] tracking-[-1.5px]">
+            <h2 className="type-h2 md:text-[var(--ds-type-h1-size)]">
               {t("pricing.title", "Clear pricing. Zero surprises.")}
             </h2>
           </div>
-          <p className="font-['Montserrat'] text-[#99a1af] text-[14px] leading-[21px] max-w-sm">
+          <p className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-500)] text-[var(--ds-type-body-sm-size)] leading-[var(--ds-type-body-sm-line-height)] max-w-sm">
             {t(
               "pricing.subtitle",
               "Choose a cohort to integrate fast, or go private for maximum flexibility."
@@ -80,24 +79,24 @@ interface PricingPlan {
 
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
-    <div className="border border-white/30 bg-black p-8 shadow-[10px_10px_0px_0px_rgba(255,255,255,0.3)]">
+    <div className="border border-[var(--ds-color-neutral-0-30)] bg-[var(--ds-color-neutral-900)] p-8 shadow-[0_10px_0px_var(--ds-color-neutral-0-30)]">
       {/* Plan name */}
-      <h3 className="font-['Montserrat'] font-bold text-[24px] leading-[32px]">
+      <h3 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[24px] leading-[32px]">
         {plan.name}
       </h3>
 
       {/* Price */}
-      <p className="font-['Montserrat'] text-[28px] font-bold mt-4">
+      <p className="font-[var(--ds-font-family-display)] text-[28px] font-[var(--ds-font-weight-bold)] mt-4">
         {plan.price}
       </p>
 
       {/* Billing cadence */}
-      <p className="font-['Montserrat'] text-[13px] text-[#99a1af] mt-1">
+      <p className="font-[var(--ds-font-family-display)] text-[13px] text-[var(--ds-color-neutral-500)] mt-1">
         {plan.cadence}
       </p>
 
       {/* Features list */}
-      <ul className="mt-6 space-y-2 text-[14px] text-[#e5e7eb] font-['Montserrat']">
+      <ul className="mt-6 space-y-2 text-[14px] text-[var(--ds-color-neutral-300)] font-[var(--ds-font-family-display)]">
         {plan.features.map((feature) => (
           <li key={feature}>• {feature}</li>
         ))}
@@ -106,7 +105,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
       {/* CTA button */}
       <a
         href={plan.ctaHref}
-        className="mt-8 inline-flex items-center justify-center h-[52px] w-full bg-[#FFED00] text-black font-['Inter'] font-bold text-[12px] uppercase tracking-[1.2px] border border-black hover:bg-[#e6d600] transition-colors"
+        className="mt-8 inline-flex items-center justify-center h-[52px] w-full bg-[var(--ds-color-accent-base)] text-[var(--ds-color-neutral-900)] type-ui-sm border border-[var(--ds-color-neutral-900)] hover:bg-[var(--ds-color-accent-dark)] transition-colors"
       >
         {plan.ctaText}
       </a>
@@ -150,7 +149,7 @@ function getPricingPlans(
         t("pricing.plans.1.features.2", "Progress tracking"),
       ],
       ctaText: t("pricing.plans.1.cta", "Request private classes"),
-      ctaHref: "mailto:jazykaintegrace@gmail.com?subject=Private%20Czech%20Classes",
+      ctaHref: "mailto:josef@jazykaintegrace.cz?subject=Private%20Czech%20Classes",
     },
   ];
 }

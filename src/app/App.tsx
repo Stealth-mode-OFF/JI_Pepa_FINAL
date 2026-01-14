@@ -1,14 +1,14 @@
 import { Toaster } from "sonner";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { LandingPage } from "@/pages/LandingPage";
-import { Login } from "./pages/Login";
-import { Signup } from "./pages/Signup";
-import { Onboarding } from "./pages/Onboarding";
-import { Checkout } from "./pages/Checkout";
-import { CheckoutSuccess } from "./pages/CheckoutSuccess";
-import { Dashboard } from "./pages/Dashboard";
-import CheatSheet from "./pages/CheatSheet";
-import { RequireAuth } from "./auth/RequireAuth";
+import { Login } from "@/app/pages/Login";
+import { Signup } from "@/app/pages/Signup";
+import { Onboarding } from "@/app/pages/Onboarding";
+import { Checkout } from "@/app/pages/Checkout";
+import { CheckoutSuccess } from "@/app/pages/CheckoutSuccess";
+import { Dashboard } from "@/app/pages/Dashboard";
+import CheatSheet from "@/app/pages/CheatSheet";
+import { RequireAuth } from "@/app/auth/RequireAuth";
 
 export default function App() {
   return (

@@ -34,18 +34,18 @@ export const FAQ = () => {
   ];
 
   return (
-    <Section className="bg-white border-t border-black" id="faq">
+    <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="faq">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="max-w-xl space-y-3">
-            <span className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+            <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("faq.label", "FAQ")}
             </span>
-            <h2 className="font-['Montserrat'] font-bold text-[40px] md:text-[56px] leading-[1.1] tracking-[-1.5px]">
+            <h2 className="type-h2 md:text-[var(--ds-type-h1-size)]">
               {t("faq.title", "Answers to common questions")}
             </h2>
           </div>
-          <p className="font-['Montserrat'] text-[#6a7282] text-[14px] leading-[21px] max-w-sm">
+          <p className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-700)] text-[var(--ds-type-body-sm-size)] leading-[var(--ds-type-body-sm-line-height)] max-w-sm">
             {t("faq.subtitle", "Quick clarity before you commit.")}
           </p>
         </div>
@@ -54,12 +54,12 @@ export const FAQ = () => {
           {items.map((item) => (
             <details
               key={item.question}
-              className="border border-black px-6 py-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              className="border border-[var(--ds-color-neutral-900)] px-6 py-4 shadow-[var(--ds-shadow-dense-lg)]"
             >
-              <summary className="cursor-pointer font-['Montserrat'] font-bold text-[16px]">
+              <summary className="cursor-pointer font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[16px]">
                 {item.question}
               </summary>
-              <p className="mt-3 font-['Montserrat'] text-[15px] leading-[24px] text-[#6a7282]">
+              <p className="mt-3 font-[var(--ds-font-family-display)] text-[15px] leading-[24px] text-[var(--ds-color-neutral-700)]">
                 {item.answer}
               </p>
             </details>

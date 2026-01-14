@@ -2,6 +2,22 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { PageContainer } from "@/shared/layouts/Page";
 import { ArrowUpRightIcon } from "@/app/components/Icons";
+import { reopenCookieConsentBanner } from "@/app/components/CookieConsent";
+
+/**
+ * Get language-specific contact email based on current language.
+ * Each instructor handles specific languages.
+ */
+function getLanguageSpecificEmail(language: string): string {
+  const emailMap: Record<string, string> = {
+    'en': 'josef@jazykaintegrace.cz',        // English - Josef
+    'cs': 'josef@jazykaintegrace.cz',        // Czech - Josef (default)
+    'it': 'marta@jazykaintegrace.cz',        // Italian - Marta
+    'ru': 'ekaterina@jazykaintegrace.cz',   // Russian - Ekaterina
+    'uk': 'ekaterina@jazykaintegrace.cz',   // Ukrainian - Ekaterina
+  };
+  return emailMap[language] || 'josef@jazykaintegrace.cz';
+}
 
 /**
  * SiteFooter
@@ -15,6 +31,7 @@ import { ArrowUpRightIcon } from "@/app/components/Icons";
  * - Provide social media links
  * - Link to legal documents
  * - Show company information
+ * - Allow users to reopen cookie preferences (GDPR compliance)
  *
  * Props:
  * - onOpenLegal: Callback to open legal documents modal
@@ -24,8 +41,9 @@ export const SiteFooter = ({
 }: {
   onOpenLegal?: (section: "privacy" | "terms" | "cookies" | "accessibility") => void;
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const contactEmail = getLanguageSpecificEmail(i18n.language);
 
   const socialMediaLinks = getSocialMediaLinks(t);
   const legalDocumentLinks = getLegalDocumentLinks(t);
@@ -33,17 +51,17 @@ export const SiteFooter = ({
   return (
     <footer
       id="contact"
-      className="bg-black text-white pt-32 pb-12 border-t border-white/10"
+      className="bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-0)] pt-32 pb-12 border-t border-[var(--ds-color-neutral-0-10)]"
     >
       <PageContainer>
         {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 mb-32">
           {/* Left column: CTA heading and contact info */}
           <div className="space-y-12">
-            <h2 className="font-['Montserrat'] font-bold text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px] leading-[0.9] tracking-[-3.6px]">
+            <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[var(--ds-type-h2-size-sm)] sm:text-[var(--ds-type-h2-size-md)] md:text-[var(--ds-type-h1-size)] lg:text-[var(--ds-type-h0-size-sm)] xl:text-[var(--ds-type-h0-size-md)] leading-[0.9] tracking-[var(--ds-type-h0-letter-spacing)]">
               {t("footer.titleLine1", "READY TO")}
               <br />
-              <span className="text-[#FFED00]">
+              <span className="text-[var(--ds-color-accent-base)]">
                 {t("footer.titleLine2", "INTEGRATE?")}
               </span>
             </h2>
@@ -51,12 +69,12 @@ export const SiteFooter = ({
             {/* Contact methods */}
             <div className="flex flex-col gap-6">
               <ContactLink
-                href="mailto:jazykaintegrace@gmail.com"
-                label="jazykaintegrace@gmail.com"
+                href={`mailto:${contactEmail}`}
+                label={contactEmail}
               />
               <ContactLink
-                href="tel:+420601177208"
-                label="+420 601 177 208"
+                href="tel:+420605839456"
+                label="+420 605 839 456"
               />
             </div>
           </div>
@@ -72,7 +90,14 @@ export const SiteFooter = ({
                 <FooterLink
                   key={link.section}
                   label={link.label}
-                  onLegalClick={() => onOpenLegal?.(link.section)}
+                  onLegalClick={() => {
+                    if (link.section === "cookie-preferences") {
+                      // Reopen cookie consent banner for preferences
+                      reopenCookieConsentBanner();
+                    } else {
+                      onOpenLegal?.(link.section as "privacy" | "terms" | "cookies" | "accessibility");
+                    }
+                  }}
                 />
               ))}
             </div>
@@ -80,7 +105,7 @@ export const SiteFooter = ({
         </div>
 
         {/* Footer bottom: Company info and copyright */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="border-t border-[var(--ds-color-neutral-0-10)] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <CompanyInfo currentYear={currentYear} />
           <CompanyLegalInfo />
         </div>
@@ -101,7 +126,7 @@ function ContactLink({ href, label }: { href: string; label: string }) {
   return (
     <a
       href={href}
-      className="flex items-center gap-4 text-[18px] leading-[27px] font-['Montserrat'] font-medium hover:text-[#FFED00] transition-colors w-fit"
+      className="flex items-center gap-4 font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[18px] leading-[27px] hover:text-[var(--ds-color-accent-base)] transition-colors w-fit"
     >
       <span>{label}</span>
       <ArrowUpRightIcon />
@@ -125,8 +150,8 @@ function CommunityCard({
   const { t } = useTranslation();
 
   return (
-    <div className="bg-white/5 rounded-lg p-8 w-full max-w-md backdrop-blur-sm">
-      <h3 className="font-['Inter'] font-bold text-[12px] leading-[18px] uppercase tracking-[1.2px] text-[#99a1af] mb-6">
+    <div className="bg-[var(--ds-color-neutral-0-05)] rounded-lg p-8 w-full max-w-md backdrop-blur-sm">
+      <h3 className="type-ui-sm text-[var(--ds-color-neutral-500)] mb-6">
         {t("footer.community.title", "Join the Community")}
       </h3>
       <div className="space-y-4 flex flex-col">
@@ -135,12 +160,12 @@ function CommunityCard({
             key={social.label}
             className={`flex flex-col md:flex-row md:items-center justify-between gap-2 ${
               index < socialLinks.length - 1
-                ? "border-b border-white/10 pb-4"
+                ? "border-b border-[var(--ds-color-neutral-0-10)] pb-4"
                 : "pt-2"
             }`}
           >
             <FooterLink label={social.label} href={social.href} />
-            <span className="text-[#6a7282] text-[12px] leading-[16px] font-['Inter']">
+            <span className="text-[var(--ds-color-neutral-700)] text-[12px] leading-[16px] font-[var(--ds-font-family-body)]">
               {social.description}
             </span>
           </div>
@@ -175,11 +200,11 @@ function FooterLink({
       <button
         type="button"
         onClick={onLegalClick}
-        className="flex items-center gap-3 text-white hover:text-[#FFED00] focus:text-[#FFED00] focus:outline-none focus:underline transition-colors group w-fit cursor-pointer"
+        className="flex items-center gap-3 text-[var(--ds-color-neutral-0)] hover:text-[var(--ds-color-accent-base)] focus:text-[var(--ds-color-accent-base)] focus:outline-none focus:underline transition-colors group w-fit cursor-pointer"
         aria-label={label}
       >
         {icon}
-        <span className="font-['Inter'] font-bold text-[14px] leading-[21px] tracking-[-0.1504px]">
+        <span className="font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] leading-[21px] tracking-[-0.1504px]">
           {label}
         </span>
       </button>
@@ -190,13 +215,13 @@ function FooterLink({
   return (
     <a
       href={href || "#"}
-      className="flex items-center gap-3 text-white hover:text-[#FFED00] focus:text-[#FFED00] focus:outline-none focus:underline transition-colors group w-fit cursor-pointer"
+      className="flex items-center gap-3 text-[var(--ds-color-neutral-0)] hover:text-[var(--ds-color-accent-base)] focus:text-[var(--ds-color-accent-base)] focus:outline-none focus:underline transition-colors group w-fit cursor-pointer"
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       aria-label={label}
     >
       {icon}
-      <span className="font-['Inter'] font-bold text-[14px] leading-[21px] tracking-[-0.1504px]">
+      <span className="font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] leading-[21px] tracking-[-0.1504px]">
         {label}
       </span>
     </a>
@@ -212,13 +237,13 @@ function CompanyInfo({ currentYear }: { currentYear: number }) {
 
   return (
     <div className="space-y-1">
-      <p className="font-['Montserrat'] font-bold text-[12px] leading-[18px] text-white">
+      <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[12px] leading-[18px] text-[var(--ds-color-neutral-0)]">
         {t("footer.company.name", "JAZYK A INTEGRACE S.R.O.")}
       </p>
-      <p className="font-['Montserrat'] text-[12px] leading-[18px] text-[#6a7282]">
+      <p className="font-[var(--ds-font-family-display)] text-[12px] leading-[18px] text-[var(--ds-color-neutral-700)]">
         {t("footer.company.id", "IČO: 23812036")}
       </p>
-      <p className="font-['Montserrat'] text-[12px] leading-[18px] text-[#6a7282]">
+      <p className="font-[var(--ds-font-family-display)] text-[12px] leading-[18px] text-[var(--ds-color-neutral-700)]">
         {t(
           "footer.company.register",
           "Sp. zn. C 433136 vedená u Městského soudu v Praze"
@@ -238,10 +263,10 @@ function CompanyLegalInfo() {
 
   return (
     <div className="md:text-right space-y-1">
-      <p className="font-['Montserrat'] text-[12px] leading-[18px] text-white">
+      <p className="font-[var(--ds-font-family-display)] text-[12px] leading-[18px] text-[var(--ds-color-neutral-0)]">
         {t("footer.company.address", "Černomořská 384/9, Praha 10")}
       </p>
-      <p className="font-['Montserrat'] text-[12px] leading-[18px] text-[#6a7282]">
+      <p className="font-[var(--ds-font-family-display)] text-[12px] leading-[18px] text-[var(--ds-color-neutral-700)]">
         {t("footer.rights", "© {{year}} All Rights Reserved", {
           year: currentYear,
         })}
@@ -278,7 +303,7 @@ function getSocialMediaLinks(
     },
     {
       label: t("footer.social.whatsapp.label", "WhatsApp"),
-      href: "https://wa.me/420601177208",
+      href: "https://wa.me/420605839456",
       description: t("footer.social.whatsapp.desc", "— Instant answers & support"),
     },
   ];
@@ -306,6 +331,10 @@ function getLegalDocumentLinks(
     {
       label: t("footer.legal.accessibility", "Accessibility"),
       section: "accessibility" as const,
+    },
+    {
+      label: t("footer.legal.cookiePreferences", "Cookie Preferences"),
+      section: "cookie-preferences" as const,
     },
   ];
 }

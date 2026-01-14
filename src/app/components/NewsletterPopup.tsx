@@ -82,7 +82,7 @@ export const NewsletterPopup = ({
         }
         toast.success(t("newsletterPopup.toasts.success", "Welcome! Check your inbox for confirmation."));
       } else {
-        window.location.href = `mailto:jazykaintegrace@gmail.com?subject=${encodeURIComponent(
+        window.location.href = `mailto:josef@jazykaintegrace.cz?subject=${encodeURIComponent(
           t("newsletterPopup.mailto.subject", "Newsletter Signup")
         )}&body=${encodeURIComponent(
           t("newsletterPopup.mailto.body", `Please add ${email} to the newsletter.`)
@@ -118,7 +118,7 @@ export const NewsletterPopup = ({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[90%] max-w-[540px]"
           >
-            <div className="bg-white border-2 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            <div className="bg-[var(--ds-color-neutral-0)] border-2 border-[var(--ds-color-neutral-900)] shadow-[var(--ds-shadow-dense-xl)] overflow-hidden">
               <button
                 type="button"
                 onClick={handleClose}
@@ -130,44 +130,44 @@ export const NewsletterPopup = ({
                 </svg>
               </button>
 
-              <div className="bg-[#FFED00] px-8 py-12 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-black rounded-full mb-6">
+              <div className="bg-[var(--ds-color-accent-base)] px-8 py-12 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--ds-color-neutral-900)] rounded-full mb-6">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <path d="M4 8L16 16L28 8" stroke="#FFED00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <rect x="4" y="6" width="24" height="18" rx="2" stroke="#FFED00" strokeWidth="2" />
+                    <path d="M4 8L16 16L28 8" stroke="var(--ds-color-accent-base)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <rect x="4" y="6" width="24" height="18" rx="2" stroke="var(--ds-color-accent-base)" strokeWidth="2" />
                   </svg>
                 </div>
-                <h3 className="font-['Montserrat'] font-bold text-[28px] leading-[1.2] tracking-[-1px] text-black mb-3">
+                <h3 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[28px] leading-[1.2] tracking-[-1px] text-[var(--ds-color-neutral-900)] mb-3">
                   {t("newsletterPopup.title", "Stay Connected")}
                 </h3>
-                <p className="font-['Montserrat'] text-[16px] leading-[24px] text-black/80 max-w-md mx-auto">
+                <p className="font-[var(--ds-font-family-display)] text-[16px] leading-[24px] text-[var(--ds-color-neutral-900-80)] max-w-md mx-auto">
                   {t("newsletterPopup.description", "Get weekly Czech tips, cultural insights, and course updates delivered to your inbox.")}
                 </p>
               </div>
 
-              <div className="px-8 py-8 bg-white">
+              <div className="px-8 py-8 bg-[var(--ds-color-neutral-0)]">
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 bg-[var(--ds-color-neutral-900)] rounded-full flex items-center justify-center shrink-0 mt-0.5">
                       <CheckIcon />
                     </div>
-                    <span className="font-['Montserrat'] text-[14px] leading-[21px] text-black">
+                    <span className="font-[var(--ds-font-family-display)] text-[14px] leading-[21px] text-[var(--ds-color-neutral-900)]">
                       {t("newsletterPopup.benefit1", "Weekly Czech phrases you can use today")}
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 bg-[var(--ds-color-neutral-900)] rounded-full flex items-center justify-center shrink-0 mt-0.5">
                       <CheckIcon />
                     </div>
-                    <span className="font-['Montserrat'] text-[14px] leading-[21px] text-black">
+                    <span className="font-[var(--ds-font-family-display)] text-[14px] leading-[21px] text-[var(--ds-color-neutral-900)]">
                       {t("newsletterPopup.benefit2", "Cultural tips for Prague life")}
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-black rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-5 h-5 bg-[var(--ds-color-neutral-900)] rounded-full flex items-center justify-center shrink-0 mt-0.5">
                       <CheckIcon />
                     </div>
-                    <span className="font-['Montserrat'] text-[14px] leading-[21px] text-black">
+                    <span className="font-[var(--ds-font-family-display)] text-[14px] leading-[21px] text-[var(--ds-color-neutral-900)]">
                       {t("newsletterPopup.benefit3", "Early access to new courses")}
                     </span>
                   </div>
@@ -180,13 +180,13 @@ export const NewsletterPopup = ({
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full h-[52px] px-4 border-2 border-gray-200 font-['Montserrat'] text-[15px] focus:outline-none focus:border-black transition-colors"
+                    className="w-full h-[52px] px-4 border-2 border-[var(--ds-color-neutral-200)] font-[var(--ds-font-family-display)] text-[15px] focus:outline-none focus:border-[var(--ds-color-neutral-900)] transition-colors"
                     aria-label={t("newsletterPopup.emailLabel", "Email address")}
                   />
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-[52px] bg-black text-white font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2px] hover:bg-gray-800 focus:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full h-[52px] bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-0)] type-ui-md hover:bg-[var(--ds-color-neutral-800)] focus:bg-[var(--ds-color-neutral-800)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting 
                       ? t("newsletterPopup.sending", "Subscribing...") 
@@ -194,7 +194,7 @@ export const NewsletterPopup = ({
                   </button>
                 </form>
 
-                <p className="text-center text-[11px] leading-[16px] text-[#6a7282] font-['Montserrat'] mt-4">
+                <p className="text-center text-[11px] leading-[16px] text-[var(--ds-color-neutral-700)] font-[var(--ds-font-family-display)] mt-4">
                   {t("newsletterPopup.disclaimer", "We respect your privacy. Unsubscribe anytime.")}
                 </p>
               </div>

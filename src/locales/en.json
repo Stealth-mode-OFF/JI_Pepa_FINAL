@@ -720,5 +720,41 @@
       }
     },
     "footerSecondaryCta": "See Cohorts"
+  },
+  "footer": {
+    "titleLine1": "READY TO",
+    "titleLine2": "INTEGRATE?",
+    "contact": {
+      "title": "Contact",
+      "email": "jazykaintegrace@gmail.com",
+      "phone": "+420 601 177 208"
+    },
+    "community": {
+      "title": "Join the Community"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram",
+        "desc": "— Daily Czech tips & community"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "desc": "— Instant answers & support"
+      }
+    },
+    "legal": {
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "accessibility": "Accessibility",
+      "cookiePreferences": "Cookie Preferences"
+    },
+    "company": {
+      "name": "JAZYK A INTEGRACE S.R.O.",
+      "id": "IČO: 23812036",
+      "register": "Sp. zn. C 433136 vedená u Městského soudu v Praze",
+      "address": "Černomořská 384/9, Praha 10"
+    },
+    "rights": "© {{year}} All Rights Reserved"
   }
 }

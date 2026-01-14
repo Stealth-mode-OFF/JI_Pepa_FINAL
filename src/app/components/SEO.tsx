@@ -161,8 +161,8 @@ export const SEO = ({
           {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "jazykaintegrace@gmail.com",
-            telephone: "+420601177208",
+            email: "josef@jazykaintegrace.cz",
+            telephone: "+420605839456",
             availableLanguage: ["cs", "en", "uk", "ru", "it"],
           },
         ],

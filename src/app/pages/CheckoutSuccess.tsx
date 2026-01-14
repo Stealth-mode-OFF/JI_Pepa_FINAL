@@ -68,27 +68,27 @@ export const CheckoutSuccess = () => {
     <AuthShell title={title} subtitle={subtitle}>
       <div className="flex flex-col gap-8">
         {/* Status badge */}
-        <div className="inline-flex items-center gap-3 w-fit px-4 py-2 bg-[#FFED00] border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] uppercase font-['Inter'] font-bold text-[11px] tracking-[1px]">
+        <div className="inline-flex items-center gap-3 w-fit px-4 py-2 bg-[var(--ds-color-accent-base)] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] uppercase font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] tracking-[1px]">
           <span>{badgeText}</span>
           <span className="text-[16px]">{isPending ? "…" : "✓"}</span>
         </div>
 
         {/* Body copy */}
-        <p className="font-['Montserrat'] text-[16px] leading-[24px] text-[#6a7282] max-w-2xl">
+        <p className="font-[var(--ds-font-family-display)] text-[16px] leading-[24px] text-[var(--ds-color-neutral-700)] max-w-2xl">
           {body}
         </p>
 
         {/* Timeline card */}
-        <div className="border-2 border-black bg-white shadow-[12px_12px_0_0_rgba(0,0,0,1)] p-6 md:p-8 flex flex-col gap-6">
+        <div className="border-2 border-black bg-white shadow-[var(--ds-shadow-dense-xl)] p-6 md:p-8 flex flex-col gap-6">
           <div className="flex flex-col md:flex-row md:items-center md:gap-4">
             {steps.map((step, index) => {
               const state = getStepState(index);
-              const baseCircle = "flex h-12 w-12 items-center justify-center rounded-full border-2 border-black font-['Inter'] font-bold text-[16px]";
+              const baseCircle = "flex h-12 w-12 items-center justify-center rounded-full border-2 border-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[16px]";
               const stateStyles: Record<StepState, string> = {
-                done: "bg-[#FFED00] text-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]",
+                done: "bg-[var(--ds-color-accent-base)] text-black shadow-[var(--ds-shadow-dense-md)]",
                 current:
-                  "bg-white text-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] animate-pulse", 
-                upcoming: "bg-white text-black/50 border-black/50",
+                  "bg-white text-black shadow-[var(--ds-shadow-dense-md)] animate-pulse", 
+                upcoming: "bg-white text-[var(--ds-color-neutral-900-50)] border-[var(--ds-color-neutral-900-50)]",
               };
 
               return (
@@ -100,12 +100,12 @@ export const CheckoutSuccess = () => {
                     {state === "done" ? "✓" : index + 1}
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-['Inter'] font-bold text-[12px] uppercase tracking-[1px] text-black">
+                    <span className="font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[12px] uppercase tracking-[1px] text-black">
                       {step.label}
                     </span>
                   </div>
                   {index < steps.length - 1 && (
-                    <div className="hidden md:block flex-1 h-[2px] border-b-2 border-dashed border-black/30 ml-3"></div>
+                    <div className="hidden md:block flex-1 h-[2px] border-b-2 border-dashed border-[var(--ds-color-neutral-900-30)] ml-3"></div>
                   )}
                 </div>
               );
@@ -117,7 +117,7 @@ export const CheckoutSuccess = () => {
         <div className="grid gap-4 sm:grid-cols-2">
           <a
             href="/"
-            className="inline-flex items-center justify-center h-[52px] bg-black text-[#FFED00] font-['Inter'] font-bold text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform duration-200"
+            className="inline-flex items-center justify-center h-[52px] bg-black text-[var(--ds-color-accent-base)] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform duration-200"
           >
             {t("checkoutSuccess.cta", "Back to homepage")}
           </a>
@@ -125,7 +125,7 @@ export const CheckoutSuccess = () => {
             <button
               type="button"
               onClick={() => window.location.reload()}
-              className="inline-flex items-center justify-center h-[52px] bg-white text-black font-['Inter'] font-bold text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] hover:bg-[#FFED00]/70 transition-colors duration-200"
+              className="inline-flex items-center justify-center h-[52px] bg-white text-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] hover:bg-[var(--ds-color-accent-base-70)] transition-colors duration-200"
             >
               {t("checkoutSuccess.pendingCta", "Refresh status")}
             </button>
@@ -133,7 +133,7 @@ export const CheckoutSuccess = () => {
         </div>
 
         {/* Support note */}
-        <div className="border border-black/20 bg-black/[0.02] px-4 py-3 font-['Montserrat'] text-[13px] text-black/70">
+        <div className="border border-[var(--ds-color-neutral-900-20)] bg-[var(--ds-color-neutral-900-02)] px-4 py-3 font-[var(--ds-font-family-display)] text-[13px] text-[var(--ds-color-neutral-900-70)]">
           {isPending
             ? t(
                 "checkoutSuccess.pendingBody",

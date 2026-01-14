@@ -112,28 +112,28 @@ export const shadowClasses = {
  */
 export const componentPresets = {
   // Button styles
-  button_base: "px-8 py-3 rounded-[4px] font-['Inter'] font-bold text-[14px] uppercase tracking-[1.25px] inline-flex items-center justify-center focus:outline-none transition-all duration-200",
+  button_base: "px-8 py-3 rounded-[var(--ds-radius-base)] type-ui-md inline-flex items-center justify-center focus:outline-none transition-all duration-200",
 
   button_primary:
-    "bg-[#030213] text-white hover:bg-black focus:ring-2 focus:ring-offset-2 focus:ring-[#030213]",
+    "bg-[var(--ds-color-primary-base)] text-[var(--ds-color-primary-foreground)] hover:bg-[var(--ds-color-primary-dark)] focus:ring-2 focus:ring-offset-2 focus:ring-[var(--ds-color-primary-base)]",
 
   button_accent:
-    "bg-[#FFED00] text-[#030213] hover:bg-[#e6d600] focus:ring-2 focus:ring-offset-2 focus:ring-[#030213] font-bold",
+    "bg-[var(--ds-color-accent-base)] text-[var(--ds-color-accent-foreground)] hover:bg-[var(--ds-color-accent-dark)] focus:ring-2 focus:ring-offset-2 focus:ring-[var(--ds-color-primary-base)] font-bold",
 
   button_secondary:
-    "border-2 border-[#030213] bg-white text-[#030213] hover:bg-[#f3f3f5] focus:ring-2 focus:ring-offset-2 focus:ring-[#030213]",
+    "border-2 border-[var(--ds-color-primary-base)] bg-[var(--ds-color-neutral-0)] text-[var(--ds-color-primary-base)] hover:bg-[var(--ds-color-neutral-100)] focus:ring-2 focus:ring-offset-2 focus:ring-[var(--ds-color-primary-base)]",
 
   // Dense shadow buttons (signature style)
   button_accent_dense:
-    "shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+    "shadow-[var(--ds-shadow-dense-lg)] hover:shadow-[var(--ds-shadow-dense-md)] focus:shadow-[var(--ds-shadow-dense-sm)]",
 
   // Card styles
-  card_base: "rounded-[4px] border border-[#e0e0e0] p-6 bg-white",
-  card_elevated: "rounded-[4px] border border-[#e0e0e0] p-6 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.1)]",
-  card_dense: "rounded-[4px] border-2 border-black p-6 bg-white shadow-[8px_8px_0px_rgba(0,0,0,1)]",
+  card_base: "rounded-[var(--ds-radius-base)] border border-[var(--ds-color-neutral-200)] p-6 bg-[var(--ds-color-neutral-0)]",
+  card_elevated: "rounded-[var(--ds-radius-base)] border border-[var(--ds-color-neutral-200)] p-6 bg-[var(--ds-color-neutral-0)] shadow-[var(--ds-shadow-md)]",
+  card_dense: "rounded-[var(--ds-radius-base)] border-2 border-[var(--ds-color-neutral-900)] p-6 bg-[var(--ds-color-neutral-0)] shadow-[var(--ds-shadow-dense-lg)]",
 
   // Input styles
-  input_base: "px-4 py-3 rounded-[4px] border border-[#d0d0d8] bg-[#f3f3f5] focus:border-[#030213] focus:ring-2 focus:ring-[#030213]/20 focus:outline-none",
+  input_base: "px-4 py-3 rounded-[var(--ds-radius-base)] border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-neutral-100)] focus:border-[var(--ds-color-primary-base)] focus:ring-2 focus:ring-[var(--ds-color-primary-base)]/20 focus:outline-none",
 
   // Container/Section
   container: "max-w-[1329px] mx-auto px-6 md:px-12 w-full",

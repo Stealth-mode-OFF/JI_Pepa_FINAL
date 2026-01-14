@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { SiteHeader } from "@/features/header/SiteHeader";
+import { SiteFooter } from "@/features/footer/SiteFooter";
 import { SEO } from "../components/SEO";
 import { SocialShare } from "../components/SocialShare";
 import { trackEvent, trackPageView } from "@/utils/analytics";
@@ -101,19 +101,19 @@ const CheatSheet: React.FC = () => {
         schemaType="HowTo"
       />
       <div className="no-print">
-        <Header />
+        <SiteHeader />
       </div>
 
       <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-5xl">
         {/* Header Section */}
-        <div className="bg-[#FFED00] border-4 border-black rounded-none p-6 sm:p-8 md:p-12 mb-8 sm:mb-12 shadow-[8px_8px_0_0_rgba(0,0,0,1)] print-shadow-none">
-          <h1 className="font-montserrat-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-3 sm:mb-4 uppercase tracking-tight">
+        <div className="bg-[var(--ds-color-accent-base)] border-4 border-black rounded-none p-6 sm:p-8 md:p-12 mb-8 sm:mb-12 shadow-[var(--ds-shadow-dense-lg)] print-shadow-none">
+          <h1 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-3 sm:mb-4 uppercase tracking-tight">
             {t("cheatSheet.title", "Natural Czech Cheat Sheet")}
           </h1>
-          <p className="font-montserrat-medium text-lg sm:text-xl md:text-2xl text-black mb-2">
+          <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-lg sm:text-xl md:text-2xl text-black mb-2">
             {t("cheatSheet.subtitle", "50 Essential Phrases Locals Actually Use")}
           </p>
-          <p className="font-inter text-base sm:text-lg text-black/80 italic">
+          <p className="font-[var(--ds-font-family-body)] text-base sm:text-lg text-[var(--ds-color-neutral-900-80)] italic">
             {t(
               "cheatSheet.tagline",
               "Stop sounding like a textbook. Start sounding like you live here.",
@@ -123,13 +123,13 @@ const CheatSheet: React.FC = () => {
           <button
             onClick={handleDownload}
             aria-label={t("cheatSheet.downloadAriaLabel", "Download cheat sheet as PDF")}
-            className="mt-6 sm:mt-8 no-print bg-black text-[#FFED00] font-montserrat-bold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-wide border-4 border-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[4px_4px_0_0_rgba(0,0,0,1)] w-full sm:w-auto"
+            className="mt-6 sm:mt-8 no-print bg-black text-[var(--ds-color-accent-base)] font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 uppercase tracking-wide border-4 border-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[var(--ds-shadow-dense-xs)] w-full sm:w-auto"
           >
             {t("cheatSheet.downloadCta", "📥 Download as PDF")}
           </button>
 
           {/* Social Share */}
-          <div className="mt-6 sm:mt-8 no-print pt-6 sm:pt-8 border-t-2 border-black/20">
+          <div className="mt-6 sm:mt-8 no-print pt-6 sm:pt-8 border-t-2 border-[var(--ds-color-neutral-900-20)]">
             <SocialShare
               url={typeof window !== "undefined" ? window.location.href : ""}
               title={t(
@@ -145,18 +145,18 @@ const CheatSheet: React.FC = () => {
         </div>
 
         {/* Intro Section */}
-        <div className="bg-white border-4 border-black p-6 sm:p-8 mb-8 sm:mb-12 shadow-[4px_4px_0_0_rgba(0,0,0,1)] print-shadow-none">
-          <h2 className="font-montserrat-bold text-2xl sm:text-3xl text-black mb-3 sm:mb-4">
+        <div className="bg-white border-4 border-black p-6 sm:p-8 mb-8 sm:mb-12 shadow-[var(--ds-shadow-dense-xs)] print-shadow-none">
+          <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-2xl sm:text-3xl text-black mb-3 sm:mb-4">
             {t("cheatSheet.introTitle", "Why You Need This")}
           </h2>
-          <p className="font-inter text-base sm:text-lg text-black mb-4">
+          <p className="font-[var(--ds-font-family-body)] text-base sm:text-lg text-black mb-4">
             <strong>{t("cheatSheet.introBold", "Grammar tables won't help you at the pub.")}</strong>{" "}
             {t(
               "cheatSheet.introBody1",
               "This cheat sheet gives you the phrases Czechs use every single day—the ones that make you sound natural, not like you're reading from a language app.",
             )}
           </p>
-          <p className="font-inter text-base sm:text-lg text-black">
+          <p className="font-[var(--ds-font-family-body)] text-base sm:text-lg text-black">
             {t(
               "cheatSheet.introBody2",
               "Master these 50 phrases and you'll handle small talk, soften requests, fill awkward pauses, and actually understand what people say on the street.",
@@ -170,9 +170,9 @@ const CheatSheet: React.FC = () => {
           return (
             <div
               key={section.key}
-              className="mb-8 sm:mb-12 bg-white border-4 border-black p-5 sm:p-6 md:p-8 shadow-[4px_4px_0_0_rgba(0,0,0,1)] print-shadow-none break-inside-avoid"
+              className="mb-8 sm:mb-12 bg-white border-4 border-black p-5 sm:p-6 md:p-8 shadow-[var(--ds-shadow-dense-xs)] print-shadow-none break-inside-avoid"
             >
-              <h3 className="font-montserrat-bold text-xl sm:text-2xl text-black mb-4 sm:mb-6 pb-3 sm:pb-4 border-b-4 border-[#FFED00]">
+              <h3 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-xl sm:text-2xl text-black mb-4 sm:mb-6 pb-3 sm:pb-4 border-b-4 border-[var(--ds-color-accent-base)]">
                 {section.emoji} {section.title}
               </h3>
               
@@ -180,18 +180,18 @@ const CheatSheet: React.FC = () => {
                 {items.map((phrase, index) => (
                   <div
                     key={index}
-                    className="bg-[#FFED00]/10 border-l-4 border-black p-4 sm:p-5 rounded-none break-inside-avoid"
+                    className="bg-[var(--ds-color-accent-base-10)] border-l-4 border-black p-4 sm:p-5 rounded-none break-inside-avoid"
                   >
-                    <div className="font-montserrat-bold text-xl sm:text-2xl text-black mb-2">
+                    <div className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-xl sm:text-2xl text-black mb-2">
                       {phrase.czech}
                     </div>
-                    <div className="font-inter italic text-black/60 text-sm sm:text-base mb-2">
+                    <div className="font-[var(--ds-font-family-body)] italic text-[var(--ds-color-neutral-900-60)] text-sm sm:text-base mb-2">
                       {phrase.pronunciation}
                     </div>
-                    <div className="font-inter text-base sm:text-lg text-black mb-2">
+                    <div className="font-[var(--ds-font-family-body)] text-base sm:text-lg text-black mb-2">
                       {phrase.meaning}
                     </div>
-                    <div className="font-inter text-sm sm:text-base text-black/70 italic">
+                    <div className="font-[var(--ds-font-family-body)] text-sm sm:text-base text-[var(--ds-color-neutral-900-70)] italic">
                       {phrase.context}
                     </div>
                   </div>
@@ -202,9 +202,9 @@ const CheatSheet: React.FC = () => {
         })}
 
         {/* Pro Tip */}
-        <div className="bg-[#FFED00] border-l-4 sm:border-l-8 border-black p-5 sm:p-6 mb-8 sm:mb-12 print-shadow-none">
-          <p className="font-inter text-base sm:text-lg text-black">
-            <strong className="font-montserrat-bold text-xl">
+        <div className="bg-[var(--ds-color-accent-base)] border-l-4 sm:border-l-8 border-black p-5 sm:p-6 mb-8 sm:mb-12 print-shadow-none">
+          <p className="font-[var(--ds-font-family-body)] text-base sm:text-lg text-black">
+            <strong className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-xl">
               {t("cheatSheet.proTipLabel", "💡 Pro Tip:")}
             </strong>{" "}
             {t(
@@ -215,11 +215,11 @@ const CheatSheet: React.FC = () => {
         </div>
 
         {/* Footer CTA */}
-        <div className="bg-black text-white p-12 text-center border-4 border-black shadow-[8px_8px_0_0_rgba(255,237,0,1)] print-shadow-none">
-          <p className="font-montserrat-bold text-2xl mb-4 text-[#FFED00]">
+        <div className="bg-black text-white p-12 text-center border-4 border-black shadow-[var(--ds-shadow-accent-dense-lg)] print-shadow-none">
+          <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-2xl mb-4 text-[var(--ds-color-accent-base)]">
             {t("cheatSheet.footerTitle", "Want to sound even more natural?")}
           </p>
-          <p className="font-inter text-lg mb-8">
+          <p className="font-[var(--ds-font-family-body)] text-lg mb-8">
             {t(
               "cheatSheet.footerBody",
               "This cheat sheet is just the beginning. Our courses teach you how to actually USE these phrases in real conversations, understand responses, and build genuine fluency.",
@@ -229,13 +229,13 @@ const CheatSheet: React.FC = () => {
             <a
               href="/signup"
               aria-label={t("cheatSheet.footerAriaLabel", "Start enrollment in Czech courses")}
-              className="no-print inline-block bg-[#FFED00] text-black font-montserrat-bold text-lg px-8 py-4 uppercase tracking-wide border-4 border-[#FFED00] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[4px_4px_0_0_rgba(255,237,0,1)]"
+              className="no-print inline-block bg-[var(--ds-color-accent-base)] text-black font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-lg px-8 py-4 uppercase tracking-wide border-4 border-[var(--ds-color-accent-base)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[var(--ds-shadow-accent-dense-sm)]"
             >
               {t("cheatSheet.footerCta", "Start Enrollment")}
             </a>
             <a
               href="/#courses"
-              className="no-print inline-block bg-black text-[#FFED00] font-montserrat-bold text-lg px-8 py-4 uppercase tracking-wide border-4 border-[#FFED00] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[4px_4px_0_0_rgba(255,237,0,1)]"
+              className="no-print inline-block bg-black text-[var(--ds-color-accent-base)] font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-lg px-8 py-4 uppercase tracking-wide border-4 border-[var(--ds-color-accent-base)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all shadow-[var(--ds-shadow-accent-dense-sm)]"
             >
               {t("cheatSheet.footerSecondaryCta", "See Cohorts")}
             </a>
@@ -244,7 +244,7 @@ const CheatSheet: React.FC = () => {
       </main>
 
       <div className="no-print">
-        <Footer />
+        <SiteFooter />
       </div>
 
       {/* Print Styles */}

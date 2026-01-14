@@ -93,15 +93,15 @@ export const SectionTitle = ({
 }) => (
   <div className={classNames("space-y-3 mb-12", align)}>
     {label && (
-      <span className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+      <span className="block type-ui-sm text-[var(--ds-color-neutral-700)]">
         {label}
       </span>
     )}
-    <h2 className="font-['Montserrat'] font-bold text-[40px] md:text-[56px] leading-[1.1] tracking-[-1.5px] max-w-xl">
+    <h2 className="type-h2 md:text-[var(--ds-type-h1-size)] max-w-xl">
       {children}
     </h2>
     {subtitle && (
-      <p className="font-['Montserrat'] text-[#99a1af] text-[14px] leading-[21px] max-w-sm">
+      <p className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-500)] text-[var(--ds-type-body-sm-size)] leading-[var(--ds-type-body-sm-line-height)] max-w-sm">
         {subtitle}
       </p>
     )}

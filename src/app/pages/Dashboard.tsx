@@ -108,7 +108,7 @@ export const Dashboard = () => {
     }
     return {
       label: t("dashboard.action.contact", "Contact support"),
-      href: "mailto:jazykaintegrace@gmail.com",
+      href: "mailto:josef@jazykaintegrace.cz",
     };
   }, [profileComplete, enrollment, paymentStatus, t]);
 
@@ -118,7 +118,7 @@ export const Dashboard = () => {
         title={t("dashboard.title", "Your student dashboard")}
         subtitle={t("dashboard.subtitle", "Track onboarding and enrollment status.")}
       >
-        <p className="font-['Montserrat'] text-[16px] text-[#6a7282]">
+        <p className="font-[var(--ds-font-family-display)] text-[16px] text-[var(--ds-color-neutral-700)]">
           {t("dashboard.loading", "Loading your dashboard...")}
         </p>
       </AuthShell>
@@ -131,11 +131,11 @@ export const Dashboard = () => {
       subtitle={t("dashboard.subtitle", "Track onboarding and enrollment status.")}
     >
       <div className="flex flex-col gap-8">
-        <div className="border border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-6">
-          <p className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+        <div className="border border-black bg-white shadow-[var(--ds-shadow-dense-xl)] p-6">
+          <p className="type-ui-sm text-[var(--ds-color-neutral-700)]">
             {t("dashboard.profileLabel", "Profile")}
           </p>
-          <div className="mt-4 space-y-2 font-['Montserrat'] text-[16px]">
+          <div className="mt-4 space-y-2 font-[var(--ds-font-family-display)] text-[16px]">
             <div>
               <span className="font-bold">{t("dashboard.fullName", "Name")}:</span>{" "}
               {profile?.full_name ?? t("dashboard.missing", "Missing")}
@@ -152,11 +152,11 @@ export const Dashboard = () => {
           </div>
         </div>
 
-        <div className="border border-black bg-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-6">
-          <p className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+        <div className="border border-black bg-white shadow-[var(--ds-shadow-dense-xl)] p-6">
+          <p className="type-ui-sm text-[var(--ds-color-neutral-700)]">
             {t("dashboard.enrollmentLabel", "Enrollment")}
           </p>
-          <div className="mt-4 space-y-2 font-['Montserrat'] text-[16px]">
+          <div className="mt-4 space-y-2 font-[var(--ds-font-family-display)] text-[16px]">
             <div>
               <span className="font-bold">{t("dashboard.enrollmentStatus", "Status")}:</span>{" "}
               {t(`dashboard.status.${enrollmentStatus}`, enrollmentStatus)}

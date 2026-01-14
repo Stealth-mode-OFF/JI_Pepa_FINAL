@@ -3,11 +3,11 @@ import { Container, Section } from "./Layout";
 import { useTranslation } from "react-i18next";
 
 const MethodologyItem = ({ number, title, text }: { number: string; title: string; text: string }) => (
-  <div className="border-t border-white/15 py-12 md:py-16 first:border-t-0">
+  <div className="border-t border-[var(--ds-color-neutral-0-15)] py-12 md:py-16 first:border-t-0">
     <div className="flex flex-col gap-4">
-      <span className="font-['Inter'] font-bold text-[12px] text-[#6a7282] uppercase tracking-[0.6px]">{number}</span>
-      <h3 className="font-['Montserrat'] font-bold text-[32px] md:text-[42px] leading-[1.1] text-white">{title}</h3>
-      <p className="font-['Montserrat'] text-[#99a1af] text-[18px] leading-[28px] max-w-[580px]">
+      <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">{number}</span>
+      <h3 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[var(--ds-type-h3-size)] md:text-[var(--ds-type-h2-size)] leading-[var(--ds-type-h3-line-height)] text-[var(--ds-color-neutral-0)]">{title}</h3>
+      <p className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-500)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] max-w-[580px]">
         {text}
       </p>
     </div>
@@ -18,19 +18,19 @@ export const Philosophy = () => {
   const { t } = useTranslation();
   
   return (
-    <Section className="bg-black text-white border-b border-black/20" id="method">
+    <Section className="bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-0)] border-b border-[var(--ds-color-neutral-900-20)]" id="method">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
           <div className="lg:sticky lg:top-32 h-fit">
-            <span className="text-[#FFED00] font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] mb-8 block">
+            <span className="type-ui-sm text-[var(--ds-color-accent-base)] mb-8 block">
               {t("philosophy.label", "The Methodology")}
             </span>
-            <h2 className="font-['Montserrat'] font-bold text-[48px] md:text-[64px] leading-[1.1] tracking-[-2px] mb-12">
+            <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[var(--ds-type-h1-size-sm)] md:text-[var(--ds-type-h0-size-sm)] leading-[var(--ds-type-h1-line-height)] tracking-[var(--ds-type-h1-letter-spacing)] mb-12">
               {t("philosophy.title", "The textbook")}
               <br />
               {t("philosophy.titleCont", "is not enough.")}
             </h2>
-            <p className="font-['Montserrat'] text-[#99a1af] text-[18px] leading-[28px] max-w-[540px]">
+            <p className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-500)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] max-w-[540px]">
               {t(
                 "philosophy.intro",
                 "Most courses teach you how to pass an exam. We teach you how to handle a doctor's appointment, argue with a landlord, and make friends at a bar.",

@@ -24,18 +24,18 @@ export const Testimonials = () => {
   ];
 
   return (
-    <Section className="bg-white border-t border-black" id="testimonials">
+    <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="testimonials">
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
           <div className="max-w-xl space-y-3">
-            <span className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+            <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("testimonials.label", "Student voices")}
             </span>
-            <h2 className="font-['Montserrat'] font-bold text-[40px] md:text-[56px] leading-[1.1] tracking-[-1.5px]">
+            <h2 className="type-h2 md:text-[var(--ds-type-h1-size)]">
               {t("testimonials.title", "Real people. Real Czech.")}
             </h2>
           </div>
-          <p className="font-['Montserrat'] text-[#6a7282] text-[14px] leading-[21px] max-w-sm">
+          <p className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-700)] text-[var(--ds-type-body-sm-size)] leading-[var(--ds-type-body-sm-line-height)] max-w-sm">
             {t(
               "testimonials.subtitle",
               "Short, honest reflections from professionals who needed Czech for real life.",
@@ -47,16 +47,16 @@ export const Testimonials = () => {
           {testimonials.map((item) => (
             <div
               key={item.name}
-              className="border border-black p-6 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] bg-white"
+              className="border border-[var(--ds-color-neutral-900)] p-6 shadow-[var(--ds-shadow-dense-lg)] bg-[var(--ds-color-neutral-0)]"
             >
-              <p className="font-['Montserrat'] text-[18px] leading-[28px] text-black">
+              <p className="font-[var(--ds-font-family-display)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-900)]">
                 “{item.quote}”
               </p>
               <div className="mt-6">
-                <p className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px]">
+                <p className="type-ui-sm">
                   {item.name}
                 </p>
-                <p className="font-['Montserrat'] text-[13px] text-[#6a7282]">{item.role}</p>
+                <p className="font-[var(--ds-font-family-display)] text-[13px] text-[var(--ds-color-neutral-700)]">{item.role}</p>
               </div>
             </div>
           ))}
