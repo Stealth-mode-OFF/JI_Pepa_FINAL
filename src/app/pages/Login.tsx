@@ -45,12 +45,12 @@ export const Login = () => {
             onChange={(event) => setEmail(event.target.value)}
             placeholder={t("auth.emailPlaceholder", "your@email.com")}
             required
-            className="w-full h-[56px] border-2 border-black/30 hover:border-black/60 focus:border-[#FFED00] focus:border-2 px-5 text-[14px] font-['Montserrat'] text-black placeholder-black/40 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#FFED00]/20 bg-white"
+            className="w-full h-[56px] border-2 border-[var(--ds-color-neutral-900-30)] hover:border-[var(--ds-color-neutral-900-60)] focus:border-[var(--ds-color-accent-base)] focus:border-2 px-5 text-[14px] font-[var(--ds-font-family-display)] text-black placeholder-black/40 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[var(--ds-color-accent-base-20)] bg-white"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="font['Inter'] font-bold text-[11px] uppercase tracking-[1px] text-black block">
+          <label className="font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] uppercase tracking-[1px] text-black block">
             {t("auth.password", "Password")}
           </label>
           <input
@@ -60,14 +60,14 @@ export const Login = () => {
             placeholder={t("auth.passwordPlaceholder", "Enter your password")}
             required
             minLength={8}
-            className="w-full h-[56px] border-2 border-black/30 hover:border-black/60 focus:border-[#FFED00] focus:border-2 px-5 text-[14px] font-['Montserrat'] text-black placeholder-black/40 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#FFED00]/20 bg-white"
+            className="w-full h-[56px] border-2 border-[var(--ds-color-neutral-900-30)] hover:border-[var(--ds-color-neutral-900-60)] focus:border-[var(--ds-color-accent-base)] focus:border-2 px-5 text-[14px] font-[var(--ds-font-family-display)] text-black placeholder-black/40 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[var(--ds-color-accent-base-20)] bg-white"
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full h-[56px] bg-black hover:bg-[#1a1a1a] text-[#FFED00] font-['Inter'] font-bold text-[13px] uppercase tracking-[2px] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed mt-8 border-2 border-black shadow-[6px_6px_0px_0px_rgba(255,237,0,0.3)] hover:shadow-[8px_8px_0px_0px_rgba(255,237,0,0.5)]"
+          className="w-full h-[56px] bg-black hover:bg-[var(--ds-color-neutral-800)] text-[var(--ds-color-accent-base)] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[13px] uppercase tracking-[2px] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed mt-8 border-2 border-black shadow-[var(--ds-shadow-glow-accent)] hover:shadow-[var(--ds-shadow-accent-dense-lg)]"
         >
           {isSubmitting ? (
             <span className="inline-flex items-center gap-2">
@@ -78,10 +78,10 @@ export const Login = () => {
           )}
         </button>
 
-        <div className="pt-4 text-center border-t border-black/10">
-          <p className="text-[13px] text-black/70 font-['Montserrat']">
+        <div className="pt-4 text-center border-t border-[var(--ds-color-neutral-900-10)]">
+          <p className="text-[13px] text-[var(--ds-color-neutral-900-70)] font-[var(--ds-font-family-display)]">
             {t("auth.noAccount", "Don't have an account?")}{" "}
-            <a className="font-bold text-black hover:text-[#FFED00] transition-colors underline underline-offset-2" href="/signup">
+            <a className="font-bold text-black hover:text-[var(--ds-color-accent-base)] transition-colors underline underline-offset-2" href="/signup">
               {t("auth.signup.cta", "Create one")}
             </a>
           </p>

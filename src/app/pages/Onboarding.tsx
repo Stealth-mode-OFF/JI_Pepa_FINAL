@@ -177,7 +177,7 @@ export const Onboarding = () => {
           "We use this to match you to the right class and schedule.",
         )}
       >
-        <p className="font-['Montserrat'] text-[16px] text-[#6a7282]">
+        <p className="font-[var(--ds-font-family-display)] text-[16px] text-[var(--ds-color-neutral-700)]">
           {t("onboarding.loading", "Loading your profile...")}
         </p>
       </AuthShell>
@@ -191,9 +191,9 @@ export const Onboarding = () => {
     >
       <div className="flex flex-col gap-8">
         {/* Progress Bar */}
-        <div className="h-2 w-full bg-[#E0E0E0] rounded-full overflow-hidden">
+        <div className="h-2 w-full bg-[var(--ds-color-neutral-200)] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#FFED00] transition-all duration-500 ease-out"
+            className="h-full bg-[var(--ds-color-accent-base)] transition-all duration-500 ease-out"
             style={{ width: `${((step + 1) / 4) * 100}%` }}
           />
         </div>
@@ -207,7 +207,7 @@ export const Onboarding = () => {
                 {form.fullName ? form.fullName.split(" ")[0] : "friend"}
                 {t("onboarding.welcomeTitleEnd", "!")}
               </h2>
-              <p className="font-['Montserrat'] text-[16px] leading-[24px] text-[#6a7282] max-w-md">
+              <p className="font-[var(--ds-font-family-display)] text-[16px] leading-[24px] text-[var(--ds-color-neutral-700)] max-w-md">
                 {t(
                   "onboarding.welcomeBody",
                   "Welcome. We'll set up your perfect class in a few quick steps.",
@@ -215,7 +215,7 @@ export const Onboarding = () => {
               </p>
             </div>
 
-            <label className="flex flex-col gap-3 font-['Inter'] font-bold text-[11px] uppercase tracking-[1px]">
+            <label className="flex flex-col gap-3 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] uppercase tracking-[1px]">
               {t("onboarding.fullNameLabel", "Full name")}
               <input
                 type="text"
@@ -223,7 +223,7 @@ export const Onboarding = () => {
                 onChange={(event) => setForm((prev) => ({ ...prev, fullName: event.target.value }))}
                 placeholder={t("onboarding.fullNamePlaceholder", "Your name")}
                 required
-                className="w-full h-[56px] border-2 border-black px-4 text-[14px] font-['Montserrat'] focus:outline-none focus:ring-2 focus:ring-[#FFED00] focus:ring-offset-2 transition-all"
+                className="w-full h-[56px] border-2 border-black px-4 text-[14px] font-[var(--ds-font-family-display)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-accent-base)] focus:ring-offset-2 transition-all"
               />
             </label>
           </div>
@@ -236,7 +236,7 @@ export const Onboarding = () => {
               <h2 className="font-['Montserrat'] font-bold text-[28px] md:text-[32px] text-black mb-2">
                 {t("onboarding.levelIntro", "Where do you feel you are today?")}
               </h2>
-              <p className="font-['Montserrat'] text-[14px] text-[#6a7282]">
+              <p className="font-[var(--ds-font-family-display)] text-[14px] text-[var(--ds-color-neutral-700)]">
                 {t("onboarding.levelSubtitle", "Choose the level that feels most accurate.")}
               </p>
             </div>
@@ -244,11 +244,11 @@ export const Onboarding = () => {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 auto-rows-min">
               {levelOptions.map((option, idx) => {
                 const colors = [
-                  "from-[#4CAF50] to-[#81C784]", // A1 green
-                  "from-[#2196F3] to-[#64B5F6]", // A2 blue
-                  "from-[#9C27B0] to-[#BA68C8]", // B1 purple
-                  "from-[#FF6B6B] to-[#FF8A80]", // B2 red
-                  "from-[#FFC107] to-[#FFD54F]", // B2+ gold
+                  "from-[var(--ds-gradient-level-a1-from)] to-[var(--ds-gradient-level-a1-to)]", // A1 green
+                  "from-[var(--ds-gradient-level-a2-from)] to-[var(--ds-gradient-level-a2-to)]", // A2 blue
+                  "from-[var(--ds-gradient-level-b1-from)] to-[var(--ds-gradient-level-b1-to)]", // B1 purple
+                  "from-[var(--ds-gradient-level-b2-from)] to-[var(--ds-gradient-level-b2-to)]", // B2 red
+                  "from-[var(--ds-gradient-level-b2plus-from)] to-[var(--ds-gradient-level-b2plus-to)]", // B2+ gold
                 ];
                 const isSelected = form.level === option.value;
 
@@ -259,8 +259,8 @@ export const Onboarding = () => {
                     onClick={() => setForm((prev) => ({ ...prev, level: option.value }))}
                     className={`relative h-[180px] bg-gradient-to-br ${colors[idx]} border-2 p-6 flex flex-col justify-between transition-all duration-300 ${
                       isSelected
-                        ? "border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] scale-105"
-                        : "border-[#E0E0E0] hover:border-black hover:shadow-[6px_6px_0_0_rgba(255,237,0,0.3)] hover:scale-102"
+                        ? "border-black shadow-[var(--ds-shadow-dense-lg)] scale-105"
+                        : "border-[var(--ds-color-neutral-200)] hover:border-black hover:shadow-[var(--ds-shadow-glow-accent)] hover:scale-102"
                     }`}
                   >
                     {/* Checkmark */}
@@ -272,10 +272,10 @@ export const Onboarding = () => {
 
                     {/* Content */}
                     <div className="text-left text-white">
-                      <span className="font-['Inter'] font-bold text-[20px]">{option.value}</span>
+                      <span className="font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[20px]">{option.value}</span>
                     </div>
                     <div className="text-left">
-                      <p className="font-['Montserrat'] font-bold text-[14px] text-white">
+                      <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[14px] text-white">
                         {option.label}
                       </p>
                     </div>
@@ -304,10 +304,10 @@ export const Onboarding = () => {
                         goals: toggleValue(prev.goals, option.value),
                       }))
                     }
-                    className={`px-4 py-3 rounded-full border-2 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] transition-all duration-200 ${
+                    className={`px-4 py-3 rounded-full border-2 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[13px] uppercase tracking-[1px] transition-all duration-200 ${
                       form.goals.includes(option.value)
-                        ? "bg-[#FFED00] border-black text-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
-                        : "bg-white border-black text-black hover:bg-[#FFED00]/20"
+                        ? "bg-[var(--ds-color-accent-base)] border-black text-black shadow-[var(--ds-shadow-dense-md)]"
+                        : "bg-white border-black text-black hover:bg-[var(--ds-color-accent-base-20)]"
                     }`}
                   >
                     {form.goals.includes(option.value) && <span className="mr-2">✓</span>}
@@ -329,14 +329,14 @@ export const Onboarding = () => {
                     onClick={() => setForm((prev) => ({ ...prev, lifeSituation: option.value }))}
                     className={`border-2 px-4 py-4 text-left transition-all duration-200 ${
                       form.lifeSituation === option.value
-                        ? "bg-[#FFED00] border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
-                        : "bg-white border-black/30 hover:border-black"
+                        ? "bg-[var(--ds-color-accent-base)] border-black shadow-[var(--ds-shadow-dense-md)]"
+                        : "bg-white border-[var(--ds-color-neutral-900-30)] hover:border-black"
                     }`}
                   >
                     {form.lifeSituation === option.value && (
                       <span className="font-bold text-[16px] mr-2">✓</span>
                     )}
-                    <span className="font-['Montserrat'] text-[14px]">{option.label}</span>
+                    <span className="font-[var(--ds-font-family-display)] text-[14px]">{option.label}</span>
                   </button>
                 ))}
               </div>
@@ -362,10 +362,10 @@ export const Onboarding = () => {
                         availabilitySlots: toggleValue(prev.availabilitySlots, option.value),
                       }))
                     }
-                    className={`px-3 py-2 rounded-full border-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.8px] transition-all duration-200 ${
+                    className={`px-3 py-2 rounded-full border-2 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[12px] uppercase tracking-[0.8px] transition-all duration-200 ${
                       form.availabilitySlots.includes(option.value)
-                        ? "bg-[#FFED00] border-black text-black shadow-[4px_4px_0_0_rgba(0,0,0,0.5)]"
-                        : "bg-white border-black text-black hover:bg-[#FFED00]/10"
+                        ? "bg-[var(--ds-color-accent-base)] border-black text-black shadow-[var(--ds-shadow-dense-sm)]"
+                        : "bg-white border-black text-black hover:bg-[var(--ds-color-accent-base-10)]"
                     }`}
                   >
                     {option.label}
@@ -384,10 +384,10 @@ export const Onboarding = () => {
                     key={option.value}
                     type="button"
                     onClick={() => setForm((prev) => ({ ...prev, timePreference: option.value }))}
-                    className={`px-4 py-3 rounded-full border-2 font-['Inter'] font-bold text-[12px] uppercase tracking-[0.8px] transition-all duration-200 ${
+                    className={`px-4 py-3 rounded-full border-2 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[12px] uppercase tracking-[0.8px] transition-all duration-200 ${
                       form.timePreference === option.value
-                        ? "bg-[#FFED00] border-black text-black shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
-                        : "bg-white border-black text-black hover:bg-[#FFED00]/20"
+                        ? "bg-[var(--ds-color-accent-base)] border-black text-black shadow-[var(--ds-shadow-dense-md)]"
+                        : "bg-white border-black text-black hover:bg-[var(--ds-color-accent-base-20)]"
                     }`}
                   >
                     {option.label}
@@ -399,12 +399,12 @@ export const Onboarding = () => {
         )}
 
         {/* Navigation & CTA */}
-        <div className="border-t border-black/20 pt-6 flex flex-col sm:flex-row gap-3">
+        <div className="border-t border-[var(--ds-color-neutral-900-20)] pt-6 flex flex-col sm:flex-row gap-3">
           {step > 0 && (
             <button
               type="button"
               onClick={() => setStep((prev) => ((prev - 1) as Step))}
-              className="h-[52px] bg-white border-2 border-black text-black px-6 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] hover:bg-black hover:text-white transition-colors duration-200"
+              className="h-[52px] bg-white border-2 border-black text-black px-6 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[13px] uppercase tracking-[1px] hover:bg-black hover:text-white transition-colors duration-200"
             >
               {t("onboarding.back", "← Back")}
             </button>
@@ -414,7 +414,7 @@ export const Onboarding = () => {
               type="button"
               onClick={() => setStep((prev) => ((prev + 1) as Step))}
               disabled={!canProceed}
-              className="h-[52px] bg-black text-[#FFED00] border-2 border-black px-6 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform disabled:opacity-40 disabled:cursor-not-allowed"
+              className="h-[52px] bg-black text-[var(--ds-color-accent-base)] border-2 border-black px-6 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[13px] uppercase tracking-[1px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {t("onboarding.next", "Next →")}
             </button>
@@ -424,7 +424,7 @@ export const Onboarding = () => {
               type="button"
               onClick={handleSubmit}
               disabled={!canProceed || isSaving}
-              className="h-[52px] bg-black text-[#FFED00] border-2 border-black px-6 font-['Inter'] font-bold text-[13px] uppercase tracking-[1px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform shadow-[6px_6px_0_0_rgba(0,0,0,1)] disabled:opacity-40 disabled:cursor-not-allowed"
+              className="h-[52px] bg-black text-[var(--ds-color-accent-base)] border-2 border-black px-6 font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[13px] uppercase tracking-[1px] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform shadow-[var(--ds-shadow-dense-md)] disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {isSaving ? t("onboarding.saving", "Saving...") : t("onboarding.finish", "Complete")}
             </button>

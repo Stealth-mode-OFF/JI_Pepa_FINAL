@@ -12,39 +12,39 @@ export const Instructor = () => {
   ];
 
   return (
-    <Section className="bg-white border-t border-black" id="instructor">
+    <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="instructor">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start">
           <div className="space-y-6">
-            <span className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+            <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("instructor.label", "Your instructor")}
             </span>
-            <h2 className="font-['Montserrat'] font-bold text-[40px] md:text-[56px] leading-[1.1] tracking-[-1.5px]">
+            <h2 className="type-h2 md:text-[var(--ds-type-h1-size)]">
               {t("instructor.title", "Meet the team behind your Czech confidence.")}
             </h2>
-            <p className="font-['Montserrat'] text-[18px] leading-[28px] text-[#6a7282] max-w-xl">
+            <p className="font-[var(--ds-font-family-display)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-700)] max-w-xl">
               {t(
                 "instructor.body",
                 "We teach the Czech you need for landlords, colleagues, and coffee chats. Expect practical scenarios and real feedback.",
               )}
             </p>
-            <ul className="space-y-2 font-['Montserrat'] text-[16px] text-black">
+            <ul className="space-y-2 font-[var(--ds-font-family-display)] text-[16px] text-[var(--ds-color-neutral-900)]">
               {highlights.map((item) => (
                 <li key={item}>• {item}</li>
               ))}
             </ul>
           </div>
-          <div className="border border-black bg-[#f9f9f9] p-8 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
-            <p className="font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+          <div className="border border-[var(--ds-color-neutral-900)] bg-[var(--ds-color-neutral-50)] p-8 shadow-[var(--ds-shadow-dense-lg)]">
+            <p className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("instructor.cardLabel", "Why students stay")}
             </p>
-            <p className="font-['Montserrat'] text-[18px] leading-[28px] mt-4">
+            <p className="font-[var(--ds-font-family-display)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] mt-4">
               {t(
                 "instructor.cardBody",
                 "“It felt like a community from day one. The class was intense, but always supportive.”",
               )}
             </p>
-            <p className="font-['Montserrat'] text-[13px] text-[#6a7282] mt-4">
+            <p className="font-[var(--ds-font-family-display)] text-[13px] text-[var(--ds-color-neutral-700)] mt-4">
               {t("instructor.cardAttribution", "— Lucie, Lead Instructor")}
             </p>
           </div>

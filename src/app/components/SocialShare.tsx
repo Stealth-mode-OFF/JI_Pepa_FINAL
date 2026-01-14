@@ -46,7 +46,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         </svg>
       ),
       link: shareLinks.twitter,
-      color: "hover:bg-black hover:text-white",
+      color: "hover:bg-[var(--ds-color-neutral-900)] hover:text-[var(--ds-color-neutral-0)]",
     },
     {
       name: "Facebook",
@@ -56,7 +56,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         </svg>
       ),
       link: shareLinks.facebook,
-      color: "hover:bg-[#1877F2] hover:text-white",
+      color: "hover:bg-[var(--ds-color-social-facebook)] hover:text-[var(--ds-color-neutral-0)]",
     },
     {
       name: "WhatsApp",
@@ -66,13 +66,13 @@ export const SocialShare: React.FC<SocialShareProps> = ({
         </svg>
       ),
       link: shareLinks.whatsapp,
-      color: "hover:bg-[#25D366] hover:text-white",
+      color: "hover:bg-[var(--ds-color-social-whatsapp)] hover:text-[var(--ds-color-neutral-0)]",
     },
   ];
 
   return (
     <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 ${className}`}>
-      <span className="font-inter text-sm font-medium text-gray-600 uppercase tracking-wide">
+      <span className="font-[var(--ds-font-family-body)] text-sm font-medium text-[var(--ds-color-neutral-600)] uppercase tracking-wide">
         {t("socialShare.label", "Share:")}
       </span>
       <div className="flex gap-3">
@@ -81,7 +81,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({
             key={button.name}
             onClick={() => handleShare(button.name, button.link)}
             aria-label={t("socialShare.shareOn", { platform: button.name, defaultValue: `Share on ${button.name}` })}
-            className={`flex items-center justify-center w-10 h-10 border-2 border-black rounded-full transition-all duration-200 ${button.color} focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2`}
+            className={`flex items-center justify-center w-10 h-10 border-2 border-[var(--ds-color-neutral-900)] rounded-full transition-all duration-200 ${button.color} focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2`}
             title={`${t("socialShare.shareOn", { platform: button.name, defaultValue: `Share on ${button.name}` })}`}
           >
             {button.icon}

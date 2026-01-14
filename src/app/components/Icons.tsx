@@ -24,7 +24,7 @@ export const ArrowUpRightIcon = () => (
 
 export const CheckIcon = () => (
   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-    <path d="M10 3L4.5 8.5L2 6" stroke="#FFED00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M10 3L4.5 8.5L2 6" stroke="var(--ds-color-accent-base)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -37,7 +37,7 @@ const FlagContainer = ({ children }: { children: React.ReactNode }) => (
 const UnitedKingdomFlag = () => (
   <FlagContainer>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
-      <path d="M24 0H0V16H24V0Z" fill="#012169" />
+      <path d="M24 0H0V16H24V0Z" fill="var(--ds-flag-uk-blue)" />
     </svg>
     <div className="absolute inset-[-7.8%_-3.47%] w-[115.6%] h-[106.9%]">
       <svg className="w-full h-full" viewBox="0 0 25.6641 18.4962" fill="none" preserveAspectRatio="none">
@@ -48,7 +48,7 @@ const UnitedKingdomFlag = () => (
     <div className="absolute inset-[-2.6%_-1.16%] w-[105.2%] h-[102.3%]">
       <svg className="w-full h-full" viewBox="0 0 24.5547 16.8321" fill="none" preserveAspectRatio="none">
         <path d={svgPaths.p75ee300} fill="black" />
-        <path d={svgPaths.pd60a900} stroke="#C8102E" />
+        <path d={svgPaths.pd60a900} stroke="var(--ds-flag-uk-red)" />
       </svg>
     </div>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
@@ -57,7 +57,7 @@ const UnitedKingdomFlag = () => (
     </svg>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
       <path d="M12 0V16ZM0 8H24Z" fill="black" />
-      <path d="M12 0V16M0 8H24" stroke="#C8102E" strokeWidth="3" />
+      <path d="M12 0V16M0 8H24" stroke="var(--ds-flag-uk-red)" strokeWidth="3" />
     </svg>
   </FlagContainer>
 );
@@ -65,9 +65,9 @@ const UnitedKingdomFlag = () => (
 const CzechFlag = () => (
   <FlagContainer>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
-      <rect width="24" height="16" fill="#ffffff" />
-      <rect y="8" width="24" height="8" fill="#d7141a" />
-      <path d="M0 0L12 8L0 16Z" fill="#11457e" />
+      <rect width="24" height="16" fill="var(--ds-color-neutral-0)" />
+      <rect y="8" width="24" height="8" fill="var(--ds-flag-cz-red)" />
+      <path d="M0 0L12 8L0 16Z" fill="var(--ds-flag-cz-blue)" />
     </svg>
   </FlagContainer>
 );
@@ -75,8 +75,8 @@ const CzechFlag = () => (
 const UkraineFlag = () => (
   <FlagContainer>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
-      <rect width="24" height="8" y="0" fill="#005bbb" />
-      <rect width="24" height="8" y="8" fill="#ffd500" />
+      <rect width="24" height="8" y="0" fill="var(--ds-flag-ua-blue)" />
+      <rect width="24" height="8" y="8" fill="var(--ds-flag-ua-yellow)" />
     </svg>
   </FlagContainer>
 );
@@ -84,9 +84,9 @@ const UkraineFlag = () => (
 const RussiaFlag = () => (
   <FlagContainer>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
-      <rect width="24" height="16" fill="#ffffff" />
-      <rect width="24" height="5.3333" y="5.3333" fill="#0039a6" />
-      <rect width="24" height="5.3333" y="10.6666" fill="#d52b1e" />
+      <rect width="24" height="16" fill="var(--ds-color-neutral-0)" />
+      <rect width="24" height="5.3333" y="5.3333" fill="var(--ds-flag-ru-blue)" />
+      <rect width="24" height="5.3333" y="10.6666" fill="var(--ds-flag-ru-red)" />
     </svg>
   </FlagContainer>
 );
@@ -94,9 +94,9 @@ const RussiaFlag = () => (
 const ItalyFlag = () => (
   <FlagContainer>
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 24 16" fill="none" preserveAspectRatio="none">
-      <rect width="24" height="16" fill="#ffffff" />
-      <rect width="8" height="16" x="0" fill="#009246" />
-      <rect width="8" height="16" x="16" fill="#ce2b37" />
+      <rect width="24" height="16" fill="var(--ds-color-neutral-0)" />
+      <rect width="8" height="16" x="0" fill="var(--ds-flag-it-green)" />
+      <rect width="8" height="16" x="16" fill="var(--ds-flag-it-red)" />
     </svg>
   </FlagContainer>
 );

@@ -20,12 +20,12 @@ export const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Main Headline */}
           <div className="lg:col-span-8">
-            <h1 className="font-['Montserrat'] font-bold text-6xl md:text-7xl lg:text-8xl xl:text-[110px] leading-[0.85] tracking-[-3.6px] text-black mb-0">
+            <h1 className="type-h0 text-[var(--ds-type-h0-size-sm)] md:text-[var(--ds-type-h0-size-md)] xl:text-[var(--ds-type-h0-size)] text-[var(--ds-color-neutral-900)] mb-0">
               {t("hero.line1", "YOU LIVE")}
               <br />
               {t("hero.line2", "IN PRAGUE.")}
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C608D6] to-[#9810FA]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--ds-gradient-accent-to-purple-from)] to-[var(--ds-gradient-accent-to-purple-to)]">
                 {t("hero.line3", "SPEAK LIKE IT.")}
               </span>
             </h1>
@@ -33,7 +33,7 @@ export const HeroSection = () => {
 
           {/* Supporting copy and CTA */}
           <div className="lg:col-span-4 flex flex-col justify-end gap-8">
-            <p className="font-['Montserrat'] font-medium text-[18px] leading-[28px] text-black max-w-[427px]">
+            <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-900)] max-w-[427px]">
               {t(
                 "hero.subtitle",
                 "Language integration for professionals who are tired of being treated like tourists in their own city."
@@ -41,7 +41,7 @@ export const HeroSection = () => {
             </p>
             <a
               href="/signup"
-              className="bg-[#FFED00] hover:bg-[#e6d600] focus:bg-[#e6d600] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200 text-black h-[55px] px-[33px] font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] inline-flex items-center justify-center w-fit border border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+              className="bg-[var(--ds-color-accent-base)] hover:bg-[var(--ds-color-accent-dark)] focus:bg-[var(--ds-color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-all duration-200 text-[var(--ds-color-neutral-900)] h-[55px] px-[33px] type-ui-md inline-flex items-center justify-center w-fit border border-[var(--ds-color-neutral-900)] shadow-[var(--ds-shadow-dense-lg)]"
             >
               {t("hero.cta", "Start Now")}
             </a>
@@ -79,7 +79,7 @@ export const HeroSection = () => {
 function HeroMetadata({ label }: { label: string }) {
   return (
     <div className="space-y-2">
-      <span className="block font-['Inter'] font-bold text-[12px] text-[#6a7282] uppercase tracking-[0.6px]">
+      <span className="block type-ui-sm text-[var(--ds-color-neutral-700)]">
         {label}
       </span>
     </div>
