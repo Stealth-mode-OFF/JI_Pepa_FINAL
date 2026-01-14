@@ -1,3 +1,15 @@
+// GDPR compliance: Cookie consent banner.
+//
+// Displays once per session (or can be reopened via footer "Cookie Preferences" link).
+// Stores user decision in localStorage with timestamp for audit trail.
+// On accept: calls grantAnalyticsConsent() to enable PostHog tracking
+// On reject: calls revokeAnalyticsConsent() to disable tracking and clear data
+//
+// Integration points:
+// - imports grantAnalyticsConsent/revokeAnalyticsConsent from analytics.ts
+// - exports reopenCookieConsentBanner() for use by footer link
+// - listens for 'reopen-cookie-consent' custom event
+
 import React, { useState, useEffect } from "react";
 import { Container } from "./Layout";
 import { useTranslation } from "react-i18next";
@@ -13,6 +25,7 @@ interface CookieConsentDecision {
 
 /**
  * Store user's cookie consent decision in localStorage.
+ * Records timestamp for audit compliance.
  */
 const storeCookieConsentDecision = (analyticsAccepted: boolean): void => {
   const decision: CookieConsentDecision = {
@@ -25,6 +38,7 @@ const storeCookieConsentDecision = (analyticsAccepted: boolean): void => {
 
 /**
  * Retrieve user's cookie consent decision from localStorage.
+ * Returns null if no decision has been made yet.
  */
 const getCookieConsentDecision = (): CookieConsentDecision | null => {
   const stored = localStorage.getItem(CONSENT_STORAGE_KEY);
@@ -39,7 +53,8 @@ const getCookieConsentDecision = (): CookieConsentDecision | null => {
 
 /**
  * Allow external code to reopen the cookie consent banner.
- * Used by footer "Cookie Preferences" link.
+ * Called by footer "Cookie Preferences" link via custom event.
+ * Allows users to change their consent decision after initial choice.
  */
 export const reopenCookieConsentBanner = (): void => {
   window.dispatchEvent(new CustomEvent('reopen-cookie-consent'));

@@ -1,3 +1,7 @@
+// Application entry point.
+// Sets up React routing, authentication context, and internationalization.
+// Analytics initialization is deferred until after user consent is given (see CookieConsent.tsx).
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";

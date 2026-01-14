@@ -1,4 +1,18 @@
-import { useEffect } from "react";
+// GDPR-compliant analytics integration via PostHog.
+// 
+// This module handles analytics initialization and consent management.
+// Key principles:
+// - Analytics is DISABLED by default (opt_out_capturing_by_default: true)
+// - Users must explicitly grant consent before tracking starts
+// - Tracking can be paused/resumed via grantAnalyticsConsent/revokeAnalyticsConsent
+// - IP anonymization must be enabled in PostHog dashboard (manual step)
+//
+// Usage:
+// 1. App initializes this module on startup (deferred until after consent banner)
+// 2. CookieConsent.tsx calls grantAnalyticsConsent() or revokeAnalyticsConsent()
+// 3. Components use trackEvent() for manual event logging
+// 4. See GDPR_COMPLIANCE.md for full implementation details
+
 import posthog from "posthog-js";
 
 const POSTHOG_KEY = import.meta.env.VITE_POSTHOG_KEY as string | undefined;
@@ -10,13 +24,13 @@ let analyticsInitialized = false;
  * Initialize PostHog analytics in a GDPR-compliant manner.
  * 
  * IMPORTANT GDPR CONFIGURATION:
- * - Uses cookieless mode when rejected to avoid storing identifiers
- * - Requires explicit opt-in before capturing events
+ * - Users start in opt-out mode (analytics disabled by default)
+ * - No events captured until user explicitly consents
  * - IP anonymization must be enabled in PostHog project settings:
- *   PostHog Project Settings → Data & Privacy → "Discard client IP data"
+ *   PostHog Dashboard → Project Settings → Data & Privacy → "Discard client IP data"
  * 
  * This function only sets up the PostHog instance. Call grantAnalyticsConsent()
- * to actually start capturing events after user consent.
+ * to enable event capture after user consent.
  */
 export const initializeAnalyticsTracking = () => {
   if (analyticsInitialized || !POSTHOG_KEY) {
@@ -26,24 +40,24 @@ export const initializeAnalyticsTracking = () => {
   posthog.init(POSTHOG_KEY, {
     api_host: POSTHOG_HOST || "https://app.posthog.com",
     
-    // GDPR Compliance: Start in opt-out mode
+    // GDPR Compliance: Start in opt-out mode (analytics disabled by default)
     opt_out_capturing_by_default: true,
     
-    // Use cookieless mode for rejected users (no persistent storage)
+    // Use localStorage + cookie for persistence
     persistence: "localStorage+cookie",
     
-    // Manual event tracking only
+    // Manual event tracking only (no auto-capture)
     autocapture: false,
     capture_pageview: false,
     
-    // Session recording with privacy
+    // Session recording with privacy protections
     disable_session_recording: false,
     session_recording: {
       maskAllInputs: true,
       maskTextSelector: "[data-private]",
     },
     
-    // Note: IP anonymization must be enabled in PostHog project settings
+    // IMPORTANT: IP anonymization must be enabled in PostHog project settings
     // PostHog Dashboard → Project Settings → Data & Privacy → "Discard client IP data"
     
     loaded: (posthog) => {
@@ -62,7 +76,8 @@ export const initializeAnalyticsTracking = () => {
 
 /**
  * Grant user consent for analytics tracking.
- * Enables PostHog event capture after user accepts cookies.
+ * Called by CookieConsent.tsx after user accepts cookies.
+ * Enables PostHog event capture.
  */
 export const grantAnalyticsConsent = () => {
   initializeAnalyticsTracking();
@@ -74,17 +89,19 @@ export const grantAnalyticsConsent = () => {
 
 /**
  * Revoke user consent for analytics tracking.
- * Disables PostHog event capture and clears stored data.
+ * Called by CookieConsent.tsx after user rejects or withdraws consent.
+ * Disables PostHog event capture and clears stored user identifiers.
  */
 export const revokeAnalyticsConsent = () => {
   if (typeof window !== "undefined" && (window as any).posthog) {
     (window as any).posthog.opt_out_capturing();
-    (window as any).posthog.reset(); // Clear any stored identifiers
+    (window as any).posthog.reset(); // Clear stored identifiers
   }
 };
 
 /**
- * Check if analytics tracking is currently active.
+ * Check if analytics tracking is currently enabled.
+ * Returns true if user has granted consent, false otherwise.
  */
 export const isAnalyticsConsentGranted = (): boolean => {
   if (typeof window !== "undefined" && (window as any).posthog) {
@@ -93,19 +110,18 @@ export const isAnalyticsConsentGranted = (): boolean => {
   return false;
 };
 
-export const usePostHog = () => {
-  useEffect(() => {
-    initPostHog();
-  }, []);
-};
-
-// Event tracking helpers
+/**
+ * Track a custom event. Only recorded if user has granted consent.
+ */
 export const trackEvent = (eventName: string, properties?: Record<string, any>) => {
   if (typeof window !== "undefined" && (window as any).posthog) {
     (window as any).posthog.capture(eventName, properties);
   }
 };
 
+/**
+ * Track a page view. Only recorded if user has granted consent.
+ */
 export const trackPageView = (pageName?: string) => {
   if (typeof window !== "undefined" && (window as any).posthog) {
     (window as any).posthog.capture("$pageview", {
@@ -115,6 +131,10 @@ export const trackPageView = (pageName?: string) => {
   }
 };
 
+/**
+ * Identify user for analytics (e.g., after login).
+ * Only recorded if user has granted consent.
+ */
 export const identifyUser = (userId: string, properties?: Record<string, any>) => {
   if (typeof window !== "undefined" && (window as any).posthog) {
     (window as any).posthog.identify(userId, properties);

@@ -1,3 +1,16 @@
+// Course listings and enrollment interface.
+//
+// Displays available language courses with intake dates and times.
+// Users can click any course row to start enrollment.
+// Course selection (cohort ID) is saved to localStorage for later retrieval during onboarding.
+//
+// Features:
+// - Entire course row is clickable (not just a button)
+// - Navigates to /signup for new users, /onboarding for logged-in users
+// - Shows course level, dates, times, and availability status
+// - Fetches course data from Supabase on mount
+// - Internationalized with i18next
+
 import React, { useEffect, useMemo, useState } from "react";
 import clsx from "clsx";
 import { Container, Section } from "./Layout";
@@ -6,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth/AuthContext";
 import { supabase } from "@/utils/supabase/client";
 
+// Individual course row component - entire row is clickable for enrollment
 const CourseRow = ({ 
   level, 
   levelDesc, 
@@ -33,11 +47,12 @@ const CourseRow = ({
   cohortId?: string;
   user?: any;
 }) => {
+  // Clicking anywhere in the row navigates to signup/onboarding
   const handleClick = () => {
     if (onSelect && cohortId) {
       onSelect();
     }
-    // Navigate to signup/enrollment page
+    // Navigate to appropriate page based on auth status
     window.location.href = user ? "/onboarding" : "/signup";
   };
 
