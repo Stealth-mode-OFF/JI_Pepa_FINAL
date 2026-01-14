@@ -1,0 +1,109 @@
+import React from "react";
+import { classNames } from "@/design-system";
+
+/**
+ * PageContainer
+ *
+ * Responsive container with consistent max-width and padding.
+ * Purpose: Ensure all pages have consistent horizontal spacing and content width.
+ *
+ * Usage:
+ * <PageContainer>
+ *   <h1>Page Title</h1>
+ * </PageContainer>
+ */
+export const PageContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={classNames(
+      "max-w-[1329px] mx-auto px-6 md:px-12 w-full",
+      className
+    )}
+  >
+    {children}
+  </div>
+);
+
+/**
+ * PageSection
+ *
+ * Semantic section wrapper with standard vertical spacing.
+ * Purpose: Provide visual separation between content sections.
+ *
+ * Props:
+ * - id: For anchor links
+ * - className: Additional CSS classes
+ * - children: Content
+ *
+ * Usage:
+ * <PageSection id="pricing">
+ *   <SectionTitle>Pricing</SectionTitle>
+ *   ...
+ * </PageSection>
+ */
+export const PageSection = ({
+  id,
+  children,
+  className,
+}: {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <section
+    id={id}
+    className={classNames("py-20 md:py-32 scroll-mt-24", className)}
+  >
+    {children}
+  </section>
+);
+
+/**
+ * SectionTitle
+ *
+ * Semantic heading for page sections.
+ * Always use this for section headings instead of raw h2.
+ *
+ * Props:
+ * - label: Small caption above title (optional)
+ * - children: The main heading text
+ * - subtitle: Description below title (optional)
+ * - align: text-left | text-center | text-right
+ *
+ * Usage:
+ * <SectionTitle label="Pricing">
+ *   Clear pricing. Zero surprises.
+ * </SectionTitle>
+ */
+export const SectionTitle = ({
+  label,
+  children,
+  subtitle,
+  align = "text-left",
+}: {
+  label?: string;
+  children: React.ReactNode;
+  subtitle?: React.ReactNode;
+  align?: "text-left" | "text-center" | "text-right";
+}) => (
+  <div className={classNames("space-y-3 mb-12", align)}>
+    {label && (
+      <span className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[0.6px] text-[#6a7282]">
+        {label}
+      </span>
+    )}
+    <h2 className="font-['Montserrat'] font-bold text-[40px] md:text-[56px] leading-[1.1] tracking-[-1.5px] max-w-xl">
+      {children}
+    </h2>
+    {subtitle && (
+      <p className="font-['Montserrat'] text-[#99a1af] text-[14px] leading-[21px] max-w-sm">
+        {subtitle}
+      </p>
+    )}
+  </div>
+);
