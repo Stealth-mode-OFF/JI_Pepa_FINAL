@@ -1,3 +1,17 @@
+// Site footer: contact, social links, legal documents, and GDPR controls.
+//
+// Features:
+// - Language-specific instructor emails (josef/marta/ekaterina by language)
+// - Social media links (WhatsApp, Instagram, etc.)
+// - Legal document links (privacy, ToS, accessibility, cookies)
+// - "Cookie Preferences" link to reopen consent banner (GDPR compliance)
+// - Company information and copyright
+//
+// Integration points:
+// - imports reopenCookieConsentBanner from CookieConsent
+// - uses i18n.language to determine instructor email
+// - passes onOpenLegal callback to open legal modal
+
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { PageContainer } from "@/shared/layouts/Page";
@@ -6,7 +20,10 @@ import { reopenCookieConsentBanner } from "@/app/components/CookieConsent";
 
 /**
  * Get language-specific contact email based on current language.
- * Each instructor handles specific languages.
+ * Routes to different instructors:
+ * - EN/CS: josef@jazykaintegrace.cz (Czech/English instructor)
+ * - IT: marta@jazykaintegrace.cz (Italian instructor)
+ * - RU/UK: ekaterina@jazykaintegrace.cz (Russian/Ukrainian instructor)
  */
 function getLanguageSpecificEmail(language: string): string {
   const emailMap: Record<string, string> = {
@@ -27,7 +44,7 @@ function getLanguageSpecificEmail(language: string): string {
  * Domain Concept: Footer navigation and organizational information.
  *
  * Responsibilities:
- * - Display contact information
+ * - Display contact information (language-aware)
  * - Provide social media links
  * - Link to legal documents
  * - Show company information
