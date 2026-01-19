@@ -1,5 +1,5 @@
 import React from "react";
-import svgPaths from "../../imports/svg-basbljdlhp";
+import svgPaths from "../../imports/svg-icons";
 
 export const ArrowRightIcon = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

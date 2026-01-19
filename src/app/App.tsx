@@ -5,7 +5,7 @@
 
 import { Toaster } from "sonner";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { LandingPage } from "@/pages/LandingPage";
+import { LandingPage } from "@/app/pages/LandingPage";
 import { Login } from "@/app/pages/Login";
 import { Signup } from "@/app/pages/Signup";
 import { Onboarding } from "@/app/pages/Onboarding";
