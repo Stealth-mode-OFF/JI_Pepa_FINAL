@@ -720,5 +720,289 @@
       }
     },
     "footerSecondaryCta": "See Cohorts"
+  },
+  "legal": {
+    "titleFallback": "Právní informace",
+    "closeLabel": "Zavřít",
+    "updatedFallback": "Poslední aktualizace",
+    "terms": {
+      "title": "Obchodní podmínky",
+      "updated": "Aktualizováno 19. ledna 2026",
+      "sections": [
+        {
+          "heading": "1. Údaje o společnosti",
+          "paragraphs": [
+            "Tyto obchodní podmínky upravují používání služeb poskytovaných společností Jazyk a Integrace s.r.o., společností založenou podle českého práva.",
+            "Údaje o společnosti: Jazyk a Integrace s.r.o., IČO: 23812036, zapsaná u Městského soudu v Praze, oddíl C, vložka 433136, se sídlem Černomořská 384/9, 101 00 Praha 10, Česká republika."
+          ]
+        },
+        {
+          "heading": "2. Služby",
+          "paragraphs": [
+            "Poskytujeme služby v oblasti výuky českého jazyka včetně online kurzů, prezenční výuky a souvisejících vzdělávacích materiálů.",
+            "Rozvrhy kurzů, formáty a obsah mohou být upraveny na základě počtu přihlášených a pedagogických požadavků. Vyhrazujeme si právo zrušit kurzy s nedostatečným počtem účastníků s plnou refundací."
+          ]
+        },
+        {
+          "heading": "3. Registrace a účet",
+          "paragraphs": [
+            "Pro přístup k našim službám si musíte vytvořit účet s přesnými, aktuálními a úplnými informacemi.",
+            "Jste odpovědni za zachování důvěrnosti přihlašovacích údajů a za veškeré aktivity pod vaším účtem.",
+            "Musíte být starší 18 let nebo mít souhlas rodičů k používání našich služeb."
+          ]
+        },
+        {
+          "heading": "4. Ceny a platby",
+          "paragraphs": [
+            "Ceny jsou uvedeny v EUR a zahrnují českou DPH, kde je to relevantní. Platby jsou bezpečně zpracovávány prostřednictvím Stripe.",
+            "Pro zajištění zápisu je vyžadována úplná platba. Přijímáme kreditní karty, debetní karty a další platební metody dostupné prostřednictvím našeho platebního procesoru.",
+            "Poplatky za převod měn, pokud nějaké jsou, hradíte vy."
+          ]
+        },
+        {
+          "heading": "5. Práva spotřebitele a odstoupení",
+          "paragraphs": [
+            "Jako spotřebitel máte právo odstoupit od smlouvy do 14 dnů od nákupu bez uvedení důvodu v souladu s českým občanským zákoníkem.",
+            "Pokud však výslovně souhlasíte se zahájením poskytování služeb během lhůty pro odstoupení a my začneme vzdělávací službu poskytovat, vaše právo na odstoupení zanikne.",
+            "Pro uplatnění odstoupení nás kontaktujte na josef@jazykaintegrace.cz s jasným prohlášením o vašem rozhodnutí. Platby vrátíme do 14 dnů od obdržení oznámení o odstoupení."
+          ]
+        },
+        {
+          "heading": "6. Zrušení a vrácení peněz",
+          "paragraphs": [
+            "Zrušení kurzu účastníky: Plná refundace při zrušení 7+ dnů před začátkem kurzu. Částečné refundace za nevyužité lekce mohou být poskytnuty podle našeho uvážení po zahájení kurzu.",
+            "Zrušení kurzu námi: Plná refundace nebo převod na alternativní termíny/kurzy.",
+            "Refundace jsou zpracovány na původní platební metodu do 14 dnů."
+          ]
+        },
+        {
+          "heading": "7. Duševní vlastnictví",
+          "paragraphs": [
+            "Všechny výukové materiály, obsah a metody výuky jsou naším duševním vlastnictvím nebo jsou používány na základě licence.",
+            "Studenti obdrží omezenou licenci k používání materiálů pouze pro osobní vzdělávací účely.",
+            "Nahrávání, redistribuce nebo komerční využití našeho obsahu je zakázáno bez písemného souhlasu."
+          ]
+        },
+        {
+          "heading": "8. Kodex chování",
+          "paragraphs": [
+            "Očekáváme respektující, profesionální chování vůči instruktorům a ostatním studentům.",
+            "Obtěžování, diskriminace, rušivé chování nebo porušování zásad kurzu může vést k vyloučení bez náhrady.",
+            "Vyhrazujeme si právo odmítnout služby jednotlivcům, kteří porušují naše komunitní standardy."
+          ]
+        },
+        {
+          "heading": "9. Omezení odpovědnosti",
+          "paragraphs": [
+            "Naše odpovědnost je omezena na částku zaplacenou za konkrétní kurz nebo službu.",
+            "Neneseme odpovědnost za nepřímé, náhodné nebo následné škody.",
+            "Technické problémy, problémy s internetovým připojením nebo události vyšší moci nepředstavují důvody pro kompenzaci nad rámec přeplánování kurzu nebo refundace."
+          ]
+        },
+        {
+          "heading": "10. Rozhodné právo a spory",
+          "paragraphs": [
+            "Tyto podmínky se řídí českým právem. Případné spory budou řešeny českými soudy.",
+            "Pro spotřebitelské spory můžete kontaktovat Českou obchodní inspekci nebo použít platformu pro řešení sporů online na ec.europa.eu/consumers/odr."
+          ]
+        },
+        {
+          "heading": "11. Kontakt",
+          "paragraphs": [
+            "S dotazy k těmto podmínkám nás kontaktujte na josef@jazykaintegrace.cz nebo +420 605 839 456."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Zásady ochrany osobních údajů",
+      "updated": "Aktualizováno 19. ledna 2026",
+      "sections": [
+        {
+          "heading": "1. Správce údajů",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o. (IČO: 23812036) je správcem osobních údajů.",
+            "Kontakt: josef@jazykaintegrace.cz, Černomořská 384/9, 101 00 Praha 10, Česká republika."
+          ]
+        },
+        {
+          "heading": "2. Osobní údaje, které sbíráme",
+          "paragraphs": [
+            "Registrační údaje: Jméno, e-mailová adresa, telefonní číslo, jazykové preference a vzdělávací cíle.",
+            "Platební údaje: Fakturační informace zpracovávané společností Stripe (neukládáme údaje z platebních karet).",
+            "Údaje o používání: Pokrok v kurzech, záznamy o účasti a historie komunikace.",
+            "Webové údaje: IP adresa, informace o prohlížeči a cookies (s vaším souhlasem)."
+          ]
+        },
+        {
+          "heading": "3. Právní základ a účely",
+          "paragraphs": [
+            "Plnění smlouvy: K poskytování vzdělávacích služeb, zpracování plateb a komunikaci o kurzech.",
+            "Oprávněný zájem: Ke zlepšování našich služeb, prevenci podvodů a udržování bezpečnosti.",
+            "Souhlas: Pro marketingovou komunikaci a analytické cookies.",
+            "Právní povinnost: K vedení účetních záznamů a dodržování daňových povinností."
+          ]
+        },
+        {
+          "heading": "4. Sdílení údajů",
+          "paragraphs": [
+            "Platební procesor: Stripe bezpečně zpracovává platební informace.",
+            "E-mailová služba: Používáme e-mailové služby k zasílání komunikace o kurzech.",
+            "Analytika: PostHog analytika (pouze s vaším souhlasem).",
+            "Osobní údaje neprodáváme třetím stranám."
+          ]
+        },
+        {
+          "heading": "5. Doba uložení údajů",
+          "paragraphs": [
+            "Aktivní účty: Údaje uchováváme, dokud používáte naše služby.",
+            "Účetní záznamy: 10 let pro daňové a účetní účely.",
+            "Marketingové údaje: Dokud neodvoláte souhlas.",
+            "Neaktivní účty: Smazány po 3 letech nečinnosti."
+          ]
+        },
+        {
+          "heading": "6. Vaše práva (GDPR)",
+          "paragraphs": [
+            "Přístup: Požádat o kopie vašich osobních údajů.",
+            "Oprava: Opravit nepřesné informace.",
+            "Výmaz: Smazat vaše údaje (s výhradou právních povinností).",
+            "Přenositelnost: Obdržet vaše údaje ve strojově čitelném formátu.",
+            "Námitka: Odmítnout marketing nebo zpracování údajů na základě oprávněného zájmu.",
+            "Omezení zpracování: Dočasně omezit způsob, jakým používáme vaše údaje."
+          ]
+        },
+        {
+          "heading": "7. Zabezpečení údajů",
+          "paragraphs": [
+            "Implementujeme vhodná technická a organizační opatření k ochraně vašich údajů.",
+            "Veškerý přenos dat je šifrován pomocí SSL/TLS protokolů.",
+            "Přístup k osobním údajům je omezen pouze na oprávněné pracovníky."
+          ]
+        },
+        {
+          "heading": "8. Mezinárodní přenosy",
+          "paragraphs": [
+            "Vaše údaje mohou být zpracovávány v zemích mimo EU, kde působí naši poskytovatelé služeb.",
+            "Zajišťujeme odpovídající ochranu prostřednictvím standardních smluvních doložek nebo rozhodnutí o přiměřenosti."
+          ]
+        },
+        {
+          "heading": "9. Kontakt a stížnosti",
+          "paragraphs": [
+            "Uplatněte svá práva zasláním e-mailu na josef@jazykaintegrace.cz.",
+            "Máte právo podat stížnost u českého úřadu pro ochranu osobních údajů (ÚOOÚ) na uoou.cz."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Zásady používání cookies",
+      "updated": "Aktualizováno 19. ledna 2026",
+      "sections": [
+        {
+          "heading": "1. Co jsou cookies",
+          "paragraphs": [
+            "Cookies jsou malé textové soubory uložené na vašem zařízení při návštěvě našich webových stránek.",
+            "Pomáhají nám poskytovat vám lepší uživatelský zážitek a pochopit, jak jsou naše webové stránky používány."
+          ]
+        },
+        {
+          "heading": "2. Nezbytné cookies",
+          "paragraphs": [
+            "Tyto cookies jsou nezbytné pro fungování webových stránek a nelze je vypnout.",
+            "Zahrnují: Správu relací, bezpečnostní funkce, jazykové preference a stav přihlášení.",
+            "Tyto cookies nevyžadují váš souhlas, protože jsou nezbytné pro poskytování služeb."
+          ]
+        },
+        {
+          "heading": "3. Analytické cookies",
+          "paragraphs": [
+            "Používáme PostHog analytiku k pochopení používání webových stránek a zlepšení uživatelského zážitku.",
+            "Tyto cookies sbírají anonymní data o návštěvách stránek, interakcích uživatelů a technických informacích.",
+            "Analytické cookies používáme pouze s vaším výslovným souhlasem."
+          ]
+        },
+        {
+          "heading": "4. Správa preferencí cookies",
+          "paragraphs": [
+            "Při první návštěvě našich stránek uvidíte banner se souhlasem s cookies, kde můžete přijmout nebo odmítnout analytické cookies.",
+            "Své preference můžete kdykoli změnit kliknutím na \"Nastavení cookies\" v zápatí stránky.",
+            "Cookies můžete také spravovat prostřednictvím nastavení prohlížeče, ačkoli to může ovlivnit funkčnost webových stránek."
+          ]
+        },
+        {
+          "heading": "5. Cookies třetích stran",
+          "paragraphs": [
+            "Analytika: PostHog (pouze se souhlasem) - zásady ochrany soukromí na posthog.com/privacy.",
+            "Platby: Stripe může během platby nastavit cookies - zásady ochrany soukromí na stripe.com/privacy.",
+            "Nepoužíváme reklamní nebo sledovací cookies sociálních médií."
+          ]
+        },
+        {
+          "heading": "6. Doba uchovávání cookies",
+          "paragraphs": [
+            "Nezbytné cookies vyprší po zavření prohlížeče nebo po vypršení relace.",
+            "Analytické cookies se automaticky smažou po 12 měsících.",
+            "Vaše preference souhlasu jsou uloženy po dobu 12 měsíců."
+          ]
+        }
+      ]
+    },
+    "accessibility": {
+      "title": "Prohlášení o dostupnosti",
+      "updated": "Aktualizováno 19. ledna 2026",
+      "sections": [
+        {
+          "heading": "1. Náš závazek",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o. se zavazuje zpřístupnit naše webové stránky všem uživatelům, včetně těch se zdravotním postižením.",
+            "Snažíme se splnit nebo překročit standardy Web Content Accessibility Guidelines (WCAG) 2.1 Level AA."
+          ]
+        },
+        {
+          "heading": "2. Funkce dostupnosti",
+          "paragraphs": [
+            "Jasná navigační struktura a konzistentní rozvržení na všech stránkách.",
+            "Vysoký kontrast barev a čitelná písma.",
+            "Podpora navigace klávesnicí pro všechny interaktivní prvky.",
+            "Alternativní text pro obrázky a popisné texty odkazů.",
+            "Popisky formulářů a chybové zprávy, které fungují se čtečkami obrazovky."
+          ]
+        },
+        {
+          "heading": "3. Známá omezení",
+          "paragraphs": [
+            "Některý obsah třetích stran (platební formuláře, analytika) nemusí plně splňovat standardy dostupnosti.",
+            "Video obsah nemusí mít titulky nebo zvukové popisy.",
+            "PDF dokumenty nemusí být plně optimalizovány pro čtečky obrazovky."
+          ]
+        },
+        {
+          "heading": "4. Asistenční technologie",
+          "paragraphs": [
+            "Naše webové stránky jsou testovány s populárními čtečkami obrazovky včetně NVDA a JAWS.",
+            "Stránky fungují s navigací klávesnicí a softwarem pro rozpoznávání hlasu.",
+            "Podporujeme zvětšení prohlížeče až na 200% bez horizontálního posouvání."
+          ]
+        },
+        {
+          "heading": "5. Zpětná vazba a podpora",
+          "paragraphs": [
+            "Pokud narazíte na překážky v dostupnosti, okamžitě nás kontaktujte.",
+            "Budeme pracovat na poskytnutí informací v alternativním dostupném formátu.",
+            "Kontakt: josef@jazykaintegrace.cz nebo +420 605 839 456."
+          ]
+        },
+        {
+          "heading": "6. Průběžná vylepšení",
+          "paragraphs": [
+            "Pravidelně kontrolujeme a aktualizujeme naše webové stránky pro zlepšení dostupnosti.",
+            "Provádíme periodické audity dostupnosti a testování s uživateli.",
+            "Personál prochází školením o osvědčených postupech dostupnosti."
+          ]
+        }
+      ]
+    }
   }
 }
