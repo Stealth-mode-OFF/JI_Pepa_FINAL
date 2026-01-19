@@ -721,6 +721,290 @@
     },
     "footerSecondaryCta": "See Cohorts"
   },
+  "legal": {
+    "titleFallback": "Legal Information",
+    "closeLabel": "Close",
+    "updatedFallback": "Last updated",
+    "terms": {
+      "title": "Terms & Conditions",
+      "updated": "Updated January 19, 2026",
+      "sections": [
+        {
+          "heading": "1. Company Information",
+          "paragraphs": [
+            "These terms and conditions govern your use of services provided by Jazyk a Integrace s.r.o., a company incorporated under Czech law.",
+            "Company details: Jazyk a Integrace s.r.o., IČO: 23812036, registered at Městský soud v Praze, section C, file 433136, with registered office at Černomořská 384/9, 101 00 Praha 10, Czech Republic."
+          ]
+        },
+        {
+          "heading": "2. Services",
+          "paragraphs": [
+            "We provide Czech language education services including online courses, in-person instruction, and related educational materials.",
+            "Course schedules, formats, and content may be adjusted based on enrollment and pedagogical requirements. We reserve the right to cancel courses with insufficient enrollment with full refund."
+          ]
+        },
+        {
+          "heading": "3. Registration and Account",
+          "paragraphs": [
+            "To access our services, you must create an account with accurate, current, and complete information.",
+            "You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account.",
+            "You must be at least 18 years old or have parental consent to use our services."
+          ]
+        },
+        {
+          "heading": "4. Pricing and Payment",
+          "paragraphs": [
+            "Prices are displayed in EUR and include Czech VAT where applicable. Payments are processed securely through Stripe.",
+            "Full payment is required to secure enrollment. We accept credit cards, debit cards, and other payment methods available through our payment processor.",
+            "Currency conversion fees, if any, are your responsibility."
+          ]
+        },
+        {
+          "heading": "5. Consumer Rights and Withdrawal",
+          "paragraphs": [
+            "As a consumer, you have the right to withdraw from the contract within 14 days of purchase without stating a reason, in accordance with Czech Civil Code.",
+            "However, if you expressly consent to the commencement of services during the withdrawal period, and we begin providing the educational service, your right of withdrawal expires.",
+            "To exercise withdrawal, contact us at josef@jazykaintegrace.cz with clear statement of your decision. We will refund payments within 14 days of receiving withdrawal notice."
+          ]
+        },
+        {
+          "heading": "6. Cancellation and Refunds",
+          "paragraphs": [
+            "Course cancellations by participants: Full refund if canceled 7+ days before course start. Partial refunds for unused sessions may be provided at our discretion after course commencement.",
+            "Course cancellations by us: Full refund or transfer to alternative dates/courses.",
+            "Refunds are processed to the original payment method within 14 days."
+          ]
+        },
+        {
+          "heading": "7. Intellectual Property",
+          "paragraphs": [
+            "All course materials, content, and teaching methods are our intellectual property or used under license.",
+            "Students receive limited license to use materials for personal educational purposes only.",
+            "Recording, redistribution, or commercial use of our content is prohibited without written consent."
+          ]
+        },
+        {
+          "heading": "8. Code of Conduct",
+          "paragraphs": [
+            "We expect respectful, professional behavior toward instructors and fellow students.",
+            "Harassment, discrimination, disruptive behavior, or violation of course policies may result in removal without refund.",
+            "We reserve the right to refuse service to individuals who violate our community standards."
+          ]
+        },
+        {
+          "heading": "9. Limitation of Liability",
+          "paragraphs": [
+            "Our liability is limited to the amount paid for the specific course or service.",
+            "We are not liable for indirect, incidental, or consequential damages.",
+            "Technical issues, internet connectivity problems, or force majeure events do not constitute grounds for compensation beyond course rescheduling or refund."
+          ]
+        },
+        {
+          "heading": "10. Governing Law and Disputes",
+          "paragraphs": [
+            "These terms are governed by Czech law. Any disputes will be resolved by Czech courts.",
+            "For consumer disputes, you may contact the Czech Trade Inspection Authority or use online dispute resolution platform at ec.europa.eu/consumers/odr."
+          ]
+        },
+        {
+          "heading": "11. Contact",
+          "paragraphs": [
+            "For questions about these terms, contact us at josef@jazykaintegrace.cz or +420 605 839 456."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Updated January 19, 2026",
+      "sections": [
+        {
+          "heading": "1. Data Controller",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o. (IČO: 23812036) is the data controller for personal data processing.",
+            "Contact: josef@jazykaintegrace.cz, Černomořská 384/9, 101 00 Praha 10, Czech Republic."
+          ]
+        },
+        {
+          "heading": "2. Personal Data We Collect",
+          "paragraphs": [
+            "Registration data: Name, email address, phone number, language preferences, and learning goals.",
+            "Payment data: Billing information processed by Stripe (we don't store payment card details).",
+            "Usage data: Course progress, attendance records, and communication history.",
+            "Website data: IP address, browser information, and cookies (with your consent)."
+          ]
+        },
+        {
+          "heading": "3. Legal Basis and Purposes",
+          "paragraphs": [
+            "Contract performance: To provide educational services, process payments, and communicate about courses.",
+            "Legitimate interest: To improve our services, prevent fraud, and maintain security.",
+            "Consent: For marketing communications and analytics cookies.",
+            "Legal obligation: To maintain accounting records and comply with tax requirements."
+          ]
+        },
+        {
+          "heading": "4. Data Sharing",
+          "paragraphs": [
+            "Payment processor: Stripe processes payment information securely.",
+            "Email service: We use email services to send course communications.",
+            "Analytics: PostHog analytics (only with your consent).",
+            "We do not sell personal data to third parties."
+          ]
+        },
+        {
+          "heading": "5. Data Retention",
+          "paragraphs": [
+            "Active accounts: Data retained while you use our services.",
+            "Billing records: 10 years for tax and accounting purposes.",
+            "Marketing data: Until you withdraw consent.",
+            "Inactive accounts: Deleted after 3 years of inactivity."
+          ]
+        },
+        {
+          "heading": "6. Your Rights (GDPR)",
+          "paragraphs": [
+            "Access: Request copies of your personal data.",
+            "Rectification: Correct inaccurate information.",
+            "Erasure: Delete your data (subject to legal obligations).",
+            "Portability: Receive your data in machine-readable format.",
+            "Object: Opt out of marketing or data processing based on legitimate interest.",
+            "Restrict processing: Temporarily limit how we use your data."
+          ]
+        },
+        {
+          "heading": "7. Data Security",
+          "paragraphs": [
+            "We implement appropriate technical and organizational measures to protect your data.",
+            "All data transmission is encrypted using SSL/TLS protocols.",
+            "Access to personal data is limited to authorized personnel only."
+          ]
+        },
+        {
+          "heading": "8. International Transfers",
+          "paragraphs": [
+            "Your data may be processed in countries outside the EU where our service providers operate.",
+            "We ensure adequate protection through standard contractual clauses or adequacy decisions."
+          ]
+        },
+        {
+          "heading": "9. Contact and Complaints",
+          "paragraphs": [
+            "Exercise your rights by emailing josef@jazykaintegrace.cz.",
+            "You have the right to lodge a complaint with the Czech data protection authority (ÚOOÚ) at uoou.cz."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "updated": "Updated January 19, 2026",
+      "sections": [
+        {
+          "heading": "1. What are Cookies",
+          "paragraphs": [
+            "Cookies are small text files stored on your device when you visit our website.",
+            "They help us provide you with a better experience and understand how our website is used."
+          ]
+        },
+        {
+          "heading": "2. Essential Cookies",
+          "paragraphs": [
+            "These cookies are necessary for the website to function and cannot be switched off.",
+            "They include: Session management, security features, language preferences, and login status.",
+            "These cookies do not require your consent as they are essential for service delivery."
+          ]
+        },
+        {
+          "heading": "3. Analytics Cookies",
+          "paragraphs": [
+            "We use PostHog analytics to understand website usage and improve user experience.",
+            "These cookies collect anonymous data about page visits, user interactions, and technical information.",
+            "We only use analytics cookies with your explicit consent."
+          ]
+        },
+        {
+          "heading": "4. Managing Your Cookie Preferences",
+          "paragraphs": [
+            "When you first visit our site, you'll see a cookie consent banner where you can accept or reject analytics cookies.",
+            "You can change your preferences anytime by clicking 'Cookie Preferences' in the footer.",
+            "You can also manage cookies through your browser settings, though this may affect website functionality."
+          ]
+        },
+        {
+          "heading": "5. Third-Party Cookies",
+          "paragraphs": [
+            "Analytics: PostHog (only with consent) - privacy policy at posthog.com/privacy.",
+            "Payments: Stripe may set cookies during checkout - privacy policy at stripe.com/privacy.",
+            "We do not use advertising or social media tracking cookies."
+          ]
+        },
+        {
+          "heading": "6. Cookie Retention",
+          "paragraphs": [
+            "Essential cookies expire when you close your browser or after a session timeout.",
+            "Analytics cookies are automatically deleted after 12 months.",
+            "Your consent preferences are stored for 12 months."
+          ]
+        }
+      ]
+    },
+    "accessibility": {
+      "title": "Accessibility Statement",
+      "updated": "Updated January 19, 2026",
+      "sections": [
+        {
+          "heading": "1. Our Commitment",
+          "paragraphs": [
+            "Jazyk a Integrace s.r.o. is committed to making our website accessible to all users, including those with disabilities.",
+            "We strive to meet or exceed Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards."
+          ]
+        },
+        {
+          "heading": "2. Accessibility Features",
+          "paragraphs": [
+            "Clear navigation structure and consistent layout across pages.",
+            "High contrast colors and readable fonts.",
+            "Keyboard navigation support for all interactive elements.",
+            "Alternative text for images and descriptive link text.",
+            "Form labels and error messages that work with screen readers."
+          ]
+        },
+        {
+          "heading": "3. Known Limitations",
+          "paragraphs": [
+            "Some third-party embedded content (payment forms, analytics) may not fully meet accessibility standards.",
+            "Video content may not have captions or audio descriptions.",
+            "PDF documents may not be fully optimized for screen readers."
+          ]
+        },
+        {
+          "heading": "4. Assistive Technologies",
+          "paragraphs": [
+            "Our website is tested with popular screen readers including NVDA and JAWS.",
+            "The site works with keyboard navigation and voice recognition software.",
+            "We support browser zoom up to 200% without horizontal scrolling."
+          ]
+        },
+        {
+          "heading": "5. Feedback and Support",
+          "paragraphs": [
+            "If you encounter accessibility barriers, please contact us immediately.",
+            "We will work to provide the information in an alternative accessible format.",
+            "Contact: josef@jazykaintegrace.cz or +420 605 839 456."
+          ]
+        },
+        {
+          "heading": "6. Ongoing Improvements",
+          "paragraphs": [
+            "We regularly review and update our website to improve accessibility.",
+            "We conduct periodic accessibility audits and user testing.",
+            "Staff receive training on accessibility best practices."
+          ]
+        }
+      ]
+    }
+  },
   "footer": {
     "titleLine1": "READY TO",
     "titleLine2": "INTEGRATE?",
