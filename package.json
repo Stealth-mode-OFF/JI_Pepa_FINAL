@@ -8,7 +8,10 @@
     "dev": "vite",
     "test:e2e": "playwright test",
     "test:unit": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\" \"README.md\"",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.6.1",
@@ -34,7 +37,16 @@
     "jsdom": "^27.4.0",
     "tailwindcss": "4.1.12",
     "vite": "^6.4.1",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.17",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.3.3",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0"
   },
   "pnpm": {
     "overrides": {

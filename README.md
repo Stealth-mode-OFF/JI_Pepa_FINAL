@@ -148,6 +148,9 @@ npm run preview    # Test production build locally
 ```bash
 npm run test:unit      # Run unit tests
 npm run test:watch     # Watch mode
+npm run typecheck      # TypeScript check
+npm run lint           # ESLint
+npm run format         # Prettier (write)
 ```
 
 ---
