@@ -20,6 +20,21 @@ const POSTHOG_HOST = import.meta.env.VITE_POSTHOG_HOST as string | undefined;
 
 let analyticsInitialized = false;
 
+type PosthogClient = {
+  opt_in_capturing: () => void;
+  opt_out_capturing: () => void;
+  reset: () => void;
+  has_opted_out_capturing: () => boolean;
+  capture: (eventName: string, properties?: Record<string, unknown>) => void;
+  identify: (userId: string, properties?: Record<string, unknown>) => void;
+  debug: (enabled: boolean) => void;
+};
+
+const getPosthog = (): PosthogClient | null => {
+  if (typeof window === "undefined") return null;
+  return (window as Window & { posthog?: PosthogClient }).posthog ?? null;
+};
+
 /**
  * Initialize PostHog analytics in a GDPR-compliant manner.
  * 
@@ -70,7 +85,7 @@ export const initializeAnalyticsTracking = () => {
   analyticsInitialized = true;
 
   if (typeof window !== "undefined") {
-    (window as any).posthog = posthog;
+    (window as Window & { posthog?: PosthogClient }).posthog = posthog;
   }
 };
 
@@ -81,9 +96,10 @@ export const initializeAnalyticsTracking = () => {
  */
 export const grantAnalyticsConsent = () => {
   initializeAnalyticsTracking();
-  
-  if (typeof window !== "undefined" && (window as any).posthog) {
-    (window as any).posthog.opt_in_capturing();
+
+  const client = getPosthog();
+  if (client) {
+    client.opt_in_capturing();
   }
 };
 
@@ -93,9 +109,10 @@ export const grantAnalyticsConsent = () => {
  * Disables PostHog event capture and clears stored user identifiers.
  */
 export const revokeAnalyticsConsent = () => {
-  if (typeof window !== "undefined" && (window as any).posthog) {
-    (window as any).posthog.opt_out_capturing();
-    (window as any).posthog.reset(); // Clear stored identifiers
+  const client = getPosthog();
+  if (client) {
+    client.opt_out_capturing();
+    client.reset(); // Clear stored identifiers
   }
 };
 
@@ -104,18 +121,17 @@ export const revokeAnalyticsConsent = () => {
  * Returns true if user has granted consent, false otherwise.
  */
 export const isAnalyticsConsentGranted = (): boolean => {
-  if (typeof window !== "undefined" && (window as any).posthog) {
-    return !(window as any).posthog.has_opted_out_capturing();
-  }
-  return false;
+  const client = getPosthog();
+  return client ? !client.has_opted_out_capturing() : false;
 };
 
 /**
  * Track a custom event. Only recorded if user has granted consent.
  */
-export const trackEvent = (eventName: string, properties?: Record<string, any>) => {
-  if (typeof window !== "undefined" && (window as any).posthog) {
-    (window as any).posthog.capture(eventName, properties);
+export const trackEvent = (eventName: string, properties?: Record<string, unknown>) => {
+  const client = getPosthog();
+  if (client) {
+    client.capture(eventName, properties);
   }
 };
 
@@ -123,8 +139,9 @@ export const trackEvent = (eventName: string, properties?: Record<string, any>) 
  * Track a page view. Only recorded if user has granted consent.
  */
 export const trackPageView = (pageName?: string) => {
-  if (typeof window !== "undefined" && (window as any).posthog) {
-    (window as any).posthog.capture("$pageview", {
+  const client = getPosthog();
+  if (client) {
+    client.capture("$pageview", {
       $current_url: window.location.href,
       page_name: pageName,
     });
@@ -135,9 +152,10 @@ export const trackPageView = (pageName?: string) => {
  * Identify user for analytics (e.g., after login).
  * Only recorded if user has granted consent.
  */
-export const identifyUser = (userId: string, properties?: Record<string, any>) => {
-  if (typeof window !== "undefined" && (window as any).posthog) {
-    (window as any).posthog.identify(userId, properties);
+export const identifyUser = (userId: string, properties?: Record<string, unknown>) => {
+  const client = getPosthog();
+  if (client) {
+    client.identify(userId, properties);
   }
 };
 
