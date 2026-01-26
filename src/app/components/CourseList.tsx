@@ -17,7 +17,8 @@ import { Container, Section } from "./Layout";
 import { ArrowRightIcon } from "./Icons";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth/AuthContext";
-import { supabase } from "@/utils/supabase/client";
+import type { User } from "@supabase/supabase-js";
+import { coursesApi, type CohortSummary } from "@/features/courses/api";
 import { ButtonLink } from "@/shared/ui";
 
 // Individual course row component - entire row is clickable for enrollment
@@ -46,7 +47,7 @@ const CourseRow = ({
   selectedLabel?: string;
   onSelect?: () => void;
   cohortId?: string;
-  user?: any;
+  user?: User | null;
 }) => {
   // Clicking anywhere in the row navigates to signup/onboarding
   const handleClick = () => {
@@ -130,16 +131,7 @@ const CourseRow = ({
 export const CourseList = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const [cohorts, setCohorts] = useState<
-    Array<{
-      id: string;
-      start_date: string | null;
-      end_date: string | null;
-      schedule_text: string | null;
-      status: string | null;
-      course: { title: string | null; level: string | null } | null;
-    }>
-  >([]);
+  const [cohorts, setCohorts] = useState<CohortSummary[]>([]);
   const [selectedCohortId, setSelectedCohortId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -152,15 +144,12 @@ export const CourseList = () => {
 
   useEffect(() => {
     const loadCohorts = async () => {
-      const { data, error } = await supabase
-        .from("cohorts")
-        .select("id, start_date, end_date, schedule_text, status, course:courses(title, level)")
-        .order("start_date", { ascending: true });
-
+      const { data, error } = await coursesApi.listCohorts();
       if (error) {
         setCohorts([]);
+      } else {
+        setCohorts(data);
       }
-      setCohorts(data ?? []);
       setIsLoading(false);
     };
 
@@ -182,8 +171,8 @@ export const CourseList = () => {
         id: cohort.id,
         level: cohort.course?.level ?? "A1",
         levelDesc: cohort.course?.title ?? t("courseList.levelFallback", "Czech Cohort"),
-        dates: formatDateRange(cohort.start_date, cohort.end_date),
-        time: cohort.schedule_text ?? t("courseList.timeTbd", "Schedule TBD"),
+        dates: formatDateRange(cohort.startDate, cohort.endDate),
+        time: cohort.scheduleText ?? t("courseList.timeTbd", "Schedule TBD"),
         status: cohort.status ?? "open",
       })),
     [cohorts, t],

@@ -16,7 +16,7 @@
 
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { Session, User } from "@supabase/supabase-js";
-import { supabase } from "@/utils/supabase/client";
+import { authApi } from "@/features/auth/api";
 
 type AuthContextValue = {
   session: Session | null;
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     let isMounted = true;
 
     const loadSession = async () => {
-      const { data, error } = await supabase.auth.getSession();
+      const { data, error } = await authApi.getSession();
       if (error) {
         setSession(null);
         setUser(null);
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     loadSession();
 
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+    const { data: listener } = authApi.onAuthStateChange((_event, nextSession) => {
       setSession(nextSession);
       setUser(nextSession?.user ?? null);
       setLoading(false);
@@ -70,29 +70,21 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       user,
       loading,
       signUp: async (email, password, fullName) => {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            data: {
-              full_name: fullName,
-            },
-          },
-        });
+        const { error } = await authApi.signUp(email, password, fullName);
         if (error) {
           return { error: error.message };
         }
         return {};
       },
       signIn: async (email, password) => {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await authApi.signInWithPassword(email, password);
         if (error) {
           return { error: error.message };
         }
         return {};
       },
       signOut: async () => {
-        await supabase.auth.signOut();
+        await authApi.signOut();
       },
     }),
     [session, user, loading],

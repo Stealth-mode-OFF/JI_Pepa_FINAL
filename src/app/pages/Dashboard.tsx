@@ -2,38 +2,14 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AuthShell } from "../components/AuthShell";
 import { useAuth } from "../auth/AuthContext";
-import { supabase } from "@/utils/supabase/client";
 import { ButtonLink, Card } from "@/shared/ui";
-
-type Profile = {
-  full_name: string | null;
-  level: string | null;
-  goals: string | null;
-};
-
-type Enrollment = {
-  id: string;
-  status: string;
-  paid: boolean;
-  cohort?: {
-    start_date: string | null;
-    end_date: string | null;
-    schedule_text: string | null;
-    course?: {
-      title: string | null;
-      level: string | null;
-    } | null;
-  } | null;
-};
-
-type Payment = {
-  status: string | null;
-};
+import { studentsApi } from "@/features/students/api";
+import type { Enrollment, Payment, StudentProfile } from "@/features/students/types";
 
 export const Dashboard = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const [profile, setProfile] = useState<StudentProfile | null>(null);
   const [enrollment, setEnrollment] = useState<Enrollment | null>(null);
   const [payment, setPayment] = useState<Payment | null>(null);
   const [loading, setLoading] = useState(true);
@@ -45,34 +21,17 @@ export const Dashboard = () => {
         return;
       }
 
-      const { data: profileData } = await supabase
-        .from("student_profiles")
-        .select("full_name, level, goals")
-        .eq("user_id", user.id)
-        .maybeSingle();
-
-      const { data: enrollmentData } = await supabase
-        .from("enrollments")
-        .select("id, status, paid, cohort:cohorts(start_date, end_date, schedule_text, course:courses(title, level))")
-        .eq("user_id", user.id)
-        .order("created_at", { ascending: false })
-        .limit(1)
-        .maybeSingle();
+      const { data: profileData } = await studentsApi.getProfile(user.id);
+      const { data: enrollmentData } = await studentsApi.getLatestEnrollment(user.id);
 
       let paymentData: Payment | null = null;
       if (enrollmentData?.id) {
-        const { data } = await supabase
-          .from("payments")
-          .select("status")
-          .eq("enrollment_id", enrollmentData.id)
-          .order("created_at", { ascending: false })
-          .limit(1)
-          .maybeSingle();
+        const { data } = await studentsApi.getLatestPayment(enrollmentData.id);
         paymentData = data ?? null;
       }
 
-      setProfile(profileData ?? null);
-      setEnrollment(enrollmentData ?? null);
+      setProfile(profileData);
+      setEnrollment(enrollmentData);
       setPayment(paymentData);
       setLoading(false);
     };
@@ -82,7 +41,7 @@ export const Dashboard = () => {
 
   const profileComplete = useMemo(() => {
     if (!profile) return false;
-    return Boolean(profile.full_name && profile.level);
+    return Boolean(profile.fullName && profile.level);
   }, [profile]);
 
   const enrollmentStatus = enrollment?.status ?? "none";
@@ -139,7 +98,7 @@ export const Dashboard = () => {
           <div className="mt-4 space-y-2 font-[var(--ds-font-family-display)] text-[16px]">
             <div>
               <span className="font-bold">{t("dashboard.fullName", "Name")}:</span>{" "}
-              {profile?.full_name ?? t("dashboard.missing", "Missing")}
+              {profile?.fullName ?? t("dashboard.missing", "Missing")}
             </div>
             <div>
               <span className="font-bold">{t("dashboard.level", "Level")}:</span>{" "}
@@ -172,10 +131,10 @@ export const Dashboard = () => {
                 {enrollment.cohort.course.title}
               </div>
             )}
-            {enrollment?.cohort?.schedule_text && (
+            {enrollment?.cohort?.scheduleText && (
               <div>
                 <span className="font-bold">{t("dashboard.schedule", "Schedule")}:</span>{" "}
-                {enrollment.cohort.schedule_text}
+                {enrollment.cohort.scheduleText}
               </div>
             )}
           </div>

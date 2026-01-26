@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/utils/supabase/client";
 import { useAuth } from "../auth/AuthContext";
 import { AuthShell } from "../components/AuthShell";
+import { studentsApi } from "@/features/students/api";
 
 type Step = 0 | 1 | 2 | 3;
 
@@ -44,25 +44,16 @@ export const Onboarding = () => {
         setIsLoading(false);
         return;
       }
-      const { data: profileData } = await supabase
-        .from("student_profiles")
-        .select("full_name")
-        .eq("user_id", user.id)
-        .maybeSingle();
-
-      const { data: onboardingData } = await supabase
-        .from("student_onboarding")
-        .select("level, goals, life_situation, availability_slots, time_preference")
-        .eq("user_id", user.id)
-        .maybeSingle();
+      const { data: profileData } = await studentsApi.getProfile(user.id);
+      const { data: onboardingData } = await studentsApi.getOnboarding(user.id);
 
       setForm({
-        fullName: profileData?.full_name ?? user.user_metadata?.full_name ?? "",
+        fullName: profileData?.fullName ?? user.user_metadata?.full_name ?? "",
         level: onboardingData?.level ?? "",
         goals: onboardingData?.goals ?? [],
-        lifeSituation: onboardingData?.life_situation ?? "",
-        availabilitySlots: onboardingData?.availability_slots ?? [],
-        timePreference: onboardingData?.time_preference ?? "",
+        lifeSituation: onboardingData?.lifeSituation ?? "",
+        availabilitySlots: onboardingData?.availabilitySlots ?? [],
+        timePreference: onboardingData?.timePreference ?? "",
       });
       setIsLoading(false);
     };
@@ -138,26 +129,14 @@ export const Onboarding = () => {
       return;
     }
     setIsSaving(true);
-    const { error: profileError } = await supabase.from("student_profiles").upsert(
-      {
-        user_id: user.id,
-        full_name: form.fullName,
-      },
-      { onConflict: "user_id" },
-    );
-
-    const { error: onboardingError } = await supabase.from("student_onboarding").upsert(
-      {
-        user_id: user.id,
-        level: form.level,
-        goals: form.goals,
-        life_situation: form.lifeSituation,
-        availability_slots: form.availabilitySlots,
-        time_preference: form.timePreference,
-        completed_at: new Date().toISOString(),
-      },
-      { onConflict: "user_id" },
-    );
+    const { error: profileError } = await studentsApi.saveProfile(user.id, form.fullName);
+    const { error: onboardingError } = await studentsApi.saveOnboarding(user.id, {
+      level: form.level,
+      goals: form.goals,
+      lifeSituation: form.lifeSituation,
+      availabilitySlots: form.availabilitySlots,
+      timePreference: form.timePreference,
+    });
 
     setIsSaving(false);
     if (profileError || onboardingError) {
