@@ -155,6 +155,18 @@ npm run format         # Prettier (write)
 
 ---
 
+## Supabase CLI
+
+Supabase CLI is installed as a dev dependency. Use the project-pinned version via:
+
+```bash
+npx supabase --help
+```
+
+This keeps tooling consistent in VS Code and CI.
+
+---
+
 ## Project Structure
 
 See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed folder breakdown and data flow.
