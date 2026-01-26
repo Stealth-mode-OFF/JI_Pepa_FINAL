@@ -107,6 +107,7 @@ export const SiteHeader = () => {
   const handleLanguageChange = async (langCode: string) => {
     await i18n.changeLanguage(langCode);
     setIsLanguageMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -171,35 +172,73 @@ export const SiteHeader = () => {
       {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-20 left-0 right-0 bg-white border-b border-gray-100 md:hidden shadow-lg"
-          >
-            <div className="px-6 py-4 space-y-4">
-              {navigationItems.map((item, index) => (
+          <>
+            <motion.div
+              key="mobile-menu-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="fixed inset-0 bg-black/30 md:hidden z-40"
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-hidden
+            />
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="fixed top-20 left-0 right-0 bg-white border-b border-gray-100 md:hidden shadow-lg z-50 max-h-[calc(100vh-80px)] overflow-y-auto"
+            >
+              <div className="px-6 py-4 space-y-4">
+                {navigationItems.map((item, index) => (
+                  <a
+                    key={item.href}
+                    ref={index === 0 ? mobileFirstLinkRef : undefined}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[1.2px] text-black hover:text-gray-600 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
                 <a
-                  key={item.href}
-                  ref={index === 0 ? mobileFirstLinkRef : undefined}
-                  href={item.href}
+                  href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[1.2px] text-black hover:text-gray-600 transition-colors"
                 >
-                  {item.label}
+                  {t("header.login", "Student Login")}
                 </a>
-              ))}
-              <a
-                href="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[1.2px] text-black hover:text-gray-600 transition-colors"
-              >
-                {t("header.login", "Student Login")}
-              </a>
-            </div>
-          </motion.div>
+
+                <div className="pt-4 border-t border-gray-100">
+                  <p className="text-[11px] font-['Inter'] font-semibold uppercase tracking-[1px] text-gray-600 mb-3">
+                    {t("header.languageLabel", "Language")}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {SUPPORTED_LANGUAGES.map((langCode) => (
+                      <button
+                        key={langCode}
+                        type="button"
+                        onClick={() => handleLanguageChange(langCode)}
+                        className={`px-3 py-2 rounded-full border text-[12px] font-semibold transition-colors ${
+                          activeLanguageCode === langCode
+                            ? "bg-black text-white border-black"
+                            : "bg-white text-black border-gray-300 hover:bg-gray-50"
+                        }`}
+                        aria-pressed={activeLanguageCode === langCode}
+                      >
+                        {t(
+                          `header.languages.${langCode}`,
+                          langCode.toUpperCase()
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
