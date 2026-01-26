@@ -414,13 +414,18 @@ export function getTypographyStyles(
   return TYPOGRAPHY.scales[scale];
 }
 
+const isColorScale = (value: unknown): value is Record<string, string> =>
+  typeof value === "object" && value !== null;
+
 /**
  * Get color with fallback
  */
 export function getColor(
-  category: string,
+  category: keyof typeof COLORS,
   shade: string,
   fallback: string = COLORS.neutral[600]
 ) {
-  return (COLORS as Record<string, any>)?.[category]?.[shade] || fallback;
+  const palette = COLORS[category];
+  if (!isColorScale(palette)) return fallback;
+  return palette[shade] ?? fallback;
 }

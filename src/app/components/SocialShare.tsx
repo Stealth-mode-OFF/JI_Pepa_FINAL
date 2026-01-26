@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { trackEvent } from "@/utils/analytics";
 
 interface SocialShareProps {
   url: string;
@@ -24,14 +25,11 @@ export const SocialShare: React.FC<SocialShareProps> = ({
   };
 
   const handleShare = (platform: string, link: string) => {
-    // Track with PostHog if available
-    if (typeof window !== "undefined" && (window as any).posthog) {
-      (window as any).posthog.capture("social_share_clicked", {
-        platform,
-        url,
-        title,
-      });
-    }
+    trackEvent("social_share_clicked", {
+      platform,
+      url,
+      title,
+    });
 
     // Open share window
     window.open(link, "_blank", "noopener,noreferrer,width=600,height=400");

@@ -18,7 +18,7 @@ const detectLanguage = (): string => {
   }
   
   // Detect browser language
-  const browserLang = navigator.language || (navigator as any).userLanguage || 'en';
+  const browserLang = navigator.language || (navigator as Navigator & { userLanguage?: string }).userLanguage || 'en';
   const primaryLang = browserLang.toLowerCase().split('-')[0];
   
   // Map common language variations
