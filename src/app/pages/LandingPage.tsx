@@ -12,7 +12,7 @@ import { Instructor } from "@/app/components/Instructor";
 import { FAQ } from "@/app/components/FAQ";
 import { CookieConsent } from "@/app/components/CookieConsent";
 import { LegalDocsModal } from "@/app/components/LegalDocsModal";
-import { NewsletterPopup } from "@/app/components/NewsletterPopup";
+
 import { SEO } from "@/app/components/SEO";
 
 /**
@@ -77,7 +77,7 @@ export const LandingPage = () => {
             <CookieConsent
               onOpenLegal={(section) => handleOpenLegalDocs(section)}
             />
-            <NewsletterPopup delay={10000} showOnScroll={false} />
+
             <LegalDocsModal
               isOpen={isLegalModalOpen}
               onClose={() => setIsLegalModalOpen(false)}
