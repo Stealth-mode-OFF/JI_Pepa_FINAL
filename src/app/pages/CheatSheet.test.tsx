@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { I18nextProvider } from "react-i18next";
+
 import i18n from "@/utils/i18n";
+
 import CheatSheet from "./CheatSheet";
 
 const renderCheatSheet = () =>

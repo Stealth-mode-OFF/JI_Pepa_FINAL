@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { useTranslation } from "react-i18next";
-import { AuthShell } from "../components/AuthShell";
+
 import { useAuth } from "../auth/AuthContext";
+import { AuthShell } from "../components/AuthShell";
 
 export const Signup = () => {
   const { t } = useTranslation();
@@ -31,7 +32,6 @@ export const Signup = () => {
     <AuthShell
       title={t("auth.signup.title", "Get Started")}
       subtitle={t("auth.signup.subtitle", "Join 500+ learners mastering Czech daily.")}
-      isSignup
     >
       <form className="flex flex-col space-y-5" onSubmit={handleSubmit}>
         {/* Step indicator */}

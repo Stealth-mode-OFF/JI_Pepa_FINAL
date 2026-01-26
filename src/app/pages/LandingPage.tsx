@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence,motion } from "motion/react";
+import { useEffect, useState } from "react";
+
+import { CookieConsent } from "@/app/components/CookieConsent";
+import { CourseList } from "@/app/components/CourseList";
+import { FAQ } from "@/app/components/FAQ";
+import { Instructor } from "@/app/components/Instructor";
+import { LeadMagnet } from "@/app/components/LeadMagnet";
+import { LegalDocsModal } from "@/app/components/LegalDocsModal";
+import { Philosophy } from "@/app/components/Philosophy";
+import { SEO } from "@/app/components/SEO";
+import { Testimonials } from "@/app/components/Testimonials";
+import { SiteFooter } from "@/features/footer/SiteFooter";
 import { SiteHeader } from "@/features/header/SiteHeader";
 import { HeroSection } from "@/features/hero/HeroSection";
 import { PricingSection } from "@/features/pricing/PricingSection";
-import { SiteFooter } from "@/features/footer/SiteFooter";
-import { Philosophy } from "@/app/components/Philosophy";
-import { LeadMagnet } from "@/app/components/LeadMagnet";
-import { CourseList } from "@/app/components/CourseList";
-import { Testimonials } from "@/app/components/Testimonials";
-import { Instructor } from "@/app/components/Instructor";
-import { FAQ } from "@/app/components/FAQ";
-import { CookieConsent } from "@/app/components/CookieConsent";
-import { LegalDocsModal } from "@/app/components/LegalDocsModal";
-
-import { SEO } from "@/app/components/SEO";
 
 /**
  * LandingPage

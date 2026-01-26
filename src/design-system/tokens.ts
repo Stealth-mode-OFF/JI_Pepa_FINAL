@@ -405,27 +405,18 @@ export const MOTION = {
 // EXPORT HELPERS
 // ============================================
 
-/**
- * Get typography styles as object for consistent application
- */
-export function getTypographyStyles(
-  scale: keyof typeof TYPOGRAPHY.scales
-) {
-  return TYPOGRAPHY.scales[scale];
-}
-
 const isColorScale = (value: unknown): value is Record<string, string> =>
   typeof value === "object" && value !== null;
 
 /**
  * Get color with fallback
  */
-export function getColor(
-  category: keyof typeof COLORS,
-  shade: string,
-  fallback: string = COLORS.neutral[600]
+export function getColor<C extends keyof typeof COLORS>(
+  category: C,
+  shade: keyof typeof COLORS[C],
+  fallback: string = COLORS.neutral[600],
 ) {
-  const palette = COLORS[category];
+  const palette = COLORS[category] as Record<string, string>;
   if (!isColorScale(palette)) return fallback;
-  return palette[shade] ?? fallback;
+  return palette[String(shade)] ?? fallback;
 }

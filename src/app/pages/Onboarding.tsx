@@ -1,10 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+
+import { studentsApi } from "@/features/students/api";
+
 import { useAuth } from "../auth/AuthContext";
 import { AuthShell } from "../components/AuthShell";
-import { studentsApi } from "@/features/students/api";
 
 type Step = 0 | 1 | 2 | 3;
 

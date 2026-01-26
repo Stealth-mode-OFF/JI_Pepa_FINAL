@@ -1,16 +1,15 @@
-import React from "react";
+import type { ReactNode } from "react";
+
 import { Container } from "./Layout";
 
 export const AuthShell = ({
   title,
   subtitle,
   children,
-  isSignup = false,
 }: {
   title: string;
   subtitle?: string;
-  children: React.ReactNode;
-  isSignup?: boolean;
+  children: ReactNode;
 }) => (
   <div className="min-h-screen bg-gradient-to-br from-[var(--ds-color-neutral-0)] via-[var(--ds-color-neutral-0)] to-[var(--ds-color-accent-base-05)] flex flex-col">
     {/* Accent bar */}

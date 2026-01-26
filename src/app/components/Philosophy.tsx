@@ -1,6 +1,6 @@
-import React from "react";
-import { Container, Section } from "./Layout";
 import { useTranslation } from "react-i18next";
+
+import { Container, Section } from "./Layout";
 
 const MethodologyItem = ({ number, title, text }: { number: string; title: string; text: string }) => (
   <div className="border-t border-[var(--ds-color-neutral-0-15)] py-12 md:py-16 first:border-t-0">

@@ -11,15 +11,17 @@
 // - Fetches course data from Supabase on mount
 // - Internationalized with i18next
 
-import React, { useEffect, useMemo, useState } from "react";
-import clsx from "clsx";
-import { Container, Section } from "./Layout";
-import { ArrowRightIcon } from "./Icons";
-import { useTranslation } from "react-i18next";
-import { useAuth } from "../auth/AuthContext";
 import type { User } from "@supabase/supabase-js";
-import { coursesApi, type CohortSummary } from "@/features/courses/api";
+import clsx from "clsx";
+import { type MouseEvent, type ReactNode,useCallback, useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { type CohortSummary,coursesApi } from "@/features/courses/api";
 import { ButtonLink } from "@/shared/ui";
+
+import { useAuth } from "../auth/AuthContext";
+import { ArrowRightIcon } from "./Icons";
+import { Container, Section } from "./Layout";
 
 // Individual course row component - entire row is clickable for enrollment
 const CourseRow = ({ 
@@ -40,7 +42,7 @@ const CourseRow = ({
   levelDesc: string; 
   dates: string; 
   time: string; 
-  status: React.ReactNode;
+  status: ReactNode;
   statusColor?: string;
   isSelected?: boolean;
   selectLabel?: string;
@@ -61,8 +63,8 @@ const CourseRow = ({
   return (
     <a 
       href={user ? "/onboarding" : "/signup"}
-      onClick={(e) => {
-        e.preventDefault();
+      onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
         handleClick();
       }}
       className={clsx(
@@ -101,9 +103,9 @@ const CourseRow = ({
         {onSelect && (
           <button
             type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
+            onClick={(event: MouseEvent<HTMLButtonElement>) => {
+              event.preventDefault();
+              event.stopPropagation();
               onSelect();
             }}
             className={clsx(
@@ -156,14 +158,17 @@ export const CourseList = () => {
     loadCohorts();
   }, []);
 
-  const formatDateRange = (start?: string | null, end?: string | null) => {
-    if (!start || !end) return t("courseList.dateTbd", "Dates TBD");
-    const startDate = new Date(start);
-    const endDate = new Date(end);
-    const startLabel = startDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    const endLabel = endDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    return `${startLabel} - ${endLabel}`;
-  };
+  const formatDateRange = useCallback(
+    (start?: string | null, end?: string | null) => {
+      if (!start || !end) return t("courseList.dateTbd", "Dates TBD");
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      const startLabel = startDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      const endLabel = endDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      return `${startLabel} - ${endLabel}`;
+    },
+    [t],
+  );
 
   const liveRows = useMemo(
     () =>
@@ -175,7 +180,7 @@ export const CourseList = () => {
         time: cohort.scheduleText ?? t("courseList.timeTbd", "Schedule TBD"),
         status: cohort.status ?? "open",
       })),
-    [cohorts, t],
+    [cohorts, formatDateRange, t],
   );
   
   const rows = [

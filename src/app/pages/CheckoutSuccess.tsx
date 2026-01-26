@@ -1,8 +1,10 @@
-import React, { useMemo } from "react";
-import { useLocation } from "react-router-dom";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { AuthShell } from "../components/AuthShell";
+import { useLocation } from "react-router-dom";
+
 import { Button, ButtonLink } from "@/shared/ui";
+
+import { AuthShell } from "../components/AuthShell";
 
 type StepState = "done" | "current" | "upcoming";
 

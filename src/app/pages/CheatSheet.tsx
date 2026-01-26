@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { SiteHeader } from "@/features/header/SiteHeader";
+
 import { SiteFooter } from "@/features/footer/SiteFooter";
+import { SiteHeader } from "@/features/header/SiteHeader";
+import { trackEvent, trackPageView } from "@/utils/analytics";
+
 import { SEO } from "../components/SEO";
 import { SocialShare } from "../components/SocialShare";
-import { trackEvent, trackPageView } from "@/utils/analytics";
 
 interface PhraseItem {
   czech: string;
@@ -13,7 +15,7 @@ interface PhraseItem {
   context: string;
 }
 
-const CheatSheet: React.FC = () => {
+const CheatSheet = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -135,10 +137,6 @@ const CheatSheet: React.FC = () => {
               title={t(
                 "cheatSheet.shareText",
                 "Just found this free Czech cheat sheet with 50 essential phrases! 🇨🇿",
-              )}
-              description={t(
-                "cheatSheet.shareDescription",
-                "Learn to speak like a local in Prague with these natural Czech phrases.",
               )}
             />
           </div>

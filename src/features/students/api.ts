@@ -1,5 +1,31 @@
 import { supabase } from "@/utils/supabase/client";
+
 import type { Enrollment, OnboardingProfile, OnboardingSavePayload, Payment, StudentProfile } from "./types";
+
+type CourseRow = {
+  title: string | null;
+  level: string | null;
+};
+
+type CohortRow = {
+  start_date: string | null;
+  end_date: string | null;
+  schedule_text: string | null;
+  course: CourseRow | CourseRow[] | null;
+};
+
+type EnrollmentRow = {
+  id: string;
+  status: string;
+  paid: boolean;
+  cohort: CohortRow | CohortRow[] | null;
+};
+
+const normalizeCohort = (value: CohortRow | CohortRow[] | null): CohortRow | null =>
+  Array.isArray(value) ? value[0] ?? null : value;
+
+const normalizeCourse = (value: CourseRow | CourseRow[] | null): CourseRow | null =>
+  Array.isArray(value) ? value[0] ?? null : value;
 
 export const studentsApi = {
   getProfile: async (userId: string): Promise<{ data: StudentProfile | null; error: string | null }> => {
@@ -74,18 +100,22 @@ export const studentsApi = {
       .limit(1)
       .maybeSingle();
 
+    const enrollment = data as EnrollmentRow | null;
+    const cohort = normalizeCohort(enrollment?.cohort ?? null);
+    const course = normalizeCourse(cohort?.course ?? null);
+
     return {
-      data: data
+      data: enrollment
         ? {
-            id: data.id,
-            status: data.status,
-            paid: data.paid,
-            cohort: data.cohort
+            id: enrollment.id,
+            status: enrollment.status,
+            paid: enrollment.paid,
+            cohort: cohort
               ? {
-                  startDate: data.cohort.start_date,
-                  endDate: data.cohort.end_date,
-                  scheduleText: data.cohort.schedule_text,
-                  course: data.cohort.course ?? null,
+                  startDate: cohort.start_date,
+                  endDate: cohort.end_date,
+                  scheduleText: cohort.schedule_text,
+                  course: course ?? null,
                 }
               : null,
           }

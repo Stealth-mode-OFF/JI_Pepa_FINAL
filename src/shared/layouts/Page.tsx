@@ -1,4 +1,5 @@
-import React from "react";
+import type { ReactNode } from "react";
+
 import { classNames } from "@/design-system";
 
 /**
@@ -16,7 +17,7 @@ export const PageContainer = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) => (
   <div
@@ -52,7 +53,7 @@ export const PageSection = ({
   className,
 }: {
   id?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) => (
   <section
@@ -87,7 +88,7 @@ export const SectionTitle = ({
   align = "text-left",
 }: {
   label?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   subtitle?: React.ReactNode;
   align?: "text-left" | "text-center" | "text-right";
 }) => (

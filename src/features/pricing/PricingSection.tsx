@@ -1,5 +1,5 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
+
 import { PageContainer, PageSection } from "@/shared/layouts/Page";
 import { ButtonLink } from "@/shared/ui";
 

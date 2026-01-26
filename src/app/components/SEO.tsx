@@ -226,7 +226,7 @@ export const SEO = ({
       };
       setJsonLd("howto", schema);
     }
-  }, [title, description, keywords, siteName, locale, audience, path, type, schemaType, customOgImage]);
+  }, [title, description, keywords, siteName, locale, audience, path, type, schemaType, customOgImage, language]);
 
   return null;
 };

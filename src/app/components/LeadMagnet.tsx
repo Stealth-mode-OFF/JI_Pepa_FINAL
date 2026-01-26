@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+
 import { leadMagnetApi } from "@/features/lead-magnet/api";
-import { Container, Section } from "./Layout";
-import { CheckIcon, FreeResourceIcon } from "./Icons";
-import { useTranslation } from "react-i18next";
 import { trackEvent } from "@/utils/analytics";
+
+import { CheckIcon, FreeResourceIcon } from "./Icons";
+import { Container, Section } from "./Layout";
 
 const FeaturePoint = ({ text }: { text: string }) => (
   <div className="flex items-start gap-3">

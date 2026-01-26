@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 // Global authentication state management using React Context.
 //
 // Provides user session, loading state, and auth methods (sign up, sign in, sign out).
@@ -14,8 +15,9 @@
 // - On auth change: updates user state in real-time
 // - On unmount: cleans up listeners
 
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { Session, User } from "@supabase/supabase-js";
+import { createContext, type ReactNode,useContext, useEffect, useMemo, useState } from "react";
+
 import { authApi } from "@/features/auth/api";
 
 type AuthContextValue = {
@@ -29,7 +31,7 @@ type AuthContextValue = {
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);

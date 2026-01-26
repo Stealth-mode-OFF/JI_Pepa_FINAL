@@ -12,6 +12,24 @@ export type CohortSummary = {
   } | null;
 };
 
+type CohortRow = {
+  id: string;
+  start_date: string | null;
+  end_date: string | null;
+  schedule_text: string | null;
+  status: string | null;
+  course:
+    | {
+        title: string | null;
+        level: string | null;
+      }
+    | {
+        title: string | null;
+        level: string | null;
+      }[]
+    | null;
+};
+
 export const coursesApi = {
   listCohorts: async (): Promise<{ data: CohortSummary[]; error: string | null }> => {
     const { data, error } = await supabase
@@ -19,13 +37,14 @@ export const coursesApi = {
       .select("id, start_date, end_date, schedule_text, status, course:courses(title, level)")
       .order("start_date", { ascending: true });
 
-    const mapped = (data ?? []).map((cohort) => ({
+    const rows = (data ?? []) as CohortRow[];
+    const mapped = rows.map((cohort) => ({
       id: cohort.id,
       startDate: cohort.start_date,
       endDate: cohort.end_date,
       scheduleText: cohort.schedule_text,
       status: cohort.status,
-      course: cohort.course ?? null,
+      course: Array.isArray(cohort.course) ? cohort.course[0] ?? null : cohort.course ?? null,
     }));
 
     return { data: mapped, error: error?.message ?? null };
