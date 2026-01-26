@@ -58,7 +58,7 @@ export const LeadMagnet = () => {
     <Section className="bg-[var(--ds-color-accent-base)] border-t border-b border-[var(--ds-color-neutral-900)]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-24 items-start">
-          <div className="space-y-6 md:space-y-12">
+          <div className="space-y-6 md:space-y-12 order-2 lg:order-1">
             <div className="inline-flex items-center gap-3 bg-black/8 border border-[var(--ds-color-neutral-900-20)] rounded-full px-3 md:px-4 py-1.5 md:py-2">
               <FreeResourceIcon />
               <span className="type-ui-sm text-[var(--ds-color-neutral-900)]">
@@ -98,7 +98,7 @@ export const LeadMagnet = () => {
             </div>
           </div>
           
-          <div className="bg-[var(--ds-color-neutral-0)] border border-[var(--ds-color-neutral-900)] p-6 md:p-12 shadow-[var(--ds-shadow-dense-lg)] md:shadow-[var(--ds-shadow-dense-xl)] w-full lg:sticky lg:top-32">
+          <div className="bg-[var(--ds-color-neutral-0)] border border-[var(--ds-color-neutral-900)] p-5 md:p-12 shadow-[var(--ds-shadow-dense-lg)] md:shadow-[var(--ds-shadow-dense-xl)] w-full lg:sticky lg:top-32 order-1 lg:order-2">
             <form className="flex flex-col gap-4 md:gap-6" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <label className="type-ui-sm text-[var(--ds-color-neutral-900)] block">

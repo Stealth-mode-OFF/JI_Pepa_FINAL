@@ -64,65 +64,65 @@ const CourseRow = ({
         handleClick();
       }}
       className={clsx(
-        "block flex flex-col md:flex-row md:items-center justify-between py-8 md:py-6 border-b border-black gap-6 md:gap-4 group transition-all duration-300 px-0 cursor-pointer",
+        "block flex flex-col md:flex-row md:items-center justify-between p-5 md:py-6 md:px-0 border border-black md:border-b md:border-x-0 md:border-t-0 rounded-2xl md:rounded-none gap-6 md:gap-4 group transition-all duration-300 cursor-pointer shadow-[var(--ds-shadow-dense-sm)] md:shadow-none",
         isSelected 
-          ? "bg-[var(--ds-color-accent-base-10)] border-l-4 border-l-[var(--ds-color-accent-base)] pl-4" 
-          : "hover:bg-gray-50/50 hover:pl-2"
+          ? "bg-[var(--ds-color-accent-base-10)] border-l-4 border-l-[var(--ds-color-accent-base)] md:pl-4" 
+          : "hover:bg-gray-50/50 md:hover:pl-2"
       )}
     >
-    <div className="flex items-start md:items-center gap-8 md:gap-12 w-full md:w-1/3">
-      <span className={clsx(
-        "font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[32px] md:text-[24px] leading-[36px] w-12 shrink-0 transition-colors",
-        isSelected ? "text-black" : "text-black group-hover:text-[var(--ds-color-accent-base)]"
-      )}>{level}</span>
-      <span className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[18px] md:text-[14px] leading-[27px] md:leading-[21px] text-[var(--ds-color-neutral-600)]">{levelDesc}</span>
-    </div>
-    
-    <div className="flex flex-col md:flex-row gap-4 md:gap-12 w-full md:w-1/3 text-[var(--ds-color-neutral-700)] font-[var(--ds-font-family-display)] text-[14px] leading-[21px]">
-      <span className="min-w-max">{dates}</span>
-      <span className="min-w-max">{time}</span>
-    </div>
-    
-    <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-1/3">
-      {/* Status Badge */}
-      <div className={clsx(
-        "px-3 py-1 border-2 border-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] uppercase tracking-[0.8px] transition-all",
-        statusColor === "text-green-600" && "bg-green-100 border-green-600 text-green-700",
-        statusColor === "text-gray-400" && "bg-gray-100 border-gray-400 text-gray-600",
-        statusColor === "text-red-600" && "bg-red-100 border-red-600 text-red-700",
-        statusColor === "text-black" && "bg-white border-black text-black"
-      )}>
-        {status}
+      <div className="flex items-start md:items-center gap-6 md:gap-12 w-full md:w-1/3">
+        <span className={clsx(
+          "font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[28px] md:text-[24px] leading-[32px] w-12 shrink-0 transition-colors",
+          isSelected ? "text-black" : "text-black group-hover:text-[var(--ds-color-accent-base)]"
+        )}>{level}</span>
+        <span className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[16px] md:text-[14px] leading-[24px] md:leading-[21px] text-[var(--ds-color-neutral-600)]">{levelDesc}</span>
       </div>
       
-      <div className="flex items-center gap-3">
-        {onSelect && (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onSelect();
-            }}
-            className={clsx(
-              "border-2 border-black px-4 py-2 text-[12px] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] uppercase tracking-[1px] transition-all duration-200",
-              isSelected 
-                ? "bg-black text-[var(--ds-color-accent-base)] shadow-[var(--ds-shadow-dense-lg)] scale-102" 
-                : "bg-white text-black hover:bg-[var(--ds-color-accent-base)] hover:shadow-[var(--ds-shadow-dense-sm)]"
-            )}
-          >
-            {isSelected ? `✓ ${selectedLabel}` : selectLabel}
-          </button>
-        )}
+      <div className="flex flex-col md:flex-row gap-3 md:gap-12 w-full md:w-1/3 text-[var(--ds-color-neutral-700)] font-[var(--ds-font-family-display)] text-[14px] leading-[21px]">
+        <span className="min-w-max">{dates}</span>
+        <span className="min-w-max">{time}</span>
+      </div>
+      
+      <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-1/3">
+        {/* Status Badge */}
         <div className={clsx(
-          "transition-all duration-200",
-          isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          "px-3 py-1 border-2 border-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] uppercase tracking-[0.8px] transition-all",
+          statusColor === "text-green-600" && "bg-green-100 border-green-600 text-green-700",
+          statusColor === "text-gray-400" && "bg-gray-100 border-gray-400 text-gray-600",
+          statusColor === "text-red-600" && "bg-red-100 border-red-600 text-red-700",
+          statusColor === "text-black" && "bg-white border-black text-black"
         )}>
-          <ArrowRightIcon />
+          {status}
+        </div>
+        
+        <div className="flex items-center gap-3">
+          {onSelect && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onSelect();
+              }}
+              className={clsx(
+                "border-2 border-black px-4 py-2 text-[11px] md:text-[12px] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] uppercase tracking-[1px] transition-all duration-200",
+                isSelected 
+                  ? "bg-black text-[var(--ds-color-accent-base)] shadow-[var(--ds-shadow-dense-lg)] scale-102" 
+                  : "bg-white text-black hover:bg-[var(--ds-color-accent-base)] hover:shadow-[var(--ds-shadow-dense-sm)]"
+              )}
+            >
+              {isSelected ? `✓ ${selectedLabel}` : selectLabel}
+            </button>
+          )}
+          <div className={clsx(
+            "transition-all duration-200",
+            isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+          )}>
+            <ArrowRightIcon />
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
   );
 };
 
@@ -220,8 +220,8 @@ export const CourseList = () => {
   return (
     <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="courses">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
-          <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[48px] md:text-[64px] leading-[1.1] tracking-[-2px] max-w-sm">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-6 md:gap-8">
+          <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[34px] md:text-[64px] leading-[1.1] tracking-[-1px] md:tracking-[-2px] max-w-sm">
             {t("courseList.title", "UPCOMING INTAKE")}
           </h2>
           <div className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-700)] text-[14px] leading-[21px] max-w-sm space-y-1">
@@ -230,7 +230,7 @@ export const CourseList = () => {
           </div>
         </div>
         
-        <div className="border-t border-[var(--ds-color-neutral-900)]">
+        <div className="border-t border-[var(--ds-color-neutral-900)] space-y-5 md:space-y-0">
           {isLoading && (
             <div className="py-12 flex flex-col items-center gap-4 animate-fade-in">
               <div className="w-12 h-12 border-4 border-black border-t-[var(--ds-color-accent-base)] rounded-full animate-spin"></div>

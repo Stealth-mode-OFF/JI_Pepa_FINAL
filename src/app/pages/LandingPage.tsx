@@ -14,6 +14,7 @@ import { CookieConsent } from "@/app/components/CookieConsent";
 import { LegalDocsModal } from "@/app/components/LegalDocsModal";
 import { NewsletterPopup } from "@/app/components/NewsletterPopup";
 import { SEO } from "@/app/components/SEO";
+import { MobileActionBar } from "@/app/components/MobileActionBar";
 
 /**
  * LandingPage
@@ -57,7 +58,7 @@ export const LandingPage = () => {
         {isPageLoaded && (
           <motion.div
             id="landing-page-root"
-            className="min-h-screen bg-white relative"
+            className="min-h-screen bg-white relative pb-28 md:pb-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -77,6 +78,7 @@ export const LandingPage = () => {
             <CookieConsent
               onOpenLegal={(section) => handleOpenLegalDocs(section)}
             />
+            <MobileActionBar />
             <NewsletterPopup delay={10000} showOnScroll={false} />
             <LegalDocsModal
               isOpen={isLegalModalOpen}

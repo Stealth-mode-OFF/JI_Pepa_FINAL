@@ -110,8 +110,8 @@ export const SiteHeader = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 h-20 flex items-center">
-      <div className="w-full px-6 md:px-12 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 h-16 md:h-20 flex items-center">
+      <div className="w-full px-4 sm:px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <a
           href="/"
@@ -121,12 +121,12 @@ export const SiteHeader = () => {
           <img
             src={imgLogo}
             alt={t("header.logoAlt", "Jazyk a Integrace logo")}
-            className="w-12 h-12 object-contain"
+            className="w-10 h-10 md:w-12 md:h-12 object-contain"
           />
         </a>
 
         {/* Desktop navigation and language selector */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 md:gap-8">
           {/* Desktop nav links */}
           <DesktopNavigation navigationItems={navigationItems} />
 
@@ -134,15 +134,17 @@ export const SiteHeader = () => {
           <div className="h-6 w-px bg-gray-200 hidden md:block" />
 
           {/* Language selector */}
-          <LanguageSelector
-            ref={languageMenuRef}
-            isOpen={isLanguageMenuOpen}
-            activeLanguageName={activeLanguageName}
-            activeLanguageCode={activeLanguageCode}
-            supportedLanguages={SUPPORTED_LANGUAGES}
-            onToggle={() => setIsLanguageMenuOpen((prev) => !prev)}
-            onChange={handleLanguageChange}
-          />
+          <div className="hidden md:block">
+            <LanguageSelector
+              ref={languageMenuRef}
+              isOpen={isLanguageMenuOpen}
+              activeLanguageName={activeLanguageName}
+              activeLanguageCode={activeLanguageCode}
+              supportedLanguages={SUPPORTED_LANGUAGES}
+              onToggle={() => setIsLanguageMenuOpen((prev) => !prev)}
+              onChange={handleLanguageChange}
+            />
+          </div>
 
           {/* Mobile menu trigger */}
           <button
@@ -177,27 +179,63 @@ export const SiteHeader = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-20 left-0 right-0 bg-white border-b border-gray-100 md:hidden shadow-lg"
+            className="fixed inset-0 top-16 bg-white/95 backdrop-blur border-b border-gray-100 md:hidden shadow-lg overflow-y-auto"
           >
-            <div className="px-6 py-4 space-y-4">
-              {navigationItems.map((item, index) => (
+            <div className="px-5 pb-10 pt-6 space-y-6">
+              <div className="space-y-3">
+                {navigationItems.map((item, index) => (
+                  <a
+                    key={item.href}
+                    ref={index === 0 ? mobileFirstLinkRef : undefined}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[16px] font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] tracking-[0.6px] text-black"
+                  >
+                    {item.label}
+                  </a>
+                ))}
                 <a
-                  key={item.href}
-                  ref={index === 0 ? mobileFirstLinkRef : undefined}
-                  href={item.href}
+                  href="/login"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[1.2px] text-black hover:text-gray-600 transition-colors"
+                  className="block text-[16px] font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] tracking-[0.6px] text-black"
                 >
-                  {item.label}
+                  {t("header.login", "Student Login")}
                 </a>
-              ))}
+              </div>
+
               <a
-                href="/login"
+                href="/signup"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block font-['Inter'] font-bold text-[12px] uppercase tracking-[1.2px] text-black hover:text-gray-600 transition-colors"
+                className="w-full h-[52px] bg-[var(--ds-color-accent-base)] border border-black shadow-[var(--ds-shadow-dense-md)] inline-flex items-center justify-center type-ui-md text-black"
               >
-                {t("header.login", "Student Login")}
+                {t("header.cta", "Start now")}
               </a>
+
+              <div>
+                <p className="type-ui-sm text-[var(--ds-color-neutral-600)] mb-3">
+                  {t("header.languageLabel", "Language")}
+                </p>
+                <div className="grid grid-cols-2 gap-3">
+                  {SUPPORTED_LANGUAGES.map((langCode) => (
+                    <button
+                      key={langCode}
+                      type="button"
+                      onClick={() => {
+                        handleLanguageChange(langCode);
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={`flex items-center justify-center gap-2 h-11 rounded-lg border text-[12px] uppercase tracking-[1.2px] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] ${
+                        activeLanguageCode === langCode
+                          ? "border-black bg-black text-white"
+                          : "border-[var(--ds-color-neutral-900-20)] text-[var(--ds-color-neutral-700)]"
+                      }`}
+                    >
+                      <FlagIcon languageCode={langCode} />
+                      {t(`header.languages.${langCode}`, langCode.toUpperCase())}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

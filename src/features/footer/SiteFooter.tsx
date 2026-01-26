@@ -68,11 +68,11 @@ export const SiteFooter = ({
   return (
     <footer
       id="contact"
-      className="bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-0)] pt-32 pb-12 border-t border-[var(--ds-color-neutral-0-10)]"
+      className="bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-0)] pt-24 md:pt-32 pb-12 border-t border-[var(--ds-color-neutral-0-10)]"
     >
       <PageContainer>
         {/* Main content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-32 mb-20 md:mb-32">
           {/* Left column: CTA heading and contact info */}
           <div className="space-y-12">
             <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[var(--ds-type-h2-size-sm)] sm:text-[var(--ds-type-h2-size-md)] md:text-[var(--ds-type-h1-size)] lg:text-[var(--ds-type-h0-size-sm)] xl:text-[var(--ds-type-h0-size-md)] leading-[0.9] tracking-[var(--ds-type-h0-letter-spacing)]">
@@ -102,7 +102,7 @@ export const SiteFooter = ({
             <CommunityCard socialLinks={socialMediaLinks} />
 
             {/* Legal links */}
-            <div className="flex flex-wrap gap-6 md:gap-8">
+            <div className="flex flex-wrap gap-4 md:gap-8">
               {legalDocumentLinks.map((link) => (
                 <FooterLink
                   key={link.section}
@@ -167,7 +167,7 @@ function CommunityCard({
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[var(--ds-color-neutral-0-05)] rounded-lg p-8 w-full max-w-md backdrop-blur-sm">
+    <div className="bg-[var(--ds-color-neutral-0-05)] rounded-2xl md:rounded-lg p-6 md:p-8 w-full max-w-md backdrop-blur-sm">
       <h3 className="type-ui-sm text-[var(--ds-color-neutral-500)] mb-6">
         {t("footer.community.title", "Join the Community")}
       </h3>

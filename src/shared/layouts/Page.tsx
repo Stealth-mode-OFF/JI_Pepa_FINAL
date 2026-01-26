@@ -21,7 +21,7 @@ export const PageContainer = ({
 }) => (
   <div
     className={classNames(
-      "max-w-[1329px] mx-auto px-6 md:px-12 w-full",
+      "max-w-[1329px] mx-auto px-5 sm:px-6 md:px-12 w-full",
       className
     )}
   >
@@ -57,7 +57,10 @@ export const PageSection = ({
 }) => (
   <section
     id={id}
-    className={classNames("py-20 md:py-32 scroll-mt-24", className)}
+    className={classNames(
+      "py-16 md:py-32 scroll-mt-24 md:scroll-mt-32",
+      className
+    )}
   >
     {children}
   </section>

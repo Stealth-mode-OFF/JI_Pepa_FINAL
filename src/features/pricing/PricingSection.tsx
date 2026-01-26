@@ -26,7 +26,7 @@ export const PricingSection = () => {
     >
       <PageContainer>
         {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
           <div className="max-w-xl space-y-3">
             <span className="block type-ui-sm text-[var(--ds-color-neutral-500)]">
               {t("pricing.label", "Pricing")}
@@ -44,7 +44,7 @@ export const PricingSection = () => {
         </div>
 
         {/* Plans grid */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="flex md:grid gap-4 md:gap-6 md:grid-cols-2 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory">
           {pricingPlans.map((plan) => (
             <PricingCard key={plan.id} plan={plan} />
           ))}
@@ -79,7 +79,7 @@ interface PricingPlan {
 
 function PricingCard({ plan }: { plan: PricingPlan }) {
   return (
-    <div className="border border-[var(--ds-color-neutral-0-30)] bg-[var(--ds-color-neutral-900)] p-8 shadow-[0_10px_0px_var(--ds-color-neutral-0-30)]">
+    <div className="min-w-[260px] md:min-w-0 border border-[var(--ds-color-neutral-0-30)] bg-[var(--ds-color-neutral-900)] p-6 md:p-8 shadow-[0_10px_0px_var(--ds-color-neutral-0-30)] snap-start">
       {/* Plan name */}
       <h3 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[24px] leading-[32px]">
         {plan.name}

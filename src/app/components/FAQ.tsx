@@ -36,7 +36,7 @@ export const FAQ = () => {
   return (
     <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="faq">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
           <div className="max-w-xl space-y-3">
             <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("faq.label", "FAQ")}
@@ -54,7 +54,7 @@ export const FAQ = () => {
           {items.map((item) => (
             <details
               key={item.question}
-              className="border border-[var(--ds-color-neutral-900)] px-6 py-4 shadow-[var(--ds-shadow-dense-lg)]"
+              className="border border-[var(--ds-color-neutral-900)] px-5 md:px-6 py-4 shadow-[var(--ds-shadow-dense-lg)] rounded-2xl md:rounded-none"
             >
               <summary className="cursor-pointer font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[16px]">
                 {item.question}

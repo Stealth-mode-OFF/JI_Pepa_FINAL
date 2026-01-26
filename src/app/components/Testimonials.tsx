@@ -26,7 +26,7 @@ export const Testimonials = () => {
   return (
     <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="testimonials">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-8 md:mb-12">
           <div className="max-w-xl space-y-3">
             <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("testimonials.label", "Student voices")}
@@ -43,11 +43,11 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="flex md:grid gap-4 md:gap-6 md:grid-cols-3 overflow-x-auto md:overflow-visible pb-4 md:pb-0 snap-x snap-mandatory">
           {testimonials.map((item) => (
             <div
               key={item.name}
-              className="border border-[var(--ds-color-neutral-900)] p-6 shadow-[var(--ds-shadow-dense-lg)] bg-[var(--ds-color-neutral-0)]"
+              className="min-w-[260px] md:min-w-0 border border-[var(--ds-color-neutral-900)] p-5 md:p-6 shadow-[var(--ds-shadow-dense-lg)] bg-[var(--ds-color-neutral-0)] snap-start"
             >
               <p className="font-[var(--ds-font-family-display)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-900)]">
                 “{item.quote}”

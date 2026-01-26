@@ -14,27 +14,27 @@ export const Instructor = () => {
   return (
     <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="instructor">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start">
-          <div className="space-y-6">
+        <div className="grid gap-8 md:gap-12 lg:grid-cols-[1.1fr_0.9fr] items-start">
+          <div className="space-y-5 md:space-y-6">
             <span className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("instructor.label", "Your instructor")}
             </span>
             <h2 className="type-h2 md:text-[var(--ds-type-h1-size)]">
               {t("instructor.title", "Meet the team behind your Czech confidence.")}
             </h2>
-            <p className="font-[var(--ds-font-family-display)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-700)] max-w-xl">
+            <p className="font-[var(--ds-font-family-display)] text-[16px] md:text-[var(--ds-type-body-lg-size)] leading-[24px] md:leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-700)] max-w-xl">
               {t(
                 "instructor.body",
                 "We teach the Czech you need for landlords, colleagues, and coffee chats. Expect practical scenarios and real feedback.",
               )}
             </p>
-            <ul className="space-y-2 font-[var(--ds-font-family-display)] text-[16px] text-[var(--ds-color-neutral-900)]">
+            <ul className="space-y-2 font-[var(--ds-font-family-display)] text-[15px] md:text-[16px] text-[var(--ds-color-neutral-900)]">
               {highlights.map((item) => (
                 <li key={item}>• {item}</li>
               ))}
             </ul>
           </div>
-          <div className="border border-[var(--ds-color-neutral-900)] bg-[var(--ds-color-neutral-50)] p-8 shadow-[var(--ds-shadow-dense-lg)]">
+          <div className="border border-[var(--ds-color-neutral-900)] bg-[var(--ds-color-neutral-50)] p-6 md:p-8 shadow-[var(--ds-shadow-dense-lg)] rounded-2xl md:rounded-none">
             <p className="type-ui-sm text-[var(--ds-color-neutral-700)]">
               {t("instructor.cardLabel", "Why students stay")}
             </p>

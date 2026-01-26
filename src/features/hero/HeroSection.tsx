@@ -15,12 +15,12 @@ export const HeroSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="pt-48 pb-16 md:pt-64 md:pb-32 min-h-screen flex flex-col justify-between bg-white">
+    <section className="pt-28 pb-16 md:pt-64 md:pb-32 min-h-screen flex flex-col justify-between bg-white">
       <PageContainer>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-20">
           {/* Main Headline */}
           <div className="lg:col-span-8">
-            <h1 className="type-h0 text-[var(--ds-type-h0-size-sm)] md:text-[var(--ds-type-h0-size-md)] xl:text-[var(--ds-type-h0-size)] text-[var(--ds-color-neutral-900)] mb-0">
+            <h1 className="type-h0 text-[var(--ds-type-h0-size-sm)] md:text-[var(--ds-type-h0-size-md)] xl:text-[var(--ds-type-h0-size)] text-[var(--ds-color-neutral-900)] mb-2 md:mb-0">
               {t("hero.line1", "YOU LIVE")}
               <br />
               {t("hero.line2", "IN PRAGUE.")}
@@ -32,27 +32,35 @@ export const HeroSection = () => {
           </div>
 
           {/* Supporting copy and CTA */}
-          <div className="lg:col-span-4 flex flex-col justify-end gap-8">
-            <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-900)] max-w-[427px]">
+          <div className="lg:col-span-4 flex flex-col justify-end gap-6 md:gap-8">
+            <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[16px] md:text-[var(--ds-type-body-lg-size)] leading-[24px] md:leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-900)] max-w-[427px]">
               {t(
                 "hero.subtitle",
                 "Language integration for professionals who are tired of being treated like tourists in their own city."
               )}
             </p>
-            <a
-              href="/signup"
-              className="bg-[var(--ds-color-accent-base)] hover:bg-[var(--ds-color-accent-dark)] focus:bg-[var(--ds-color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-all duration-200 text-[var(--ds-color-neutral-900)] h-[55px] px-[33px] type-ui-md inline-flex items-center justify-center w-fit border border-[var(--ds-color-neutral-900)] shadow-[var(--ds-shadow-dense-lg)]"
-            >
-              {t("hero.cta", "Start Now")}
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="/signup"
+                className="bg-[var(--ds-color-accent-base)] hover:bg-[var(--ds-color-accent-dark)] focus:bg-[var(--ds-color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-all duration-200 text-[var(--ds-color-neutral-900)] h-[52px] md:h-[55px] px-[24px] md:px-[33px] type-ui-md inline-flex items-center justify-center w-full sm:w-fit border border-[var(--ds-color-neutral-900)] shadow-[var(--ds-shadow-dense-lg)]"
+              >
+                {t("hero.cta", "Start Now")}
+              </a>
+              <a
+                href="#courses"
+                className="bg-white hover:bg-[var(--ds-color-neutral-100)] focus:bg-[var(--ds-color-neutral-100)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-all duration-200 text-[var(--ds-color-neutral-900)] h-[52px] md:h-[55px] px-[24px] md:px-[33px] type-ui-md inline-flex items-center justify-center w-full sm:w-fit border border-[var(--ds-color-neutral-900)]"
+              >
+                {t("hero.secondaryCta", "See courses")}
+              </a>
+            </div>
           </div>
         </div>
       </PageContainer>
 
       {/* Footer metadata */}
       <PageContainer className="mt-20 md:mt-auto">
-        <div className="border-t border-black pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div className="flex flex-col md:flex-row gap-12 md:gap-20">
+        <div className="border-t border-black pt-6 md:pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:flex md:gap-20 w-full md:w-auto">
             <HeroMetadata
               label={t("hero.meta.established", "Est. 2012")}
             />
@@ -63,7 +71,9 @@ export const HeroSection = () => {
               label={t("hero.meta.levels", "A1 — B2 Levels")}
             />
           </div>
-          <ArrowDownIcon />
+          <div className="self-end md:self-auto">
+            <ArrowDownIcon />
+          </div>
         </div>
       </PageContainer>
     </section>
@@ -78,7 +88,7 @@ export const HeroSection = () => {
  */
 function HeroMetadata({ label }: { label: string }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 border border-[var(--ds-color-neutral-900)] bg-[var(--ds-color-neutral-0)] px-3 py-2 md:px-0 md:py-0 md:border-0 md:bg-transparent">
       <span className="block type-ui-sm text-[var(--ds-color-neutral-700)]">
         {label}
       </span>
