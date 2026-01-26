@@ -21,7 +21,7 @@ export const PageContainer = ({
 }) => (
   <div
     className={classNames(
-      "max-w-[1329px] mx-auto px-6 md:px-12 w-full",
+      "max-w-[1329px] mx-auto px-4 sm:px-6 md:px-12 w-full",
       className
     )}
   >

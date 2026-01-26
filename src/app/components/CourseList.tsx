@@ -220,8 +220,8 @@ export const CourseList = () => {
   return (
     <Section className="bg-[var(--ds-color-neutral-0)] border-t border-[var(--ds-color-neutral-900)]" id="courses">
       <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
-          <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[48px] md:text-[64px] leading-[1.1] tracking-[-2px] max-w-sm">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-6 md:gap-8">
+          <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[40px] sm:text-[48px] md:text-[64px] leading-[1.1] tracking-[-2px] max-w-sm">
             {t("courseList.title", "UPCOMING INTAKE")}
           </h2>
           <div className="font-[var(--ds-font-family-display)] text-[var(--ds-color-neutral-700)] text-[14px] leading-[21px] max-w-sm space-y-1">

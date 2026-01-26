@@ -72,7 +72,7 @@ export const SiteFooter = ({
     >
       <PageContainer>
         {/* Main content grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-32 mb-24 lg:mb-32">
           {/* Left column: CTA heading and contact info */}
           <div className="space-y-12">
             <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[var(--ds-type-h2-size-sm)] sm:text-[var(--ds-type-h2-size-md)] md:text-[var(--ds-type-h1-size)] lg:text-[var(--ds-type-h0-size-sm)] xl:text-[var(--ds-type-h0-size-md)] leading-[0.9] tracking-[var(--ds-type-h0-letter-spacing)]">
@@ -97,12 +97,12 @@ export const SiteFooter = ({
           </div>
 
           {/* Right column: Community and legal links */}
-          <div className="flex flex-col lg:items-end gap-12">
+          <div className="flex flex-col lg:items-end gap-10 sm:gap-12">
             {/* Community card */}
             <CommunityCard socialLinks={socialMediaLinks} />
 
             {/* Legal links */}
-            <div className="flex flex-wrap gap-6 md:gap-8">
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
               {legalDocumentLinks.map((link) => (
                 <FooterLink
                   key={link.section}
@@ -122,7 +122,7 @@ export const SiteFooter = ({
         </div>
 
         {/* Footer bottom: Company info and copyright */}
-        <div className="border-t border-[var(--ds-color-neutral-0-10)] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="border-t border-[var(--ds-color-neutral-0-10)] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-6">
           <CompanyInfo currentYear={currentYear} />
           <CompanyLegalInfo />
         </div>
