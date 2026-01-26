@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { AuthShell } from "../components/AuthShell";
 import { useAuth } from "../auth/AuthContext";
 import { supabase } from "@/utils/supabase/client";
+import { ButtonLink, Card } from "@/shared/ui";
 
 type Profile = {
   full_name: string | null;
@@ -131,7 +132,7 @@ export const Dashboard = () => {
       subtitle={t("dashboard.subtitle", "Track onboarding and enrollment status.")}
     >
       <div className="flex flex-col gap-8">
-        <div className="border border-black bg-white shadow-[var(--ds-shadow-dense-xl)] p-6">
+        <Card>
           <p className="type-ui-sm text-[var(--ds-color-neutral-700)]">
             {t("dashboard.profileLabel", "Profile")}
           </p>
@@ -150,9 +151,9 @@ export const Dashboard = () => {
               </div>
             )}
           </div>
-        </div>
+        </Card>
 
-        <div className="border border-black bg-white shadow-[var(--ds-shadow-dense-xl)] p-6">
+        <Card>
           <p className="type-ui-sm text-[var(--ds-color-neutral-700)]">
             {t("dashboard.enrollmentLabel", "Enrollment")}
           </p>
@@ -178,14 +179,14 @@ export const Dashboard = () => {
               </div>
             )}
           </div>
-        </div>
+        </Card>
 
-        <a
+        <ButtonLink
           href={nextAction.href}
-          className="inline-flex items-center justify-center h-[52px] bg-black text-white font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200"
+          className="h-[52px] bg-black text-white font-['Inter'] font-bold text-[14px] uppercase tracking-[1.2496px] hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all duration-200"
         >
           {nextAction.label}
-        </a>
+        </ButtonLink>
       </div>
     </AuthShell>
   );

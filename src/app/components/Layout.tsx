@@ -1,10 +1,23 @@
-import React from "react";
-import clsx from "clsx";
+import type { ReactNode } from "react";
+import { PageContainer, PageSection } from "@/shared/layouts";
 
-export const Container = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={clsx("max-w-[1329px] mx-auto px-6 md:px-12 w-full", className)}>{children}</div>
+type ContainerProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+type SectionProps = {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+};
+
+export const Container = ({ children, className }: ContainerProps) => (
+  <PageContainer className={className}>{children}</PageContainer>
 );
 
-export const Section = ({ children, className = "", id = "" }: { children: React.ReactNode; className?: string; id?: string }) => (
-  <section id={id} className={clsx("py-20 md:py-32 scroll-mt-24", className)}>{children}</section>
+export const Section = ({ children, className, id }: SectionProps) => (
+  <PageSection id={id || undefined} className={className}>
+    {children}
+  </PageSection>
 );

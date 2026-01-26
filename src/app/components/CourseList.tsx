@@ -18,6 +18,7 @@ import { ArrowRightIcon } from "./Icons";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth/AuthContext";
 import { supabase } from "@/utils/supabase/client";
+import { ButtonLink } from "@/shared/ui";
 
 // Individual course row component - entire row is clickable for enrollment
 const CourseRow = ({ 
@@ -314,17 +315,17 @@ export const CourseList = () => {
         </div>
 
         <div className="mt-6 flex flex-col items-center gap-3">
-          <a
+          <ButtonLink
             href={user ? "/onboarding" : "/signup"}
             className={clsx(
-              "inline-flex items-center justify-center h-[52px] px-6 bg-black text-white font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[12px] uppercase tracking-[1.2px] transition-all duration-200",
+              "h-[52px] px-6 bg-black text-white font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[12px] uppercase tracking-[1.2px] transition-all duration-200",
               selectedCohortId ? "opacity-100" : "opacity-70",
             )}
           >
             {selectedCohortId
               ? t("courseList.enrollCtaSelected", "Continue with selected cohort")
               : t("courseList.enrollCta", "Start enrollment")}
-          </a>
+          </ButtonLink>
           {!selectedCohortId && (
             <p className="text-[12px] text-[var(--ds-color-neutral-700)] font-[var(--ds-font-family-display)]">
               {t("courseList.selectHint", "Select a cohort to speed up checkout.")}
