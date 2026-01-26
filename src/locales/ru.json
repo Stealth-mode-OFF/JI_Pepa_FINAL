@@ -380,10 +380,10 @@
             "czech": "Jak se vede?",
             "pronunciation": "(yahk seh VEH-deh)",
             "meaning": "How's it going?",
-            "context": "More casual than \"Jak se mÃ¡Å¡?\" Use with friends, colleagues."
+            "context": "More casual than \"Jak se máš?\" Use with friends, colleagues."
           },
           {
-            "czech": "Co je novÃ©ho?",
+            "czech": "Co je nového?",
             "pronunciation": "(tso yeh NOH-veh-ho)",
             "meaning": "What's new?",
             "context": "Perfect for catching up with someone you haven't seen in a while."
@@ -418,7 +418,7 @@
             "context": "Way softer than commanding. \"Mohl bys mi pomoct?\" = Could you help me?"
           },
           {
-            "czech": "NenÃ­ problÃ©m.",
+            "czech": "Není problém.",
             "pronunciation": "(NEH-nee PROB-lehm)",
             "meaning": "No problem.",
             "context": "Easy, friendly way to agree or reassure someone."
@@ -427,19 +427,19 @@
             "czech": "Nevadilo by ti...?",
             "pronunciation": "(NEH-vah-dee-loh bee tee)",
             "meaning": "Would you mind...?",
-            "context": "Super polite. \"Nevadilo by ti otevÅÃ­t okno?\" = Would you mind opening the window?"
+            "context": "Super polite. \"Nevadilo by ti otevřít okno?\" = Would you mind opening the window?"
           },
           {
-            "czech": "ProsÃ­m tÄ",
+            "czech": "Prosím tě",
             "pronunciation": "(PROH-seem tyeh)",
             "meaning": "Please (informal)",
-            "context": "Add this to any request to sound polite. \"DÃ¡Å¡ mi to, prosÃ­m tÄ?\""
+            "context": "Add this to any request to sound polite. \"Dáš mi to, prosím tě?\""
           },
           {
-            "czech": "DÃ­ky moc!",
+            "czech": "Díky moc!",
             "pronunciation": "(DEE-kee mots)",
             "meaning": "Thanks a lot!",
-            "context": "Warmer than plain \"DÄkuji.\" Use it everywhere."
+            "context": "Warmer than plain \"Děkuji.\" Use it everywhere."
           }
         ]
       },
@@ -456,31 +456,31 @@
             "czech": "No...",
             "pronunciation": "(noh)",
             "meaning": "Well... / Yeah...",
-            "context": "NOT \"no\"! It's like \"well\" or a thinking sound. \"No, nevÃ­m...\" = Well, I don't know..."
+            "context": "NOT \"no\"! It's like \"well\" or a thinking sound. \"No, nevím...\" = Well, I don't know..."
           },
           {
-            "czech": "VlastnÄ...",
+            "czech": "Vlastně...",
             "pronunciation": "(VLAHS-tnyeh)",
             "meaning": "Actually...",
-            "context": "When you're correcting or reconsidering. \"VlastnÄ, mÃ¡m Äas.\" = Actually, I have time."
+            "context": "When you're correcting or reconsidering. \"Vlastně, mám čas.\" = Actually, I have time."
           },
           {
-            "czech": "JakoÅ¾e...",
+            "czech": "Jakože...",
             "pronunciation": "(YAH-koh-zheh)",
             "meaning": "Like... / I mean...",
             "context": "Younger Czechs use this all the time to clarify or emphasize."
           },
           {
-            "czech": "NevÃ­m...",
+            "czech": "Nevím...",
             "pronunciation": "(NEH-veem)",
             "meaning": "I don't know...",
             "context": "Buys you time when thinking. Very natural."
           },
           {
-            "czech": "ProstÄ...",
+            "czech": "Prostě...",
             "pronunciation": "(PROHS-tyeh)",
             "meaning": "Simply... / Just...",
-            "context": "\"ProstÄ nevÃ­m\" = I just don't know. Adds emphasis."
+            "context": "\"Prostě nevím\" = I just don't know. Adds emphasis."
           }
         ]
       },
@@ -488,40 +488,40 @@
         "title": "Reacting & Expressing Emotion",
         "phrases": [
           {
-            "czech": "To je v pohodÄ.",
+            "czech": "To je v pohodě.",
             "pronunciation": "(toh yeh FPOH-hoh-dyeh)",
             "meaning": "That's fine. / It's all good.",
-            "context": "Reassuring, chill. \"V pohodÄ\" = relaxed, no worries."
+            "context": "Reassuring, chill. \"V pohodě\" = relaxed, no worries."
           },
           {
-            "czech": "To je sÃ­la!",
+            "czech": "To je síla!",
             "pronunciation": "(toh yeh SEE-lah)",
             "meaning": "That's awesome! / Wow!",
             "context": "When you're impressed or excited."
           },
           {
-            "czech": "To je Å¡Ã­lenÃ½!",
+            "czech": "To je šílený!",
             "pronunciation": "(toh yeh SHEE-leh-nee)",
             "meaning": "That's crazy!",
             "context": "Can be positive or negative depending on tone."
           },
           {
-            "czech": "VÃ¡Å¾nÄ?",
+            "czech": "Vážně?",
             "pronunciation": "(VAAZH-nyeh)",
             "meaning": "Really? / Seriously?",
             "context": "Express surprise or disbelief."
           },
           {
-            "czech": "To je mi lÃ­to.",
+            "czech": "To je mi líto.",
             "pronunciation": "(toh yeh mee LEE-toh)",
             "meaning": "I'm sorry (to hear that).",
             "context": "Show sympathy when someone shares bad news."
           },
           {
-            "czech": "BohuÅ¾el.",
+            "czech": "Bohužel.",
             "pronunciation": "(BOH-hoo-zhel)",
             "meaning": "Unfortunately.",
-            "context": "\"BohuÅ¾el nemÅ¯Å¾u\" = Unfortunately I can't. Very common."
+            "context": "\"Bohužel nemůžu\" = Unfortunately I can't. Very common."
           }
         ]
       },
@@ -529,37 +529,37 @@
         "title": "At the Pub, Restaurant, or Shop",
         "phrases": [
           {
-            "czech": "DÃ¡m si...",
+            "czech": "Dám si...",
             "pronunciation": "(dahm see)",
             "meaning": "I'll have...",
-            "context": "\"DÃ¡m si pivo\" = I'll have a beer. Standard ordering phrase."
+            "context": "\"Dám si pivo\" = I'll have a beer. Standard ordering phrase."
           },
           {
-            "czech": "JeÅ¡tÄ jedno.",
+            "czech": "Ještě jedno.",
             "pronunciation": "(YESH-tyeh YED-noh)",
             "meaning": "One more.",
             "context": "At the pub when you want another round."
           },
           {
-            "czech": "ÃÄet, prosÃ­m.",
+            "czech": "Účet, prosím.",
             "pronunciation": "(OO-chet PROH-seem)",
             "meaning": "Check, please.",
             "context": "How to ask for the bill at a restaurant."
           },
           {
-            "czech": "PlatÃ­m kartou.",
+            "czech": "Platím kartou.",
             "pronunciation": "(PLAH-teem KAR-toh)",
             "meaning": "I'm paying by card.",
             "context": "Essential for modern transactions."
           },
           {
-            "czech": "Na zdravÃ­!",
+            "czech": "Na zdraví!",
             "pronunciation": "(nah ZDRAH-vee)",
             "meaning": "Cheers! / Bless you!",
             "context": "Toasting with drinks OR responding to a sneeze!"
           },
           {
-            "czech": "Dobrou chuÅ¥!",
+            "czech": "Dobrou chuť!",
             "pronunciation": "(DOH-broh HOOT)",
             "meaning": "Enjoy your meal!",
             "context": "Say this before eating or to others who are eating."
@@ -576,19 +576,19 @@
             "context": "Basic but essential. \"Kde je metro?\" = Where's the metro?"
           },
           {
-            "czech": "NevÃ­te, kde...?",
+            "czech": "Nevíte, kde...?",
             "pronunciation": "(NEH-vee-teh gdeh)",
             "meaning": "Do you know where...?",
             "context": "Polite way to ask for directions from strangers."
           },
           {
-            "czech": "PromiÅte",
+            "czech": "Promiňte",
             "pronunciation": "(PROH-min-teh)",
             "meaning": "Excuse me / Sorry",
             "context": "Getting someone's attention or apologizing politely."
           },
           {
-            "czech": "MÅ¯Å¾u projÃ­t?",
+            "czech": "Můžu projít?",
             "pronunciation": "(MOO-zhoo PROH-yeet)",
             "meaning": "Can I get through?",
             "context": "On crowded trams or in shops when you need to pass."
@@ -608,25 +608,25 @@
             "czech": "Fakt?",
             "pronunciation": "(fahkt)",
             "meaning": "Really?",
-            "context": "Informal, common among young people. \"To je fakt dobrÃ©!\" = That's really good!"
+            "context": "Informal, common among young people. \"To je fakt dobré!\" = That's really good!"
           },
           {
-            "czech": "JasnÄ!",
+            "czech": "Jasně!",
             "pronunciation": "(YAHS-nyeh)",
             "meaning": "Sure! / Of course!",
             "context": "Agreeing enthusiastically. Very common."
           },
           {
-            "czech": "JÃ³Ã³...",
+            "czech": "Jóó...",
             "pronunciation": "(yoh-oh)",
             "meaning": "Yeah... / Uh-huh...",
             "context": "Agreeing or showing you're listening. Drawn out."
           },
           {
-            "czech": "NÃ©?",
+            "czech": "Né?",
             "pronunciation": "(neh)",
             "meaning": "Right? / Isn't it?",
-            "context": "Added at the end for confirmation. \"Je to dobrÃ½, nÃ©?\" = It's good, right?"
+            "context": "Added at the end for confirmation. \"Je to dobrý, né?\" = It's good, right?"
           },
           {
             "czech": "Pohoda!",
@@ -635,13 +635,13 @@
             "context": "Super casual. Everything's chill."
           },
           {
-            "czech": "MÃ¡Å¡ pravdu.",
+            "czech": "Máš pravdu.",
             "pronunciation": "(mahsh PRAHV-doo)",
             "meaning": "You're right.",
             "context": "Agreeing with someone's point."
           },
           {
-            "czech": "To dÃ¡vÃ¡ smysl.",
+            "czech": "To dává smysl.",
             "pronunciation": "(toh DAH-vah SMEE-sl)",
             "meaning": "That makes sense.",
             "context": "When you understand and agree with reasoning."
@@ -661,7 +661,7 @@
             "czech": "Sejdeme se...",
             "pronunciation": "(SEY-deh-meh seh)",
             "meaning": "Let's meet...",
-            "context": "\"Sejdeme se v Å¡est\" = Let's meet at six."
+            "context": "\"Sejdeme se v šest\" = Let's meet at six."
           },
           {
             "czech": "Ozvu se.",
@@ -670,13 +670,13 @@
             "context": "When ending a conversation and planning to reconnect."
           },
           {
-            "czech": "MusÃ­m jÃ­t.",
+            "czech": "Musím jít.",
             "pronunciation": "(MOO-seem yeet)",
             "meaning": "I have to go.",
             "context": "Polite way to exit a conversation."
           },
           {
-            "czech": "DrÅ¾Ã­m palce.",
+            "czech": "Držím palce.",
             "pronunciation": "(DR-zheem PAHL-tseh)",
             "meaning": "I'm keeping my fingers crossed for you. / Good luck!",
             "context": "Literal: \"I'm holding thumbs.\" Way to wish someone luck."
@@ -687,25 +687,25 @@
         "title": "Closing & Goodbyes",
         "phrases": [
           {
-            "czech": "MÄj se!",
+            "czech": "Měj se!",
             "pronunciation": "(myay seh)",
             "meaning": "Take care!",
-            "context": "Casual, friendly goodbye. \"MÄj se hezky!\" = Have a nice one!"
+            "context": "Casual, friendly goodbye. \"Měj se hezky!\" = Have a nice one!"
           },
           {
-            "czech": "UvidÃ­me se.",
+            "czech": "Uvidíme se.",
             "pronunciation": "(OO-vee-dee-meh seh)",
             "meaning": "We'll see each other. / See you.",
             "context": "Standard parting phrase when you'll meet again."
           },
           {
-            "czech": "ZatÃ­m!",
+            "czech": "Zatím!",
             "pronunciation": "(ZAH-teem)",
             "meaning": "Bye for now! / See ya!",
             "context": "Casual, friendly. Perfect for people you see regularly."
           },
           {
-            "czech": "HezkÃ½ den!",
+            "czech": "Hezký den!",
             "pronunciation": "(HEZ-kee den)",
             "meaning": "Have a nice day!",
             "context": "Polite parting. Shopkeepers say this all the time."
