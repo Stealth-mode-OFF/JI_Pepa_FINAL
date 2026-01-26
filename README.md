@@ -73,7 +73,7 @@ npm run dev      # Start local dev server on http://localhost:5173
 
 ### **Stripe** (Payments)
 - Hosted checkout experience
-- Edge Function: `make-server-342a80aa/stripe/checkout`
+- Edge Function: `/api/stripe/checkout` (legacy `/make-server-342a80aa/stripe/checkout` still supported)
 - Webhook handling for payment status
 - Per-course pricing configuration
 
@@ -119,6 +119,18 @@ STRIPE_SECRET_KEY=sk_live_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 SUPABASE_SERVICE_ROLE_KEY=...
 ```
+
+---
+
+## API Endpoints
+
+Supabase Edge Functions (primary routes):
+
+- `GET /api/health`
+- `POST /api/stripe/checkout`
+- `POST /api/stripe/webhook`
+
+Legacy routes under `/make-server-342a80aa/*` remain available for backward compatibility.
 
 ---
 

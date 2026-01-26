@@ -1,9 +1,9 @@
 import { Hono } from "npm:hono";
+import type { Context } from "npm:hono";
 import { cors } from "npm:hono/cors";
 import { logger } from "npm:hono/logger";
 import Stripe from "npm:stripe";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import * as kv from "./kv_store.tsx";
 const app = new Hono();
 
 // Enable logger
@@ -21,10 +21,14 @@ app.use(
   }),
 );
 
+const LEGACY_BASE = "/make-server-342a80aa";
+const API_BASE = "/api";
+
 // Health check endpoint
-app.get("/make-server-342a80aa/health", (c) => {
-  return c.json({ status: "ok" });
-});
+const healthHandler = (c: Context) => c.json({ status: "ok" });
+
+app.get(`${API_BASE}/health`, healthHandler);
+app.get(`${LEGACY_BASE}/health`, healthHandler);
 
 const getEnv = (key: string) => Deno.env.get(key) ?? "";
 
@@ -54,13 +58,33 @@ const getAuthUser = async (request: Request) => {
   return { user: data.user, error: null };
 };
 
-app.post("/make-server-342a80aa/stripe/checkout", async (c) => {
+type CheckoutPayload = {
+  priceId: string;
+  cohortId: string;
+  successUrl?: string;
+  cancelUrl?: string;
+};
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null;
+
+const parseCheckoutPayload = (input: unknown): CheckoutPayload | null => {
+  if (!isRecord(input)) return null;
+  const priceId = typeof input.priceId === "string" ? input.priceId : null;
+  const cohortId = typeof input.cohortId === "string" ? input.cohortId : null;
+  if (!priceId || !cohortId) return null;
+  const successUrl = typeof input.successUrl === "string" ? input.successUrl : undefined;
+  const cancelUrl = typeof input.cancelUrl === "string" ? input.cancelUrl : undefined;
+  return { priceId, cohortId, successUrl, cancelUrl };
+};
+
+const checkoutHandler = async (c: Context) => {
   if (!stripe || !supabaseServiceKey || !supabaseUrl) {
     return c.json({ message: "Stripe or Supabase env not configured." }, 500);
   }
 
-  const body = await c.req.json().catch(() => null);
-  if (!body?.priceId || !body?.cohortId) {
+  const payload = parseCheckoutPayload(await c.req.json().catch(() => null));
+  if (!payload) {
     return c.json({ message: "priceId and cohortId are required." }, 400);
   }
 
@@ -77,7 +101,7 @@ app.post("/make-server-342a80aa/stripe/checkout", async (c) => {
     .from("enrollments")
     .insert({
       user_id: user.id,
-      cohort_id: body.cohortId,
+      cohort_id: payload.cohortId,
       status: "pending",
       paid: false,
     })
@@ -90,14 +114,14 @@ app.post("/make-server-342a80aa/stripe/checkout", async (c) => {
 
   const origin = getOrigin(c.req.raw);
   const successUrl =
-    body.successUrl ??
+    payload.successUrl ??
     (origin ? `${origin}/checkout-success?session_id={CHECKOUT_SESSION_ID}` : undefined);
-  const cancelUrl = body.cancelUrl ?? (origin ? `${origin}/checkout` : undefined);
+  const cancelUrl = payload.cancelUrl ?? (origin ? `${origin}/checkout` : undefined);
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     customer_email: user.email ?? undefined,
-    line_items: [{ price: body.priceId, quantity: 1 }],
+    line_items: [{ price: payload.priceId, quantity: 1 }],
     success_url: successUrl ?? "https://example.com",
     cancel_url: cancelUrl ?? "https://example.com",
     metadata: {
@@ -121,9 +145,12 @@ app.post("/make-server-342a80aa/stripe/checkout", async (c) => {
   }
 
   return c.json({ url: session.url, sessionId: session.id });
-});
+};
 
-app.post("/make-server-342a80aa/stripe/webhook", async (c) => {
+app.post(`${API_BASE}/stripe/checkout`, checkoutHandler);
+app.post(`${LEGACY_BASE}/stripe/checkout`, checkoutHandler);
+
+const webhookHandler = async (c: Context) => {
   if (!stripe || !stripeWebhookSecret || !supabaseServiceKey || !supabaseUrl) {
     return c.json({ message: "Stripe webhook env not configured." }, 500);
   }
@@ -182,6 +209,9 @@ app.post("/make-server-342a80aa/stripe/webhook", async (c) => {
   }
 
   return c.json({ received: true });
-});
+};
+
+app.post(`${API_BASE}/stripe/webhook`, webhookHandler);
+app.post(`${LEGACY_BASE}/stripe/webhook`, webhookHandler);
 
 Deno.serve(app.fetch);
