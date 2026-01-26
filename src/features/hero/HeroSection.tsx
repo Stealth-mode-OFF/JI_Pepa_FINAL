@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { PageContainer } from "@/shared/layouts/Page";
 import { ArrowDownIcon } from "@/app/components/Icons";
+import { ButtonLink } from "@/shared/ui";
 
 /**
  * HeroSection
@@ -39,12 +40,12 @@ export const HeroSection = () => {
                 "Language integration for professionals who are tired of being treated like tourists in their own city."
               )}
             </p>
-            <a
+            <ButtonLink
               href="/signup"
-              className="bg-[var(--ds-color-accent-base)] hover:bg-[var(--ds-color-accent-dark)] focus:bg-[var(--ds-color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-all duration-200 text-[var(--ds-color-neutral-900)] h-[55px] px-[33px] type-ui-md inline-flex items-center justify-center w-fit border border-[var(--ds-color-neutral-900)] shadow-[var(--ds-shadow-dense-lg)]"
+              className="bg-[var(--ds-color-accent-base)] hover:bg-[var(--ds-color-accent-dark)] focus:bg-[var(--ds-color-accent-dark)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-neutral-900)] focus:ring-offset-2 transition-all duration-200 text-[var(--ds-color-neutral-900)] h-[55px] px-[33px] type-ui-md w-fit border border-[var(--ds-color-neutral-900)] shadow-[var(--ds-shadow-dense-lg)]"
             >
               {t("hero.cta", "Start Now")}
-            </a>
+            </ButtonLink>
           </div>
         </div>
       </PageContainer>

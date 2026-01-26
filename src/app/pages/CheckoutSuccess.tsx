@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AuthShell } from "../components/AuthShell";
+import { Button, ButtonLink } from "@/shared/ui";
 
 type StepState = "done" | "current" | "upcoming";
 
@@ -115,20 +116,20 @@ export const CheckoutSuccess = () => {
 
         {/* Actions */}
         <div className="grid gap-4 sm:grid-cols-2">
-          <a
+          <ButtonLink
             href="/"
-            className="inline-flex items-center justify-center h-[52px] bg-black text-[var(--ds-color-accent-base)] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform duration-200"
+            className="h-[52px] bg-black text-[var(--ds-color-accent-base)] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform duration-200"
           >
             {t("checkoutSuccess.cta", "Back to homepage")}
-          </a>
+          </ButtonLink>
           {isPending && (
-            <button
+            <Button
               type="button"
               onClick={() => window.location.reload()}
-              className="inline-flex items-center justify-center h-[52px] bg-white text-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] hover:bg-[var(--ds-color-accent-base-70)] transition-colors duration-200"
+              className="h-[52px] bg-white text-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[14px] uppercase tracking-[1.1px] border-2 border-black shadow-[var(--ds-shadow-dense-lg)] hover:bg-[var(--ds-color-accent-base-70)] transition-colors duration-200"
             >
               {t("checkoutSuccess.pendingCta", "Refresh status")}
-            </button>
+            </Button>
           )}
         </div>
 

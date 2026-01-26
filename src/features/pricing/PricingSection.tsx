@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { PageContainer, PageSection } from "@/shared/layouts/Page";
+import { ButtonLink } from "@/shared/ui";
 
 /**
  * PricingSection
@@ -103,12 +104,12 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
       </ul>
 
       {/* CTA button */}
-      <a
+      <ButtonLink
         href={plan.ctaHref}
-        className="mt-8 inline-flex items-center justify-center h-[52px] w-full bg-[var(--ds-color-accent-base)] text-[var(--ds-color-neutral-900)] type-ui-sm border border-[var(--ds-color-neutral-900)] hover:bg-[var(--ds-color-accent-dark)] transition-colors"
+        className="mt-8 h-[52px] w-full bg-[var(--ds-color-accent-base)] text-[var(--ds-color-neutral-900)] type-ui-sm border border-[var(--ds-color-neutral-900)] hover:bg-[var(--ds-color-accent-dark)] transition-colors"
       >
         {plan.ctaText}
-      </a>
+      </ButtonLink>
     </div>
   );
 }
