@@ -12,11 +12,11 @@
 // - uses i18n.language to determine instructor email
 // - passes onOpenLegal callback to open legal modal
 
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageContainer } from "@/shared/layouts/Page";
-import { ArrowUpRightIcon } from "@/app/components/Icons";
+
 import { reopenCookieConsentBanner } from "@/app/components/CookieConsent";
+import { ArrowUpRightIcon } from "@/app/components/Icons";
+import { PageContainer } from "@/shared/layouts/Page";
 
 /**
  * Get language-specific contact email based on current language.
@@ -59,7 +59,6 @@ export const SiteFooter = ({
   onOpenLegal?: (section: "privacy" | "terms" | "cookies" | "accessibility") => void;
 }) => {
   const { t, i18n } = useTranslation();
-  const currentYear = new Date().getFullYear();
   const contactEmail = getLanguageSpecificEmail(i18n.language);
 
   const socialMediaLinks = getSocialMediaLinks(t);
@@ -123,7 +122,7 @@ export const SiteFooter = ({
 
         {/* Footer bottom: Company info and copyright */}
         <div className="border-t border-[var(--ds-color-neutral-0-10)] pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <CompanyInfo currentYear={currentYear} />
+          <CompanyInfo />
           <CompanyLegalInfo />
         </div>
       </PageContainer>
@@ -249,7 +248,7 @@ function FooterLink({
  * CompanyInfo
  * Left-side company information
  */
-function CompanyInfo({ currentYear }: { currentYear: number }) {
+function CompanyInfo() {
   const { t } = useTranslation();
 
   return (

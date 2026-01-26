@@ -1,7 +1,7 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import { PageContainer } from "@/shared/layouts/Page";
+
 import { ArrowDownIcon } from "@/app/components/Icons";
+import { PageContainer } from "@/shared/layouts/Page";
 import { ButtonLink } from "@/shared/ui";
 
 /**

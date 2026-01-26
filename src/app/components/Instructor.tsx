@@ -1,5 +1,5 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
+
 import { Container, Section } from "./Layout";
 
 export const Instructor = () => {

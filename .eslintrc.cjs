@@ -18,7 +18,6 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:react-refresh/recommended",
     "prettier",
   ],
   settings: {
@@ -31,6 +30,7 @@ module.exports = {
     "react/jsx-uses-react": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
   },
   ignorePatterns: ["dist", "node_modules", "coverage", "supabase", "tests"],
 };

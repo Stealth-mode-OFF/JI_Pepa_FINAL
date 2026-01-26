@@ -4,7 +4,7 @@
  * Helper functions for applying design tokens consistently
  */
 
-import { COLORS, SPACING, TYPOGRAPHY, BORDER_RADIUS, ELEVATION } from "./tokens";
+import { COLORS, ELEVATION, SPACING, TYPOGRAPHY } from "./tokens";
 
 // ============================================
 // TAILWIND CLASS HELPERS

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+import { type FlagCode,FlagIcon } from "@/app/components/Icons";
 import imgLogo from "@/assets/logo.png";
-import { FlagIcon } from "@/app/components/Icons";
 
 /**
  * SiteHeader
@@ -36,10 +37,10 @@ export const SiteHeader = () => {
   // Supported languages
   const SUPPORTED_LANGUAGES = ["en", "cs", "uk", "ru", "it"] as const;
   const currentLanguage = (i18n.language || "en").split("-")[0];
-  const activeLanguageCode = SUPPORTED_LANGUAGES.includes(
+  const activeLanguageCode: FlagCode = SUPPORTED_LANGUAGES.includes(
     currentLanguage as (typeof SUPPORTED_LANGUAGES)[number]
   )
-    ? (currentLanguage as (typeof SUPPORTED_LANGUAGES)[number])
+    ? (currentLanguage as FlagCode)
     : "en";
   const activeLanguageName = t(
     `header.languages.${activeLanguageCode}`,
@@ -247,17 +248,16 @@ function DesktopNavigation({
  * LanguageSelector
  * Dropdown menu for selecting the current language.
  */
-const LanguageSelector = React.forwardRef<
-  HTMLDivElement,
-  {
-    isOpen: boolean;
-    activeLanguageName: string;
-    activeLanguageCode: string;
-    supportedLanguages: readonly string[];
-    onToggle: () => void;
-    onChange: (langCode: string) => void;
-  }
->(
+type LanguageSelectorProps = {
+  isOpen: boolean;
+  activeLanguageName: string;
+  activeLanguageCode: FlagCode;
+  supportedLanguages: readonly FlagCode[];
+  onToggle: () => void;
+  onChange: (langCode: FlagCode) => void;
+};
+
+const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps>(
   (
     {
       isOpen,
@@ -280,7 +280,7 @@ const LanguageSelector = React.forwardRef<
           aria-label={t("header.languageToggle", "Toggle language menu")}
           aria-expanded={isOpen}
         >
-          <FlagIcon languageCode={activeLanguageCode} />
+          <FlagIcon code={activeLanguageCode} />
           <span className="text-sm font-bold">{activeLanguageName}</span>
         </button>
 

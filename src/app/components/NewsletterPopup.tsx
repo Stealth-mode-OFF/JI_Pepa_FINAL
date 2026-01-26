@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { type FormEvent,useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+
 import { CheckIcon } from "./Icons";
 
 interface NewsletterPopupProps {
@@ -29,7 +30,7 @@ export const NewsletterPopup = ({
       return;
     }
 
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: ReturnType<typeof setTimeout>;
     let scrollHandler: () => void;
 
     if (showOnScroll) {
@@ -59,7 +60,7 @@ export const NewsletterPopup = ({
     setIsVisible(false);
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!email) {

@@ -1,20 +1,18 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
+
 import { trackEvent } from "@/utils/analytics";
 
 interface SocialShareProps {
   url: string;
   title: string;
-  description?: string;
   className?: string;
 }
 
-export const SocialShare: React.FC<SocialShareProps> = ({
+export const SocialShare = ({
   url,
   title,
-  description = "",
   className = "",
-}) => {
+}: SocialShareProps) => {
   const { t } = useTranslation();
 
   const shareLinks = {

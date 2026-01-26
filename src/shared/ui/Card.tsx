@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
+
 import { classNames } from "@/design-system";
 
 type CardProps = HTMLAttributes<HTMLDivElement> & {

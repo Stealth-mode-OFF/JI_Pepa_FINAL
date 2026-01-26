@@ -1,10 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AuthShell } from "../components/AuthShell";
-import { useAuth } from "../auth/AuthContext";
-import { ButtonLink, Card } from "@/shared/ui";
+
 import { studentsApi } from "@/features/students/api";
 import type { Enrollment, Payment, StudentProfile } from "@/features/students/types";
+import { ButtonLink, Card } from "@/shared/ui";
+
+import { useAuth } from "../auth/AuthContext";
+import { AuthShell } from "../components/AuthShell";
 
 export const Dashboard = () => {
   const { t } = useTranslation();

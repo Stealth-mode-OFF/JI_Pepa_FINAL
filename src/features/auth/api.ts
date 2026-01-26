@@ -1,4 +1,5 @@
 import type { AuthChangeEvent, Session } from "@supabase/supabase-js";
+
 import { supabase } from "@/utils/supabase/client";
 
 export const authApi = {

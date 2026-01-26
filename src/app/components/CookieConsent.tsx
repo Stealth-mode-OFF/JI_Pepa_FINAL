@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 // GDPR compliance: Cookie consent banner.
 //
 // Displays once per session (or can be reopened via footer "Cookie Preferences" link).
@@ -10,10 +11,12 @@
 // - exports reopenCookieConsentBanner() for use by footer link
 // - listens for 'reopen-cookie-consent' custom event
 
-import React, { useState, useEffect } from "react";
-import { Container } from "./Layout";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import { grantAnalyticsConsent, revokeAnalyticsConsent } from "@/utils/analytics";
+
+import { Container } from "./Layout";
 
 const CONSENT_STORAGE_KEY = 'user_cookie_preferences';
 

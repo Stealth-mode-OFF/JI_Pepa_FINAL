@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { AuthShell } from "../components/AuthShell";
+
 import { stripePromise } from "@/utils/stripe";
+
 import { useAuth } from "../auth/AuthContext";
+import { AuthShell } from "../components/AuthShell";
 
 export const Checkout = () => {
   const { t } = useTranslation();
@@ -44,13 +46,17 @@ export const Checkout = () => {
         window.location.href = data.url;
         return;
       }
-      const stripe = await stripePromise;
+      type StripeCheckoutRedirect = {
+        redirectToCheckout: (options: { sessionId: string }) => Promise<{ error?: { message?: string } }>;
+      };
+
+      const stripe = (await stripePromise) as StripeCheckoutRedirect | null;
       if (!stripe || !data.sessionId) {
         throw new Error("Stripe client not ready.");
       }
       const result = await stripe.redirectToCheckout({ sessionId: data.sessionId });
       if (result.error) {
-        throw result.error;
+        throw new Error(result.error.message ?? "Stripe checkout failed.");
       }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Checkout failed.";

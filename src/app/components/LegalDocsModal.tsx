@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence,motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type LegalSection = "privacy" | "terms" | "cookies" | "accessibility";

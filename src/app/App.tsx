@@ -3,17 +3,18 @@
 // Public routes: /, /login, /signup, /cheat-sheet
 // Protected routes: /onboarding, /checkout, /checkout-success, /dashboard (redirect to /login if not authenticated)
 
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { LandingPage } from "@/app/pages/LandingPage";
-import { Login } from "@/app/pages/Login";
-import { Signup } from "@/app/pages/Signup";
-import { Onboarding } from "@/app/pages/Onboarding";
+
+import { RequireAuth } from "@/app/auth/RequireAuth";
+import CheatSheet from "@/app/pages/CheatSheet";
 import { Checkout } from "@/app/pages/Checkout";
 import { CheckoutSuccess } from "@/app/pages/CheckoutSuccess";
 import { Dashboard } from "@/app/pages/Dashboard";
-import CheatSheet from "@/app/pages/CheatSheet";
-import { RequireAuth } from "@/app/auth/RequireAuth";
+import { LandingPage } from "@/app/pages/LandingPage";
+import { Login } from "@/app/pages/Login";
+import { Onboarding } from "@/app/pages/Onboarding";
+import { Signup } from "@/app/pages/Signup";
 
 export default function App() {
   return (

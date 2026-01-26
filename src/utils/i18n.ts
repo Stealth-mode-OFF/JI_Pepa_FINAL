@@ -1,10 +1,11 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import en from '../locales/en.json';
+
 import cs from '../locales/cs.json';
-import uk from '../locales/uk.json';
-import ru from '../locales/ru.json';
+import en from '../locales/en.json';
 import it from '../locales/it.json';
+import ru from '../locales/ru.json';
+import uk from '../locales/uk.json';
 
 const supportedLanguages = ['en', 'cs', 'uk', 'ru', 'it'];
 

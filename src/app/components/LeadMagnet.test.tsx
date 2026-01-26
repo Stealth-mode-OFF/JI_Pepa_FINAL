@@ -2,7 +2,9 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { I18nextProvider } from "react-i18next";
 import { MemoryRouter } from "react-router-dom";
+
 import i18n from "@/utils/i18n";
+
 import { LeadMagnet } from "./LeadMagnet";
 
 const mocks = vi.hoisted(() => {
