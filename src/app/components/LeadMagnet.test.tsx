@@ -6,13 +6,12 @@ import i18n from "@/utils/i18n";
 import { LeadMagnet } from "./LeadMagnet";
 
 const mocks = vi.hoisted(() => {
-  const insertMock = vi.fn().mockResolvedValue({ error: null });
-  const fromMock = vi.fn(() => ({ insert: insertMock }));
-  return { insertMock, fromMock };
+  const createSignup = vi.fn().mockResolvedValue({ error: null });
+  return { createSignup };
 });
 
-vi.mock("@/utils/supabase/client", () => ({
-  supabase: { from: mocks.fromMock },
+vi.mock("@/features/lead-magnet/api", () => ({
+  leadMagnetApi: { createSignup: mocks.createSignup },
 }));
 
 vi.mock("sonner", () => ({
@@ -36,8 +35,7 @@ describe("LeadMagnet", () => {
     await userEvent.click(screen.getByRole("button", { name: /get the cheat sheet/i }));
 
     await waitFor(() => {
-      expect(mocks.fromMock).toHaveBeenCalledWith("lead_magnet_signups");
-      expect(mocks.insertMock).toHaveBeenCalledWith({
+      expect(mocks.createSignup).toHaveBeenCalledWith({
         email: "test@example.com",
         source: "lead_magnet",
       });

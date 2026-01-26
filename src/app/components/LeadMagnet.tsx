@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
-import { supabase } from "@/utils/supabase/client";
+import { leadMagnetApi } from "@/features/lead-magnet/api";
 import { Container, Section } from "./Layout";
 import { CheckIcon, FreeResourceIcon } from "./Icons";
 import { useTranslation } from "react-i18next";
@@ -31,7 +31,7 @@ export const LeadMagnet = () => {
     });
     
     try {
-      const { error } = await supabase.from("lead_magnet_signups").insert({
+      const { error } = await leadMagnetApi.createSignup({
         email,
         source: "lead_magnet",
       });
