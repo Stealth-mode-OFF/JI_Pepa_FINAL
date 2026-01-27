@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import svgPaths from "../../imports/svg-icons";
 
 export const ArrowRightIcon = () => (
@@ -29,7 +31,7 @@ export const CheckIcon = () => (
 
 export type FlagCode = "en" | "cs" | "uk" | "ru" | "it";
 
-const FlagContainer = ({ children }: { children: React.ReactNode }) => (
+const FlagContainer = ({ children }: { children: ReactNode }) => (
   <div className="relative w-6 h-4 overflow-hidden rounded-[2px] shadow-sm">{children}</div>
 );
 

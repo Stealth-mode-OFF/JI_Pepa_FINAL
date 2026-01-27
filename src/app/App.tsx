@@ -1,8 +1,3 @@
-// Application router and top-level layout.
-// Defines all routes and protects authenticated pages with RequireAuth guard.
-// Public routes: /, /login, /signup, /cheat-sheet
-// Protected routes: /onboarding, /checkout, /checkout-success, /dashboard (redirect to /login if not authenticated)
-
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 

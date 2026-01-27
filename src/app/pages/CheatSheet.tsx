@@ -107,7 +107,6 @@ const CheatSheet = () => {
       </div>
 
       <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-5xl">
-        {/* Header Section */}
         <div className="bg-[var(--ds-color-accent-base)] border-4 border-black rounded-none p-6 sm:p-8 md:p-12 mb-8 sm:mb-12 shadow-[var(--ds-shadow-dense-lg)] print-shadow-none">
           <h1 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-3 sm:mb-4 uppercase tracking-tight">
             {t("cheatSheet.title", "Natural Czech Cheat Sheet")}
@@ -130,7 +129,6 @@ const CheatSheet = () => {
             {t("cheatSheet.downloadCta", "📥 Download as PDF")}
           </button>
 
-          {/* Social Share */}
           <div className="mt-6 sm:mt-8 no-print pt-6 sm:pt-8 border-t-2 border-[var(--ds-color-neutral-900-20)]">
             <SocialShare
               url={typeof window !== "undefined" ? window.location.href : ""}
@@ -142,7 +140,6 @@ const CheatSheet = () => {
           </div>
         </div>
 
-        {/* Intro Section */}
         <div className="bg-white border-4 border-black p-6 sm:p-8 mb-8 sm:mb-12 shadow-[var(--ds-shadow-dense-xs)] print-shadow-none">
           <h2 className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-2xl sm:text-3xl text-black mb-3 sm:mb-4">
             {t("cheatSheet.introTitle", "Why You Need This")}
@@ -162,7 +159,6 @@ const CheatSheet = () => {
           </p>
         </div>
 
-        {/* Phrase Sections */}
         {sections.map((section) => {
           const items = getSectionItems(section.key);
           return (
@@ -199,7 +195,6 @@ const CheatSheet = () => {
           );
         })}
 
-        {/* Pro Tip */}
         <div className="bg-[var(--ds-color-accent-base)] border-l-4 sm:border-l-8 border-black p-5 sm:p-6 mb-8 sm:mb-12 print-shadow-none">
           <p className="font-[var(--ds-font-family-body)] text-base sm:text-lg text-black">
             <strong className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-xl">
@@ -212,7 +207,6 @@ const CheatSheet = () => {
           </p>
         </div>
 
-        {/* Footer CTA */}
         <div className="bg-black text-white p-12 text-center border-4 border-black shadow-[var(--ds-shadow-accent-dense-lg)] print-shadow-none">
           <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-2xl mb-4 text-[var(--ds-color-accent-base)]">
             {t("cheatSheet.footerTitle", "Want to sound even more natural?")}
@@ -245,7 +239,6 @@ const CheatSheet = () => {
         <SiteFooter />
       </div>
 
-      {/* Print Styles */}
       <style>{`
         @media print {
           .no-print {

@@ -29,7 +29,6 @@ export const SocialShare = ({
       title,
     });
 
-    // Open share window
     window.open(link, "_blank", "noopener,noreferrer,width=600,height=400");
   };
 

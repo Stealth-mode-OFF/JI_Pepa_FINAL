@@ -1,22 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
-// Global authentication state management using React Context.
-//
-// Provides user session, loading state, and auth methods (sign up, sign in, sign out).
-// Synced with Supabase Auth via real-time listeners.
-// Consumed by routes via useAuth() hook.
-//
-// Usage:
-// 1. AuthProvider wraps entire app in main.tsx
-// 2. Components call useAuth() to access user state and methods
-// 3. RequireAuth component uses useAuth() to protect routes
-//
-// Session lifecycle:
-// - On mount: loads current session from Supabase
-// - On auth change: updates user state in real-time
-// - On unmount: cleans up listeners
 
 import type { Session, User } from "@supabase/supabase-js";
-import { createContext, type ReactNode,useContext, useEffect, useMemo, useState } from "react";
+import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from "react";
 
 import { authApi } from "@/features/auth/api";
 

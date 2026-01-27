@@ -1,8 +1,3 @@
-// Application entry point.
-// Sets up React routing, authentication context, and internationalization.
-// Analytics initialization is deferred until after user consent is given (see CookieConsent.tsx).
-
-// Analytics initialization removed - now happens after user consent in CookieConsent.tsx
 import "./styles/index.css";
 import "./utils/i18n";
 
