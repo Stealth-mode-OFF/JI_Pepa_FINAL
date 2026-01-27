@@ -2,23 +2,22 @@ import { AnimatePresence, motion } from "motion/react";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { type FlagCode,FlagIcon } from "@/app/components/Icons";
+import { FlagIcon, type FlagCode } from "@/app/components/Icons";
 import imgLogo from "@/assets/logo.png";
 
-/**
- * SiteHeader
- *
- * Main navigation header that appears on all landing pages.
- * Features: Logo, primary navigation, language switcher, mobile menu.
- *
- * Domain Concept: Primary navigation and branding for the site.
- *
- * Responsibilities:
- * - Display site logo
- * - Provide navigation links (desktop and mobile)
- * - Language selection
- * - Responsive behavior
- */
+const SUPPORTED_LANGUAGES = ["en", "cs", "uk", "ru", "it"] as const;
+
+type NavItem = { label: string; href: string };
+
+type LanguageSelectorProps = {
+  isOpen: boolean;
+  activeLanguageName: string;
+  activeLanguageCode: FlagCode;
+  supportedLanguages: readonly FlagCode[];
+  onToggle: () => void;
+  onChange: (langCode: FlagCode) => void;
+};
+
 export const SiteHeader = () => {
   const { t, i18n } = useTranslation();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
@@ -26,36 +25,27 @@ export const SiteHeader = () => {
   const languageMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileFirstLinkRef = useRef<HTMLAnchorElement | null>(null);
 
-  // Navigation items (sourced from i18n)
-  const navigationItems = [
+  const navigationItems: NavItem[] = [
     { label: t("header.method", "Method"), href: "#method" },
     { label: t("header.courses", "Courses"), href: "#courses" },
     { label: t("header.contact", "Contact"), href: "#contact" },
     { label: t("header.guide", "Guide"), href: "/cheat-sheet" },
   ];
 
-  // Supported languages
-  const SUPPORTED_LANGUAGES = ["en", "cs", "uk", "ru", "it"] as const;
   const currentLanguage = (i18n.language || "en").split("-")[0];
   const activeLanguageCode: FlagCode = SUPPORTED_LANGUAGES.includes(
-    currentLanguage as (typeof SUPPORTED_LANGUAGES)[number]
+    currentLanguage as (typeof SUPPORTED_LANGUAGES)[number],
   )
     ? (currentLanguage as FlagCode)
     : "en";
   const activeLanguageName = t(
     `header.languages.${activeLanguageCode}`,
-    activeLanguageCode.toUpperCase()
+    activeLanguageCode.toUpperCase(),
   );
 
-  // ============================================
-  // EFFECTS: Language dropdown click-outside
-  // ============================================
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        languageMenuRef.current &&
-        !languageMenuRef.current.contains(event.target as Node)
-      ) {
+      if (languageMenuRef.current && !languageMenuRef.current.contains(event.target as Node)) {
         setIsLanguageMenuOpen(false);
       }
     };
@@ -69,9 +59,6 @@ export const SiteHeader = () => {
     };
   }, [isLanguageMenuOpen]);
 
-  // ============================================
-  // EFFECTS: Mobile menu accessibility
-  // ============================================
   useEffect(() => {
     if (!isMobileMenuOpen) return;
     mobileFirstLinkRef.current?.focus();
@@ -95,17 +82,11 @@ export const SiteHeader = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // ============================================
-  // EFFECTS: HTML language attribute
-  // ============================================
   useEffect(() => {
     document.documentElement.lang = i18n.language || "en";
   }, [i18n.language]);
 
-  // ============================================
-  // HANDLERS
-  // ============================================
-  const handleLanguageChange = async (langCode: string) => {
+  const handleLanguageChange = async (langCode: FlagCode) => {
     await i18n.changeLanguage(langCode);
     setIsLanguageMenuOpen(false);
   };
@@ -113,7 +94,6 @@ export const SiteHeader = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 h-20 flex items-center">
       <div className="w-full px-6 md:px-12 flex items-center justify-between">
-        {/* Logo */}
         <a
           href="/"
           aria-label={t("header.homeLink", "Go to homepage")}
@@ -126,15 +106,11 @@ export const SiteHeader = () => {
           />
         </a>
 
-        {/* Desktop navigation and language selector */}
         <div className="flex items-center gap-8">
-          {/* Desktop nav links */}
           <DesktopNavigation navigationItems={navigationItems} />
 
-          {/* Divider */}
           <div className="h-6 w-px bg-gray-200 hidden md:block" />
 
-          {/* Language selector */}
           <LanguageSelector
             ref={languageMenuRef}
             isOpen={isLanguageMenuOpen}
@@ -145,31 +121,19 @@ export const SiteHeader = () => {
             onChange={handleLanguageChange}
           />
 
-          {/* Mobile menu trigger */}
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className="md:hidden p-2 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"
             aria-label={t("header.mobileMenuToggle", "Toggle menu")}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -207,24 +171,11 @@ export const SiteHeader = () => {
   );
 };
 
-// ============================================
-// SUBCOMPONENTS
-// ============================================
+const DesktopNavigation = ({ navigationItems }: { navigationItems: NavItem[] }) => {
+  const { t } = useTranslation();
 
-/**
- * DesktopNavigation
- * Renders navigation links for desktop screens only.
- */
-function DesktopNavigation({
-  navigationItems,
-}: {
-  navigationItems: Array<{ label: string; href: string }>;
-}) {
   return (
-    <nav
-      className="hidden md:flex items-center gap-8"
-      aria-label="Primary navigation"
-    >
+    <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
       {navigationItems.map((item) => (
         <a
           key={item.href}
@@ -238,37 +189,14 @@ function DesktopNavigation({
         href="/login"
         className="font-['Inter'] font-bold text-[12px] leading-[18px] uppercase tracking-[1.2px] hover:text-gray-600 focus:text-gray-600 focus:outline-none focus:underline transition-colors"
       >
-        Login
+        {t("header.login", "Student Login")}
       </a>
     </nav>
   );
-}
-
-/**
- * LanguageSelector
- * Dropdown menu for selecting the current language.
- */
-type LanguageSelectorProps = {
-  isOpen: boolean;
-  activeLanguageName: string;
-  activeLanguageCode: FlagCode;
-  supportedLanguages: readonly FlagCode[];
-  onToggle: () => void;
-  onChange: (langCode: FlagCode) => void;
 };
 
 const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps>(
-  (
-    {
-      isOpen,
-      activeLanguageName,
-      activeLanguageCode,
-      supportedLanguages,
-      onToggle,
-      onChange,
-    },
-    ref
-  ) => {
+  ({ isOpen, activeLanguageName, activeLanguageCode, supportedLanguages, onToggle, onChange }, ref) => {
     const { t } = useTranslation();
 
     return (
@@ -301,9 +229,7 @@ const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps>(
                     type="button"
                     onClick={() => onChange(langCode)}
                     className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                      activeLanguageCode === langCode
-                        ? "bg-gray-100 font-bold"
-                        : "hover:bg-gray-50"
+                      activeLanguageCode === langCode ? "bg-gray-100 font-bold" : "hover:bg-gray-50"
                     }`}
                   >
                     {t(`header.languages.${langCode}`, langCode.toUpperCase())}
@@ -315,7 +241,7 @@ const LanguageSelector = forwardRef<HTMLDivElement, LanguageSelectorProps>(
         </AnimatePresence>
       </div>
     );
-  }
+  },
 );
 
 LanguageSelector.displayName = "LanguageSelector";

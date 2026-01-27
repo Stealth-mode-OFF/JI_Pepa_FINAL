@@ -1,34 +1,20 @@
-// Course listings and enrollment interface.
-//
-// Displays available language courses with intake dates and times.
-// Users can click any course row to start enrollment.
-// Course selection (cohort ID) is saved to localStorage for later retrieval during onboarding.
-//
-// Features:
-// - Entire course row is clickable (not just a button)
-// - Navigates to /signup for new users, /onboarding for logged-in users
-// - Shows course level, dates, times, and availability status
-// - Fetches course data from Supabase on mount
-// - Internationalized with i18next
-
 import type { User } from "@supabase/supabase-js";
 import clsx from "clsx";
-import { type MouseEvent, type ReactNode,useCallback, useEffect, useMemo, useState } from "react";
+import { type MouseEvent, type ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { type CohortSummary,coursesApi } from "@/features/courses/api";
+import { type CohortSummary, coursesApi } from "@/features/courses/api";
 import { ButtonLink } from "@/shared/ui";
 
 import { useAuth } from "../auth/AuthContext";
 import { ArrowRightIcon } from "./Icons";
 import { Container, Section } from "./Layout";
 
-// Individual course row component - entire row is clickable for enrollment
-const CourseRow = ({ 
-  level, 
-  levelDesc, 
-  dates, 
-  time, 
+const CourseRow = ({
+  level,
+  levelDesc,
+  dates,
+  time,
   status,
   statusColor = "text-black",
   isSelected = false,
@@ -37,11 +23,11 @@ const CourseRow = ({
   onSelect,
   cohortId,
   user,
-}: { 
-  level: string; 
-  levelDesc: string; 
-  dates: string; 
-  time: string; 
+}: {
+  level: string;
+  levelDesc: string;
+  dates: string;
+  time: string;
   status: ReactNode;
   statusColor?: string;
   isSelected?: boolean;
@@ -51,17 +37,15 @@ const CourseRow = ({
   cohortId?: string;
   user?: User | null;
 }) => {
-  // Clicking anywhere in the row navigates to signup/onboarding
   const handleClick = () => {
     if (onSelect && cohortId) {
       onSelect();
     }
-    // Navigate to appropriate page based on auth status
     window.location.href = user ? "/onboarding" : "/signup";
   };
 
   return (
-    <a 
+    <a
       href={user ? "/onboarding" : "/signup"}
       onClick={(event: MouseEvent<HTMLAnchorElement>) => {
         event.preventDefault();
@@ -69,64 +53,73 @@ const CourseRow = ({
       }}
       className={clsx(
         "block flex flex-col md:flex-row md:items-center justify-between py-8 md:py-6 border-b border-black gap-6 md:gap-4 group transition-all duration-300 px-0 cursor-pointer",
-        isSelected 
-          ? "bg-[var(--ds-color-accent-base-10)] border-l-4 border-l-[var(--ds-color-accent-base)] pl-4" 
-          : "hover:bg-gray-50/50 hover:pl-2"
+        isSelected
+          ? "bg-[var(--ds-color-accent-base-10)] border-l-4 border-l-[var(--ds-color-accent-base)] pl-4"
+          : "hover:bg-gray-50/50 hover:pl-2",
       )}
     >
-    <div className="flex items-start md:items-center gap-8 md:gap-12 w-full md:w-1/3">
-      <span className={clsx(
-        "font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[32px] md:text-[24px] leading-[36px] w-12 shrink-0 transition-colors",
-        isSelected ? "text-black" : "text-black group-hover:text-[var(--ds-color-accent-base)]"
-      )}>{level}</span>
-      <span className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[18px] md:text-[14px] leading-[27px] md:leading-[21px] text-[var(--ds-color-neutral-600)]">{levelDesc}</span>
-    </div>
-    
-    <div className="flex flex-col md:flex-row gap-4 md:gap-12 w-full md:w-1/3 text-[var(--ds-color-neutral-700)] font-[var(--ds-font-family-display)] text-[14px] leading-[21px]">
-      <span className="min-w-max">{dates}</span>
-      <span className="min-w-max">{time}</span>
-    </div>
-    
-    <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-1/3">
-      {/* Status Badge */}
-      <div className={clsx(
-        "px-3 py-1 border-2 border-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] uppercase tracking-[0.8px] transition-all",
-        statusColor === "text-green-600" && "bg-green-100 border-green-600 text-green-700",
-        statusColor === "text-gray-400" && "bg-gray-100 border-gray-400 text-gray-600",
-        statusColor === "text-red-600" && "bg-red-100 border-red-600 text-red-700",
-        statusColor === "text-black" && "bg-white border-black text-black"
-      )}>
-        {status}
+      <div className="flex items-start md:items-center gap-8 md:gap-12 w-full md:w-1/3">
+        <span
+          className={clsx(
+            "font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-bold)] text-[32px] md:text-[24px] leading-[36px] w-12 shrink-0 transition-colors",
+            isSelected ? "text-black" : "text-black group-hover:text-[var(--ds-color-accent-base)]",
+          )}
+        >
+          {level}
+        </span>
+        <span className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[18px] md:text-[14px] leading-[27px] md:leading-[21px] text-[var(--ds-color-neutral-600)]">
+          {levelDesc}
+        </span>
       </div>
-      
-      <div className="flex items-center gap-3">
-        {onSelect && (
-          <button
-            type="button"
-            onClick={(event: MouseEvent<HTMLButtonElement>) => {
-              event.preventDefault();
-              event.stopPropagation();
-              onSelect();
-            }}
+
+      <div className="flex flex-col md:flex-row gap-4 md:gap-12 w-full md:w-1/3 text-[var(--ds-color-neutral-700)] font-[var(--ds-font-family-display)] text-[14px] leading-[21px]">
+        <span className="min-w-max">{dates}</span>
+        <span className="min-w-max">{time}</span>
+      </div>
+
+      <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-1/3">
+        <div
+          className={clsx(
+            "px-3 py-1 border-2 border-black font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] text-[11px] uppercase tracking-[0.8px] transition-all",
+            statusColor === "text-green-600" && "bg-green-100 border-green-600 text-green-700",
+            statusColor === "text-gray-400" && "bg-gray-100 border-gray-400 text-gray-600",
+            statusColor === "text-red-600" && "bg-red-100 border-red-600 text-red-700",
+            statusColor === "text-black" && "bg-white border-black text-black",
+          )}
+        >
+          {status}
+        </div>
+
+        <div className="flex items-center gap-3">
+          {onSelect && (
+            <button
+              type="button"
+              onClick={(event: MouseEvent<HTMLButtonElement>) => {
+                event.preventDefault();
+                event.stopPropagation();
+                onSelect();
+              }}
+              className={clsx(
+                "border-2 border-black px-4 py-2 text-[12px] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] uppercase tracking-[1px] transition-all duration-200",
+                isSelected
+                  ? "bg-black text-[var(--ds-color-accent-base)] shadow-[var(--ds-shadow-dense-lg)] scale-102"
+                  : "bg-white text-black hover:bg-[var(--ds-color-accent-base)] hover:shadow-[var(--ds-shadow-dense-sm)]",
+              )}
+            >
+              {isSelected ? `✓ ${selectedLabel}` : selectLabel}
+            </button>
+          )}
+          <div
             className={clsx(
-              "border-2 border-black px-4 py-2 text-[12px] font-[var(--ds-font-family-body)] font-[var(--ds-font-weight-bold)] uppercase tracking-[1px] transition-all duration-200",
-              isSelected 
-                ? "bg-black text-[var(--ds-color-accent-base)] shadow-[var(--ds-shadow-dense-lg)] scale-102" 
-                : "bg-white text-black hover:bg-[var(--ds-color-accent-base)] hover:shadow-[var(--ds-shadow-dense-sm)]"
+              "transition-all duration-200",
+              isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100",
             )}
           >
-            {isSelected ? `✓ ${selectedLabel}` : selectLabel}
-          </button>
-        )}
-        <div className={clsx(
-          "transition-all duration-200",
-          isSelected ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-        )}>
-          <ArrowRightIcon />
+            <ArrowRightIcon />
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
   );
 };
 
@@ -182,7 +175,7 @@ export const CourseList = () => {
       })),
     [cohorts, formatDateRange, t],
   );
-  
+
   const rows = [
     {
       level: "A1",

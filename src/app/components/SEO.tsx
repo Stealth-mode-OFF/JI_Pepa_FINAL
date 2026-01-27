@@ -140,7 +140,6 @@ export const SEO = ({
 
     setLinkTag("canonical", canonicalUrl);
 
-    // Generate schema based on type
     if (schemaType === "EducationalOrganization") {
       const schema = {
         "@context": "https://schema.org",

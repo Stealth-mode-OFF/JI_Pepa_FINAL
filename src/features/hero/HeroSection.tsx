@@ -4,14 +4,6 @@ import { ArrowDownIcon } from "@/app/components/Icons";
 import { PageContainer } from "@/shared/layouts/Page";
 import { ButtonLink } from "@/shared/ui";
 
-/**
- * HeroSection
- *
- * Main hero section of the landing page.
- * Displays the primary value proposition with a large headline and CTA.
- *
- * Domain Concept: The hero section that captures user attention and guides them to sign up.
- */
 export const HeroSection = () => {
   const { t } = useTranslation();
 
@@ -19,7 +11,6 @@ export const HeroSection = () => {
     <section className="pt-48 pb-16 md:pt-64 md:pb-32 min-h-screen flex flex-col justify-between bg-white">
       <PageContainer>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          {/* Main Headline */}
           <div className="lg:col-span-8">
             <h1 className="type-h0 text-[var(--ds-type-h0-size-sm)] md:text-[var(--ds-type-h0-size-md)] xl:text-[var(--ds-type-h0-size)] text-[var(--ds-color-neutral-900)] mb-0">
               {t("hero.line1", "YOU LIVE")}
@@ -32,7 +23,6 @@ export const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Supporting copy and CTA */}
           <div className="lg:col-span-4 flex flex-col justify-end gap-8">
             <p className="font-[var(--ds-font-family-display)] font-[var(--ds-font-weight-medium)] text-[var(--ds-type-body-lg-size)] leading-[var(--ds-type-body-lg-line-height)] text-[var(--ds-color-neutral-900)] max-w-[427px]">
               {t(
@@ -50,7 +40,6 @@ export const HeroSection = () => {
         </div>
       </PageContainer>
 
-      {/* Footer metadata */}
       <PageContainer className="mt-20 md:mt-auto">
         <div className="border-t border-black pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="flex flex-col md:flex-row gap-12 md:gap-20">
@@ -71,12 +60,6 @@ export const HeroSection = () => {
   );
 };
 
-/**
- * HeroMetadata
- *
- * Small helper component for displaying metadata items in the hero footer.
- * Purpose: Keep hero section DRY by extracting repeated metadata pattern.
- */
 function HeroMetadata({ label }: { label: string }) {
   return (
     <div className="space-y-2">

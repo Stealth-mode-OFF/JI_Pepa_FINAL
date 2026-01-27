@@ -1,4 +1,4 @@
-import { AnimatePresence,motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 import { CookieConsent } from "@/app/components/CookieConsent";
@@ -7,6 +7,7 @@ import { FAQ } from "@/app/components/FAQ";
 import { Instructor } from "@/app/components/Instructor";
 import { LeadMagnet } from "@/app/components/LeadMagnet";
 import { LegalDocsModal } from "@/app/components/LegalDocsModal";
+import { NewsletterPopup } from "@/app/components/NewsletterPopup";
 import { Philosophy } from "@/app/components/Philosophy";
 import { SEO } from "@/app/components/SEO";
 import { Testimonials } from "@/app/components/Testimonials";
@@ -15,17 +16,6 @@ import { SiteHeader } from "@/features/header/SiteHeader";
 import { HeroSection } from "@/features/hero/HeroSection";
 import { PricingSection } from "@/features/pricing/PricingSection";
 
-/**
- * LandingPage
- *
- * Main landing page for the website.
- * Composition: All major sections of the marketing site.
- *
- * Responsibilities:
- * - Orchestrate page-level sections
- * - Manage modal states for legal docs
- * - Handle page load animations
- */
 export const LandingPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
@@ -33,9 +23,6 @@ export const LandingPage = () => {
     "privacy" | "terms" | "cookies" | "accessibility"
   >("privacy");
 
-  // ============================================
-  // HANDLERS
-  // ============================================
   const handleOpenLegalDocs = (
     section: "privacy" | "terms" | "cookies" | "accessibility"
   ) => {
@@ -43,9 +30,6 @@ export const LandingPage = () => {
     setIsLegalModalOpen(true);
   };
 
-  // ============================================
-  // EFFECTS: Page load animation
-  // ============================================
   useEffect(() => {
     setIsPageLoaded(true);
   }, []);
@@ -77,6 +61,7 @@ export const LandingPage = () => {
             <CookieConsent
               onOpenLegal={(section) => handleOpenLegalDocs(section)}
             />
+            <NewsletterPopup />
 
             <LegalDocsModal
               isOpen={isLegalModalOpen}
