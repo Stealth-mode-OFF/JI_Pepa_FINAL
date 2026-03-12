@@ -1,6 +1,6 @@
 # Jazykaintegrace — Language School Platform
 
-> **Live: [jazykaintegrace.cz](https://jazykaintegrace.cz)**
+> **Live: [ji-pepa-final.vercel.app](https://ji-pepa-final.vercel.app)**
 
 Full-stack web application for a Czech language school — course catalog, student registration, and online payments.
 
